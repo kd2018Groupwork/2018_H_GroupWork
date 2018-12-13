@@ -1,19 +1,19 @@
 version: '3'
 services:
   db:
-    image: mysql:5.7
+    build: ./db_mysql
     container_name: "db_mysql"
     environment:
       MYSQL_USER: ${mysql_user}
       MYSQL_ROOT_PASSWORD: ${mysql_root_password}
     volumes:
-      - ./db_data:/var/lib/mysql
+      - ./db_mysql/db_data:/var/lib/mysql
   web:
-    build: .
+    build: ./web_rails
     container_name: "web_rails"
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - ./myapp:/myapp
+      - ./web_rails/myapp:/myapp
     ports:
       - "3000:3000"
     depends_on:

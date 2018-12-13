@@ -1,5 +1,6 @@
 FROM ruby:2.5
 
+ENV TZ='Asia/Tokyo'
 RUN apt-get update -qq && apt install -y build-essential libpq-dev nodejs
 RUN mkdir /myapp
 
