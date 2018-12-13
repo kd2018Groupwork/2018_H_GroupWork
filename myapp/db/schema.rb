@@ -34,9 +34,13 @@ ActiveRecord::Schema.define(version: 20181210025728) do
   create_table "spots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "spot_name"
     t.integer "product_id"
-    t.integer "point"
+    t.integer "prefs_id"
+    t.integer "cities_id"
     t.text "spot_address"
+    t.integer "evalution"
+    t.integer "user_id"
     t.text "details"
+    t.text "image_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
