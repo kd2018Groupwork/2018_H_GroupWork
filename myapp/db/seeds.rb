@@ -13,6 +13,3 @@ CSV.foreach(savePath, encoding: "Shift_JIS:UTF-8") do |row|
   pref = Pref.find_or_create_by(:name => prefName)
   City.find_or_create_by(:name => cityName, pref_id: pref.id)
 end
-
-File.unlink savePath
-
