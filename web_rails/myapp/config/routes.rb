@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   get 'planning/reference'
 
-  get 'search/search'
+  get     'search'    => 'search#search'
 
-  get 'search/search_result'
+  get     'search_result'  => 'search#search_result'
 
-  get 'search/search_detail'
+  get     'search_detail'  => 'search#search_detail'
 
   root                    'static_pages#home'
   get     'help'      =>  'static_pages#help'
