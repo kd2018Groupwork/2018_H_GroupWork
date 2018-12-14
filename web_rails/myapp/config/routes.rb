@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
+  root                        'static_pages#home'
+  get     'help'           => 'static_pages#help'
+  get     'about'          => 'static_pages#about'
 
-  get 'planning/new'
+  get     'planning/new'
+  get     'planning/reference'
 
-  get 'planning/reference'
-
-  get     'search'    => 'search#search'
-
+  get     'search'         => 'search#search'
   get     'search_result'  => 'search#search_result'
-
   get     'search_detail'  => 'search#search_detail'
 
   root                    'static_pages#home'
