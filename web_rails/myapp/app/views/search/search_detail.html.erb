@@ -1,6 +1,30 @@
-<h1>Search#search_detail</h1>
+<h1><%= Time.now %></h1>
 <table>
     <tr>
-        <td><%= image_tag("hitokage.png", :size => "200x200")  %></td>
+        <td><%= image_tag( @detail[0].image_path , :size => "200x200")  %></td>
+    </tr>
+    <tr>
+        <th>作品名：</th>
+        <td><%= @detail[0].product_name %></td>
+    </tr>
+    <tr>
+        <th>スポット名：</th>
+        <td><%= @detail[0].spot_name %></td>
+    </tr>
+    <tr>
+        <th>住所：</th>
+        <td><%= @detail[0].pref_name + @detail[0].city_name + @detail[0].spot_address %></td>
+    </tr>
+    <tr>
+        <th>詳細：</th>
+        <td><%= @detail[0].details %></td>
+    </tr>
+    <tr>
+        <th>ジャンル：</th>
+        <td>アニメ</td>
+    </tr>
+    <tr>
+        <th>評価：</th>
+        <td><%= @detail[0].evalution %></td>
     </tr>
 </table>
