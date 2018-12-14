@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20181210025728) do
 
   create_table "spots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "spot_name"
-    t.integer "product_id"
     t.integer "prefs_id"
     t.integer "cities_id"
     t.text "spot_address"
+    t.integer "product_id"
     t.integer "evalution"
     t.integer "user_id"
     t.text "details"
