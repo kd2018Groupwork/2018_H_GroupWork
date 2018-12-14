@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   delete  'logout'    =>  'sessions#destroy'
   get                     'sessions/new'
   get     'add_spot'  =>  'tourist_spot#new'
+  post    'productes' =>  'tourist_spot#commit_product'
+  get     'reg_spot'  =>  'tourist_spot#create_s'
   post    'spots'     =>  'tourist_spot#create'
   get     'complete_spot' =>  'tourist_spot#complete'
 
