@@ -18,12 +18,15 @@ Rails.application.routes.draw do
   post    'login'     =>  'sessions#create'
   delete  'logout'    =>  'sessions#destroy'
   get                     'sessions/new'
-  get     'add_spot'  =>  'tourist_spot#new'
-  post    'productes' =>  'tourist_spot#commit_product'
-  get     'reg_spot'  =>  'tourist_spot#create_s'
-  post    'spots'     =>  'tourist_spot#create'
-  get     'complete_spot' =>  'tourist_spot#complete'
+
+  get     'add_spot'  =>  'spot#new'
+  post    'productes' =>  'spot#commit_product'
+  get     'reg_spot'  =>  'spot#create_s'
+  post    'spots'     =>  'spot#create'
+  get     'complete_spot' =>  'spot#complete'
+
 
   resources :users
+
 
 end
