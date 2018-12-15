@@ -13,6 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'rails-i18n'
 gem 'rails-ujs'
 gem 'jp_prefecture'
+gem 'carrierwave'
+gem 'rmagick'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

@@ -9,21 +9,38 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image_name = "default_user.jpg"
     if @user.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "さくれにようこそ！"
       redirect_to @user
     else
       render 'new'
     end
   end
-  
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "ぷろふぃるを更新しました"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private                                                                       
 
     def user_params
       params.require(:user).permit(
         :user_name, 
         :email,
+        :image_name,
         :password, 
-        :password_confirmation)
+        :password_confirmation
+      )
     end
 end
