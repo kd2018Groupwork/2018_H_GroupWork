@@ -1,11 +1,31 @@
-Spot.create(
-    :spot_name => 'ルミナリエ',
-    :product_id => 1,
-    :prefs_id => 1,
-    :cities_id => 1,
-    :spot_address => 'xxxxxxxxxxx',
-    :evalution => 1,
-    :details => '綺麗な場所',
-    :image_path => 'hitokage.png'
+Genre.create(
+    :genre_name => '小説'
 )
-Producte.create(:product_name => 'ポケモン')
+
+Genre.create(
+    :genre_name => '漫画'
+)
+
+Genre.create(
+    :genre_name => 'アニメ'
+)
+
+Genre.create(
+    :genre_name => '歴史'
+)
+
+Genre.create(
+    :genre_name => '映画'
+)
+
+Genre.create(
+    :genre_name => 'ドラマ'
+)
+
+Genre.create(
+    :genre_name => 'ゲーム'
+)
+
+Genre.create(
+    :genre_name => 'その他'
+)
