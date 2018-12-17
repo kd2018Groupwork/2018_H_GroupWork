@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181215090502) do
+ActiveRecord::Schema.define(version: 20181217035402) do
+
+  create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "genre_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "spot_id"
+    t.string "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -21,6 +34,7 @@ ActiveRecord::Schema.define(version: 20181215090502) do
 
   create_table "productes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "product_name"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,10 +42,8 @@ ActiveRecord::Schema.define(version: 20181215090502) do
   create_table "spots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "spot_name"
     t.integer "product_id"
-    t.integer "evalution"
-    t.integer "user_id"
+    t.integer "rate"
     t.text "details"
-    t.text "image_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "postcode"
@@ -39,6 +51,13 @@ ActiveRecord::Schema.define(version: 20181215090502) do
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
+  end
+
+  create_table "user_spots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

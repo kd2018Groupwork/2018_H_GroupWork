@@ -1,17 +1,3 @@
-=begin
-require 'csv'
-require 'zip'
-CSVROW_PREFNAME = 6
-CSVROW_CITYNAME = 7
-savePath = "db/KEN_ALL.CSV"
-CSV.foreach(savePath, encoding: "Shift_JIS:UTF-8") do |row|
-    prefName = row[CSVROW_PREFNAME]
-    cityName = row[CSVROW_CITYNAME]
-    pref = Pref.find_or_create_by(:name => prefName)
-    City.find_or_create_by(:name => cityName, pref_id: pref.id)
-end
-=end
-
 Spot.create(
     :spot_name => 'ルミナリエ',
     :product_id => 1,
@@ -40,3 +26,35 @@ Spot.create(
 )
 Producte.create(:product_name => 'ポケモン')
 Producte.create(:product_name => 'デジモン')
+
+Genre.create(
+    :genre_name => '小説'
+)
+
+Genre.create(
+    :genre_name => '漫画'
+)
+
+Genre.create(
+    :genre_name => 'アニメ'
+)
+
+Genre.create(
+    :genre_name => '歴史'
+)
+
+Genre.create(
+    :genre_name => '映画'
+)
+
+Genre.create(
+    :genre_name => 'ドラマ'
+)
+
+Genre.create(
+    :genre_name => 'ゲーム'
+)
+
+Genre.create(
+    :genre_name => 'その他'
+)
