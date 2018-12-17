@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get     'search'         => 'search#search'
   get     'search_result'  => 'search#search_result'
   get     'search_detail'  => 'search#search_detail'
+  get     'time_line'      => 'search#time_line'
 
   root                    'static_pages#home'
   get     'help'      =>  'static_pages#help'
