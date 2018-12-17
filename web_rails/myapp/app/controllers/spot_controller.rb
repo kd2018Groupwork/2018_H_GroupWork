@@ -18,10 +18,15 @@ class SpotController < ApplicationController
   def create
     @p = Producte.find_by(product_name: session[:product_name])
     @spot = Spot.new(spot_params)
-    @spot.evalution = 0
+    @spot.rate = 0
     @spot.product_id = @p.id
-    @spot.user_id = session[:user_id] # sessionからuser_idを取り出す
     if @spot.save
+      @user_spot = UserSpot.new()
+      @user_spot.user_id = session[:user_id]
+      @user_spot.spot_id = @spot.id
+
+      @user_spot.save
+
       session.delete(:product_id)
     
       flash[:success] = "観光地の登録が完了しました!"
@@ -33,11 +38,12 @@ class SpotController < ApplicationController
   end
 
 
-  private                                                                       
+  private
 
     def product_params
       params.require(:producte).permit(
         :product_name,
+        :genre_id,
       )
     end
 

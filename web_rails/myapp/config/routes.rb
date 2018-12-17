@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   get     'search_detail'  => 'search#search_detail'
   get     'time_line'      => 'search#time_line'
 
-  root                    'static_pages#home'
-  get     'help'      =>  'static_pages#help'
-  get     'about'     =>  'static_pages#about'
   get     'signup'    =>  'users#new'
   get     'login'     =>  'sessions#new'
   post    'login'     =>  'sessions#create'
