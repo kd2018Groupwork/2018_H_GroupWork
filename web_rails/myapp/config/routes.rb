@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get     'search'         => 'search#search'
   get     'search_result'  => 'search#search_result'
-  get     'search_detail'  => 'search#search_detail'
+  get     'search_detail/:spot_id'  => 'search#search_detail' , as:'search_detail'
   get     'time_line'      => 'search#time_line'
 
   root                    'static_pages#home'
@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   post    'spots'     =>  'spot#create'
   get     'complete_spot' =>  'spot#complete'
 
+  post    'favorite/:spot_id' => 'favorite#create'  , as:'fav'
+  delete  'favorite/:spot_id' => 'favorite#destroy' , as:'unfav'
+  post    'iine/:spot_id' => 'iine#create'  , as:'iine'
+  delete  'iine/:spot_id' => 'iine#destroy' , as:'uniine'
 
   resources :users
 
