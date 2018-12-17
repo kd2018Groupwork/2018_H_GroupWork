@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :favorites, dependent: :destroy
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :user_name, presence: true, length: { maximum: 50 }
