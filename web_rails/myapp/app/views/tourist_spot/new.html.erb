@@ -1,0 +1,43 @@
+<% provide(:title, '観光地登録') %>
+<h1>かんこうち　とうろく</h1>
+
+<!-- 県のidを受け取り市に渡す -->
+<script>
+  $(windows).load(function(){
+    var id;
+    function get_id(ID) {
+      this.id = ID;
+      alert("hello");
+      <% @city = City.where(pref_id: $ID) %>
+      <%= @city %>
+      console.write(this.id);
+    }
+    function return_id() {
+      return this.id;
+    }
+  });
+</script>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@spot) do |f| %>
+
+      <%= f.label :"すぽっとのなまえ" %>
+      <%= f.text_field :spot_name, class: 'form-control' %>
+
+      <%= f.label :"けん" %>
+      <%= f.collection_select :prefs_id, Pref.all, :id, :name , :onchange => "get_id(this.id);"%>
+
+      <%= f.label :"し" %> 
+      <%= f.collection_select(:cities_id, @city, :id, :name) %>
+
+      <%= f.label :"じゅうしょ しょうさい" %>
+      <%= f.text_area :spot_address, class: 'form-control' %>
+      
+      <%= f.label :"さくひん しょうさい" %>
+      <%= f.text_area :details, class: 'form-control' %>
+
+      <%= f.submit "観光地を登録する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

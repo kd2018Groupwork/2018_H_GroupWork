@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+    <%= link_to "さくれ", root_path, id: "logo" %>
     <nav>
-      <%= link_to image_tag("icon/さくれロゴ1.png", :size => "112x50"), root_url %>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="dropdown">
@@ -10,7 +10,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "とうろく", add_spot_path %></li>
-              <li><%= link_to "さがす"  ,   search_path %></li>
+              <li><%= link_to "さがす", '#' %></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -28,7 +28,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "ぷろふぃーる", current_user %></li>
-              <li><%= link_to "せってい", edit_user_path(current_user) %></li>
+              <li><%= link_to "せってい", '#' %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "ろぐあうと", logout_path, method: "delete" %>
@@ -36,7 +36,6 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "さくれのメンバーになる", signup_path %></li>
           <li><%= link_to "ろぐいん", login_path %></li>
         <% end %>
       </ul>

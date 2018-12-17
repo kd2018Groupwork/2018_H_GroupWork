@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  mount_uploader :image_name, ImagesUploader
+  has_many :favorites, dependent: :destroy
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :user_name, presence: true, length: { maximum: 50 }
@@ -7,7 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -32,5 +33,4 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-
 end
