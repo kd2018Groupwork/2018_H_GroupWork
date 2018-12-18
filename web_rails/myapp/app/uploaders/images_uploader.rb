@@ -1,7 +1,11 @@
 class ImagesUploader < CarrierWave::Uploader::Base
   
   storage :file
-  
+
+  def default_url
+    "/images/" + [version_name, "default.jpg"].compact.join('_')
+  end
+    
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -29,7 +33,4 @@ class ImagesUploader < CarrierWave::Uploader::Base
     name.downcase
   end
   
-  def default_url
-    "/user_images/" + [version_name, "default_user.jpg"].compact.join('_')
- end
 end
