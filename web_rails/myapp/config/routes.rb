@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get     'planning/new'
   get     'planning/reference'
 
-  get     'search'         => 'search#search'
+  get     'search'         => 'search#_search'
   get     'search_result'  => 'search#search_result'
   get     'search_detail/:spot_id'  => 'search#search_detail' , as:'search_detail'
-  get     'time_line'      => 'search#time_line'
+  get     'time_line'      => 'search#_time_line'
 
   get     'signup'    =>  'users#new'
   get     'login'     =>  'sessions#new'
