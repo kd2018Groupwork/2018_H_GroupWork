@@ -29,4 +29,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     name.downcase
   end
   
+  def default_url
+    "/user_images/" + [version_name, "default_user.jpg"].compact.join('_')
+ end
 end

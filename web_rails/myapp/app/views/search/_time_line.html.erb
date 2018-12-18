@@ -1,0 +1,8 @@
+<div id="">
+  <% @spot = Spot.order('updated_at DESC') %>
+  <%= @spot.each do |data| %>
+    <%= data.spot_name %>
+  <% end %>
+
+  <%=  %>
+</div>
