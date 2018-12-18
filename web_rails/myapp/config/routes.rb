@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'offer/index'
-
-  get 'offer/confirm'
-
-  get 'offer/complete'
 
   root                        'static_pages#home'
   get     'help'           => 'static_pages#help'
@@ -34,7 +29,10 @@ Rails.application.routes.draw do
   post    'iine/:spot_id' => 'iine#create'  , as:'iine'
   delete  'iine/:spot_id' => 'iine#destroy' , as:'uniine'
 
-  resources :users
+  get 'offer'         =>  'offer#index'
+  post 'offer/confirm' =>  'offer#confirm'
+  post 'offer/complete'=>  'offer#complete'
 
+  resources :users
 
 end
