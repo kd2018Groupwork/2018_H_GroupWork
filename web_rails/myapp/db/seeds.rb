@@ -1,7 +1,6 @@
 Spot.create(
     :spot_name => 'ルミナリエ',
     :product_id => 1,
-    :rate => 1,
     :details => '凄いな場所',
     :postcode1 => 1,
     :postcode2 => 1,
@@ -13,7 +12,6 @@ Spot.create(
 Spot.create(
     :spot_name => '姫路城',
     :product_id => 2,
-    :rate => 1,
     :details => '綺麗な場所',
     :postcode1 => 1,
     :postcode2 => 1,
@@ -21,6 +19,14 @@ Spot.create(
     :address_city => '神戸市',
     :address_street => 2,
     :address_building => 'あ'
+)
+
+Producte.create(
+    :product_name => 'ポケモン'
+)
+
+Producte.create(
+    :product_name => 'デジモン'
 )
 
 Genre.create(

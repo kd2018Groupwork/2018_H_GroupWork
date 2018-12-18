@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root                        'static_pages#home'
   get     'help'           => 'static_pages#help'
   get     'about'          => 'static_pages#about'
@@ -25,9 +26,8 @@ Rails.application.routes.draw do
 
   post    'favorite/:spot_id' => 'favorite#create'  , as:'fav'
   delete  'favorite/:spot_id' => 'favorite#destroy' , as:'unfav'
-  post    'iine/:spot_id' => 'iine#create'  , as:'iine'
-  delete  'iine/:spot_id' => 'iine#destroy' , as:'uniine'
-
+  post    'rate/:spot_id' => 'rate#create'  , as:'rate'
+  delete  'rate/:spot_id' => 'rate#destroy' , as:'unrate'
   resources :users
 
 
