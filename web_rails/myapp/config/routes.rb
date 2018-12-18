@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'offer/index'
+
+  get 'offer/confirm'
+
+  get 'offer/complete'
+
   root                        'static_pages#home'
   get     'help'           => 'static_pages#help'
   get     'about'          => 'static_pages#about'
