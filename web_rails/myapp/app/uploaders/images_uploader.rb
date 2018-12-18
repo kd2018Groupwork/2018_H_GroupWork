@@ -2,12 +2,8 @@ class ImagesUploader < CarrierWave::Uploader::Base
   
   storage :file
 
-  def default_url
-    "/images/" + [version_name, "default.jpg"].compact.join('_')
-  end
-    
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path(["default.jpg"].compact.join('_'))
   end
 
   include CarrierWave::RMagick

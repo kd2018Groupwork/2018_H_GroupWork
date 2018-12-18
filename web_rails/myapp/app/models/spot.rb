@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  mount_uploaders :images, ImagesUploader
   has_many :favorites, dependent: :destroy
 
   validates :spot_name, presence: true
