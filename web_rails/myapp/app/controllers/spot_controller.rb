@@ -1,6 +1,10 @@
 class SpotController < ApplicationController
   def new
-    @producte = Producte.new
+    if logged_in?
+      @producte = Producte.new
+    else
+      redirect_to root_url
+    end
   end
 
   def commit_product
@@ -16,27 +20,30 @@ class SpotController < ApplicationController
   end
 
   def create
-    @p = Producte.find_by(product_name: session[:product_name])
-    @spot = Spot.new(spot_params)
-    @spot.rate = 0
-    @spot.product_id = @p.id
-    if @spot.save
-      @user_spot = UserSpot.new()
-      @user_spot.user_id = session[:user_id]
-      @user_spot.spot_id = @spot.id
+    if logged_in?
+      @p = Producte.find_by(product_name: session[:product_name])
+      @spot = Spot.new(spot_params)
+      @spot.rate = 0
+      @spot.product_id = @p.id
+      if @spot.save
+        @user_spot = UserSpot.new()
+        @user_spot.user_id = session[:user_id]
+        @user_spot.spot_id = @spot.id
 
-      @user_spot.save
+        @user_spot.save
 
-      session.delete(:product_id)
-    
-      flash[:success] = "観光地の登録が完了しました!"
-      redirect_to :complete_spot
+        session.delete(:product_id)
+      
+        flash[:success] = "観光地の登録が完了しました!"
+        redirect_to :complete_spot
+      else
+        flash[:danger] = 'さくひんの名前を入力してください'
+        redirect_to :add_spot
+      end
     else
-      flash[:danger] = 'さくひんの名前を入力してください'
-      redirect_to :add_spot
+      redirect_to root_url
     end
   end
-
 
   private
 
@@ -55,7 +62,8 @@ class SpotController < ApplicationController
         :user_id,
         :details,
         :image_path,
-        :postcode,
+        :postcode1,
+        :postcode2,
         :prefecture_code, 
         :address_city, 
         :address_street, 

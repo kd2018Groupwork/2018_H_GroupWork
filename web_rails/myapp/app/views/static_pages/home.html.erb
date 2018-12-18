@@ -1,4 +1,7 @@
-<% if session[:user_id].nil? %>
+<% if logged_in? %>
+  <%= render('search/search') %>
+  <%= render('search/time_line') %>
+<% else %>
   <div class="center jumbotron">
     <h1>さくれへようこそ！</h1>
 
@@ -8,9 +11,4 @@
 
     <%= link_to "さくれのめんばーになる", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
-
-<% else %>
-  <%= render('search/search') %>
-  <%= render('search/time_line') %>
 <% end %>
-
