@@ -59,6 +59,7 @@ class SpotController < ApplicationController
         :prefecture_code, 
         :address_city, 
         :address_street, 
-        :address_building)
+        :address_building,
+        {images: []})
     end
 end
