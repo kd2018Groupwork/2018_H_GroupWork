@@ -8,6 +8,7 @@
 
     <%= f.label :"すぽっとのがぞう" %>
     <%= f.file_field :images, multiple: true %>
+
     <%= f.label :"すぽっとのなまえ" %>
     <%= f.text_field :spot_name, class: 'form-control' %>
 
@@ -15,7 +16,9 @@
     <%= f.text_area :details, class: 'form-control' %>
 
     <%= f.label :"郵便番号" %>
-    <%= f.text_field :postcode, class: 'form-control' %>
+    <%= f.text_field :postcode1, class: 'form-control' %>
+    ー
+    <%= f.text_field :postcode2, class: 'form-control' %>
     <%= f.label :"都道府県" %>
     <%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください", class: 'form-control'}) %>
     <%= f.label :"市" %>

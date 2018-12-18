@@ -4,7 +4,10 @@
 
 $ ->
   $("#spot_postcode").jpostal({
-    postcode : [ "#spot_postcode" ],
+    postcode : [ 
+      "#spot_postcode1",
+      "#spot_postcode2"
+     ],
     address  : {
       "#spot_prefecture_code"         : "%3",
       "#spot_address_city"            : "%4",

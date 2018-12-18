@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(version: 20181218050522) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postcode"
+    t.integer "postcode1"
+    t.integer "postcode2"
     t.integer "prefecture_code"
     t.string "address_city"
     t.string "address_street"
