@@ -1,3 +1,9 @@
+User.create(
+    :user_name  => 'test',
+    :email      => 'test@yahoo.co.jp',
+    :password   => 'zzzzzzzz'
+)
+
 Producte.create(
     :product_name => 'ポケモン'
 )
