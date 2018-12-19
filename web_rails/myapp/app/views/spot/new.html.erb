@@ -4,13 +4,14 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@product) do |f| %>
+      <table class="table">
+      <th>さくひんのなまえ</th>
+      <td><%= f.text_field :product_name, class: 'form-control' %></td>
 
-      <%= f.label :"さくひんのなまえ" %>
-      <%= f.text_field :product_name, class: 'form-control' %>
+      <th>さくひんのじゃんる</th>
+      <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, {prompt: "選択してください", class: 'form-control'}) %></td>
 
-      <%= f.label :"さくひんのじゃんる" %>
-      <%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, {prompt: "選択してください", class: 'form-control'}) %>
-
+      </table>
       <%= f.submit "この作品で登録する", class: "btn btn-primary" %>
     <% end %>
   </div>
