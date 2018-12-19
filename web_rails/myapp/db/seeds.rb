@@ -4,15 +4,15 @@ User.create(
     :password   => 'zzzzzzzz'
 )
 
-Producte.create(
+Product.create(
     :product_name => 'ポケモン'
 )
 
-Producte.create(
+Product.create(
     :product_name => 'デジモン'
 )
 
-Producte.create(
+Product.create(
     :product_name => 'テスト',
     :genre_id     => 1
 )
