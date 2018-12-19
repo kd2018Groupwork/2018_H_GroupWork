@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get                                   'sessions/new'
 
   get     'add_spot'                =>  'spot#new'
-  post    'productes'               =>  'spot#commit_product'
+  post    'products'               =>  'spot#commit_product'
   get     'reg_spot'                =>  'spot#create_s'
   post    'spots'                   =>  'spot#create'
   get     'complete_spot'           =>  'spot#complete'
