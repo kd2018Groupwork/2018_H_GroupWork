@@ -29,9 +29,11 @@ Rails.application.routes.draw do
   post    'iine/:spot_id' => 'iine#create'  , as:'iine'
   delete  'iine/:spot_id' => 'iine#destroy' , as:'uniine'
 
-  get 'offer'         =>  'offer#index'
-  post 'offer/confirm' =>  'offer#confirm'
-  post 'offer/complete'=>  'offer#complete'
+  get     'offer'         =>  'offer#index'
+  post    'offer/confirm' =>  'offer#confirm'
+  post    'offer/complete'=>  'offer#complete'
+  post    'rate/:spot_id' => 'rate#create'  , as:'rate'
+  delete  'rate/:spot_id' => 'rate#destroy' , as:'unrate'
 
   resources :users
 

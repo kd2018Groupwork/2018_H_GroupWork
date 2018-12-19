@@ -17,7 +17,7 @@ class SearchController < ApplicationController
 
   def search_detail
     @detail = Spot.find_by_sql(['
-      select spots.id , spot_name , productes.product_name , details 
+      select spots.id ,rate, spot_name , productes.product_name , details 
       from spots , productes
       where spots.product_id = productes.id
       and spots.id = :id', {id: params[:spot_id]}
