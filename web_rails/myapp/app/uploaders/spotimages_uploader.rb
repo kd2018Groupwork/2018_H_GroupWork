@@ -1,9 +1,12 @@
 class SpotimagesUploader < CarrierWave::Uploader::Base
+  def default_url(*args)
+    "/images/" + [version_name, "noimage.png"].compact.join('_')
+  end
   
   storage :file
 
-  def default_url(*args)
-    ActionController::Base.helpers.asset_path(["default.jpg"].compact.join('_'))
+  def store_dir
+    'uploads/spots'
   end
 
   include CarrierWave::RMagick
@@ -12,7 +15,7 @@ class SpotimagesUploader < CarrierWave::Uploader::Base
   process :convert => 'jpg'
   
   version :thumb do
-    process :resize_to_limit => [10, 10]
+    process :resize_to_limit => [100, 100]
   end
   
   def extension_white_list

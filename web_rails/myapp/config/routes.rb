@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get     'planning/new'
   get     'planning/reference'
 
-  get     'search'                  => 'search#_search'
+  get     'search'                  => 'static_pages#home'
   get     'search_result'           => 'search#search_result'
   get     'search_detail/:spot_id'  => 'search#search_detail' , as:'search_detail'
   get     'time_line'               => 'search#_time_line'
@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get     'favorite/show/:user_id'  => 'favorite#show' , as: 'fav_show'
   post    'favorite/:spot_id'       => 'favorite#create'  , as:'fav'
   delete  'favorite/:spot_id'       => 'favorite#destroy' , as:'unfav'
+  
+  post    'iine/:spot_id' => 'iine#create'  , as:'iine'
+  delete  'iine/:spot_id' => 'iine#destroy' , as:'uniine'
 
   post    'rate/:spot_id'           => 'rate#create'  , as:'rate'
   delete  'rate/:spot_id'           => 'rate#destroy' , as:'unrate'
@@ -34,6 +37,7 @@ Rails.application.routes.draw do
   get     'offer'                   =>  'offer#index'
   post    'offer/confirm'           =>  'offer#confirm'
   post    'offer/complete'          =>  'offer#complete'
+
 
   resources :users
 

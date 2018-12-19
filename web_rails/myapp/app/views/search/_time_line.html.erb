@@ -1,11 +1,22 @@
+<br>
 <% @spot = Spot.order('updated_at DESC') %>
 <% @spot.each do |data| %>
-<ol class="timeline">
-  <li id="timeline">
-    <%= image_tag data.images[0].thumb.url if data.images? %>
-    <span class="user"><%= data.spot_name %></span>
-    <span class="user"><%= data.rate %></span>
-    <span class="timestamp"><%= data.updated_at %></span>
-  </li>
-</ol>
+  <div id="media" style="width: 50%; margin: auto;">
+    <a class="pull-left" href="#">
+      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= data.spot_name %></h4>
+      <%= data.details %>
+      <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md pull-right" do %>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <span class="user"><%= data.rate %></span>
+      <% end %>
+    </div>
+    <div>
+      <span class="timestamp"><%= time_ago_in_words(data.updated_at) %>前</span>
+    </div>
+  </div>
+  <br>
+  <br>
 <% end %>
