@@ -6,28 +6,40 @@
 
   <%= form_for @spot = Spot.new do |f| %>
     <table class="table">
-      <th>すぽっとのがぞう</th>
-      <td><%= f.file_field :images, multiple: true %></td>
-
-      <th>すぽっとのなまえ</th>
-      <td><%= f.text_field :spot_name, class: 'form-control' %><td>
-
-      <%= f.label :"さくひん しょうさい" %>
-      <%= f.text_area :details, class: 'form-control' %>
-
-      <%= f.label :"郵便番号" %>
-      <%= f.text_field :postcode1, class: 'form-control' %>
-      ー
-      <%= f.text_field :postcode2, class: 'form-control' %>
-      <%= f.label :"都道府県" %>
-      <%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください", class: 'form-control'}) %>
-      <%= f.label :"市" %>
-      <%= f.text_field :address_city, class: 'form-control' %>
-      <%= f.label :"区" %>
-      <%= f.text_field :address_street, class: 'form-control' %>
-      <%= f.label :"建物" %>
-      <%= f.text_field :address_building, class: 'form-control' %>
-      
+      <tr>
+        <th>すぽっとのがぞう</th>
+        <td><%= f.file_field :images, multiple: true %></td>
+      </tr>
+      <tr>
+        <th>すぽっとのなまえ</th>
+        <td><%= f.text_field :spot_name, class: 'form-control' %><td>
+      </tr>
+      <tr>
+        <th>さくひん しょうさい</th>
+        <td><%= f.text_area :details, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= f.text_field :postcode1, maxlength: 3, class: 'form-control' %></td>
+        <td>ー</td>
+        <td><%= f.text_field :postcode2, maxlength: 4, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>都道府県</th>
+        <td><%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください", class: 'form-control'}) %></td>
+      </tr>
+      <tr>
+        <th>市</th>
+        <td><%= f.text_field :address_city, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th>区</th>
+        <td><%= f.text_field :address_street, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th><%= f.label :"建物" %></th>
+        <td><%= f.text_field :address_building, class: 'form-control' %></td>
+      </tr>
     </table>
     <%= f.submit "観光地を登録する", class: "btn btn-primary" %>
     
