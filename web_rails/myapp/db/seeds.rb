@@ -1,3 +1,21 @@
+Producte.create(
+    :product_name => 'テスト',
+    :genre_id     => 1
+)
+
+Spot.create(
+    :spot_name => 'エリナミル',
+    :product_id => 1,
+    :rate => 1,
+    :details => '場所凄いな',
+    :postcode1 => 1,
+    :postcode2 => 1,
+    :prefecture_code => 1,
+    :address_city => 'しじめひ',
+    :address_street => 1,
+    :address_building => 'e'
+)
+
 Spot.create(
     :spot_name => 'ルミナリエ',
     :product_id => 1,
