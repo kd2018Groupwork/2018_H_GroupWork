@@ -17,15 +17,15 @@
 
       <div class="tab-content">
         <div id="product-tab" class="tab-pane active">
-          <%= form_tag(search_path, method: "get") do  %>
-            <%= text_field_tag :search, '', placeholder: "さくひんめい", class:"form-control"%>
-            <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+          <%= form_tag(spots_path, method: "get") do  %>
+            <%= text_field_tag :search, params[:search], placeholder: "さくひんめい", class:"form-control"%>
+            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
         </div>
         <div id="pref-tab" class="tab-pane">
-          <%= form_tag(search_path, method: "get") do  %>
-            <%= text_field_tag :search, '', placeholder: "けんめい", class:"form-control" %>
-            <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+          <%= form_tag(spots_path, method: "get") do  %>
+            <%= text_field_tag :search, params[:search], placeholder: "けんめい", class:"form-control" %>
+            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
         </div>
 
