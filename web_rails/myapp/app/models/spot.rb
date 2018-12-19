@@ -23,7 +23,7 @@ class Spot < ApplicationRecord
   #検索用
   def self.search_products(search)
     if search
-      @product = Product.where(['name LIKE ?', "%#{search}%"])
+      @product = Product.where(['product_name LIKE ?', "%#{search}%"])
     else
       Product.all
     end

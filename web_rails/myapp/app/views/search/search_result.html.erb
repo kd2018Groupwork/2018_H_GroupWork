@@ -1,2 +1,8 @@
-<h1>Search#search_result</h1>
-<%= link_to "詳細画面へ", search_detail_path(spot_id: 1) %> 
+<% @result.each do |data| %>
+<ul>
+  <li >
+    <span class="user"><%= data.spot_name %></span>
+    <span><%= data.details %></span>
+  </li>
+</ul>
+<% end %>

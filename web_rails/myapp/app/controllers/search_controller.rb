@@ -3,7 +3,9 @@ class SearchController < ApplicationController
   end
 
   def search_result
-    @products = Spot.search_products(params[:search]) 
+    # ToDo:結果のIDが複数あるかどうか確認するメソッド追加
+    @product = Spot.search_products(params[:search]) 
+    @result  = Spot.find(@product.ids)
 =begin  
     @a = 1
     @detail = Spot.find_by_sql(['
