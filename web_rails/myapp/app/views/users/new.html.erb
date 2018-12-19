@@ -6,17 +6,25 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
       
-      <%= f.label :ゆーざーねーむ %>
-      <%= f.text_field :user_name, class: 'form-control' %>
+      <table class="table">
+        <tr>
+          <th>ゆーざーねーむ<span class="text-danger">（必須）</span></th>
+          <td><%= f.text_field :user_name, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>めーるあどれす<span class="text-danger">（必須）</span></th>
+          <td><%= f.email_field :email, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>ぱすわーど<span class="text-danger">（必須）</span></th>
+          <td><%= f.password_field :password, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>さいにゅうりょく<span class="text-danger">（必須）</span></th>
+          <td><%= f.password_field :password_confirmation, class: 'form-control' %></td>
+        </tr>
 
-      <%= f.label :めーるあどれす %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :ぱすわーど %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :さいにゅうりょく, "再入力" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </table>
 
       <%= f.submit :ゆーざーをつくる, class: "btn btn-primary" %>
     <% end %>
