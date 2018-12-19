@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post    'spots'                   =>  'spot#create'
   get     'complete_spot'           =>  'spot#complete'
 
-  get     'favorite/show/:user_id'  =>  'favorite#show' , as: 'fav_show'
+  get     'favorite/show/:user_id'  => 'favorite#show' , as: 'fav_show'
   post    'favorite/:spot_id'       => 'favorite#create'  , as:'fav'
   delete  'favorite/:spot_id'       => 'favorite#destroy' , as:'unfav'
 

@@ -84,3 +84,13 @@ Genre.create(
 Genre.create(
     :genre_name => 'その他'
 )
+
+Favorite.create(
+    :user_id => 1,
+    :spot_id => 3
+)
+
+Favorite.create(
+    :user_id => 1,
+    :spot_id => 1
+)
