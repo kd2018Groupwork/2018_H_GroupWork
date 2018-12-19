@@ -1,11 +1,10 @@
-<br>
-<div id="timeline">
-  <% @spot = Spot.order('updated_at DESC') %>
-  <% @spot.each do |data| %>
-    <%= data.updated_at %>
-    <%= data.spot_name %>
-    <%= data.rate %>
-    <br>
-  <% end %>
-
-</div>
+<% @spot = Spot.order('updated_at DESC') %>
+<% @spot.each do |data| %>
+  <div id="timeline">
+    <div class="image"><%= data.updated_at %></div>
+    <div class=""><%= data.updated_at %></div>
+    <div class=""><%= data.spot_name %></div>
+    <div class=""><%= data.rate %></div>
+  </div>
+  <br>
+<% end %>
