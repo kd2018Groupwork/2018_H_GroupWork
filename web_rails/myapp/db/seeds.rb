@@ -1,18 +1,26 @@
 Producte.create(
+    :product_name => 'ポケモン'
+)
+
+Producte.create(
+    :product_name => 'デジモン'
+)
+
+Producte.create(
     :product_name => 'テスト',
     :genre_id     => 1
 )
 
 Spot.create(
-    :spot_name => 'エリナミル',
-    :product_id => 1,
-    :rate => 1,
-    :details => '場所凄いな',
-    :postcode1 => 1,
-    :postcode2 => 1,
-    :prefecture_code => 1,
-    :address_city => 'しじめひ',
-    :address_street => 1,
+    :spot_name        => 'エリナミル',
+    :product_id       => 1,
+    :rate             => 1,
+    :details          => '場所凄いな',
+    :postcode1        => 1,
+    :postcode2        => 1,
+    :prefecture_code  => 1,
+    :address_city     => 'しじめひ',
+    :address_street   => 1,
     :address_building => 'e'
 )
 
@@ -37,14 +45,6 @@ Spot.create(
     :address_city => '神戸市',
     :address_street => 2,
     :address_building => 'あ'
-)
-
-Producte.create(
-    :product_name => 'ポケモン'
-)
-
-Producte.create(
-    :product_name => 'デジモン'
 )
 
 Genre.create(
