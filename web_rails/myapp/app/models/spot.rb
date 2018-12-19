@@ -1,5 +1,5 @@
 class Spot < ApplicationRecord
-  mount_uploaders :images, ImagesUploader
+  mount_uploaders :images, SpotimagesUploader
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy
 #  belongs_to :product
