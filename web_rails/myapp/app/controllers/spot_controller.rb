@@ -1,14 +1,14 @@
 class SpotController < ApplicationController
   def new
     if logged_in?
-      @producte = Producte.new
+      @product = Product.new
     else
       redirect_to root_url
     end
   end
 
   def commit_product
-    @product = Producte.new(product_params)
+    @product = Product.new(product_params)
     if @product.save
       session[:product_name] = @product[:product_name]
       
@@ -21,7 +21,7 @@ class SpotController < ApplicationController
 
   def create
     if logged_in?
-      @p = Producte.find_by(product_name: session[:product_name])
+      @p = Product.find_by(product_name: session[:product_name])
       @spot = Spot.new(spot_params)
       @spot.rate = 0
       @spot.product_id = @p.id
@@ -48,7 +48,7 @@ class SpotController < ApplicationController
   private
 
     def product_params
-      params.require(:producte).permit(
+      params.require(:product).permit(
         :product_name,
         :genre_id,
       )
