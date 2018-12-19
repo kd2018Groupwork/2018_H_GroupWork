@@ -2,7 +2,7 @@ class Spot < ApplicationRecord
   mount_uploaders :images, SpotimagesUploader
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy
-#  belongs_to :product
+  belongs_to :product
 
   #validates :product_name, :presence => {:message => '作品名を入力してください'}
   #validates :genre_id, :presence => {:message => 'ジャンルを選択してください'}
