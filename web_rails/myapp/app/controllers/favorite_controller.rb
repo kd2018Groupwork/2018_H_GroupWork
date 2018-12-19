@@ -2,7 +2,7 @@ class FavoriteController < ApplicationController
   def show
     #params[]はString型
     if current_user.id === params[:user_id].to_i
-      
+      @fav_spot = Spot.joins(:favorites).select("spots.id,spot_name")
     else
       redirect_to root_path
     end

@@ -31,7 +31,10 @@ Rails.application.routes.draw do
   post    'rate/:spot_id'           => 'rate#create'  , as:'rate'
   delete  'rate/:spot_id'           => 'rate#destroy' , as:'unrate'
 
-  resources :users
+  get     'offer'                   =>  'offer#index'
+  post    'offer/confirm'           =>  'offer#confirm'
+  post    'offer/complete'          =>  'offer#complete'
 
+  resources :users
 
 end
