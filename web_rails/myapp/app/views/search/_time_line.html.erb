@@ -3,7 +3,7 @@
 <% @spot.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
     <a class="pull-left" href="#">
-    <%= image_tag(data.images[0].url, class: "", size: 100) if data.images? %>
+      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
     </a>
     <div class="media-body">
       <h4 class="media-heading"><%= data.spot_name %></h4>
