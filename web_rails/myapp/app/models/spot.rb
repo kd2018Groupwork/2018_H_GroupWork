@@ -4,10 +4,12 @@ class Spot < ApplicationRecord
   has_many :ratings, dependent: :destroy
 #  belongs_to :product
 
-  validates :spot_name, presence: true
-  validates :details, presence: true
-  validates :prefecture_code, presence: true
-  validates :address_city, presence: true
+  #validates :product_name, :presence => {:message => '作品名を入力してください'}
+  #validates :genre_id, :presence => {:message => 'ジャンルを選択してください'}
+  #validates :spot_name, :presence => {:message => 'スポット名を入力してください'}
+  #validates :details, :presence => {:message => 'スポットの詳細を入力してください'}
+  #validates :prefecture_code, :presence => {:message => '都道府県を選択してください'}
+  #validates :address_city, :presence => {:message => '市を入力してください'}
 
   include JpPrefecture
   jp_prefecture :prefecture_code

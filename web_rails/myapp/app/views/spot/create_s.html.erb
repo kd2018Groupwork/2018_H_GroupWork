@@ -7,29 +7,29 @@
   <%= form_for @spot = Spot.new do |f| %>
     <table class="table">
       <tr>
-        <th>すぽっとのがぞう</th>
-        <td><%= f.file_field :images, multiple: true %></td>
+        <th>すぽっとのがぞう<span class="text-danger">（必須）</span></th>
+        <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
       </tr>
       <tr>
-        <th>すぽっとのなまえ</th>
+        <th>すぽっとのなまえ<span class="text-danger">（必須）</span></th>
         <td><%= f.text_field :spot_name, class: 'form-control' %><td>
       </tr>
       <tr>
-        <th>さくひん しょうさい</th>
+        <th>さくひん しょうさい<span class="text-danger">（必須）</span></th>
         <td><%= f.text_area :details, class: 'form-control' %></td>
       </tr>
       <tr>
         <th>郵便番号</th>
-        <td><%= f.text_field :postcode1, maxlength: 3, class: 'form-control' %></td>
-        <td>ー</td>
-        <td><%= f.text_field :postcode2, maxlength: 4, class: 'form-control' %></td>
+        <td><%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'form-control post1' %></td>
+        <td>-</td>
+        <td><%= f.text_field :postcode2, maxlength: 4, class: 'form-control post2' %></td>
       </tr>
       <tr>
-        <th>都道府県</th>
+        <th>都道府県<span class="text-danger">（必須）</span></th>
         <td><%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください", class: 'form-control'}) %></td>
       </tr>
       <tr>
-        <th>市</th>
+        <th>市<span class="text-danger">（必須）</span></th>
         <td><%= f.text_field :address_city, class: 'form-control' %></td>
       <tr>
       </tr>

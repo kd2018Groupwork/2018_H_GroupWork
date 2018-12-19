@@ -14,7 +14,7 @@ class SpotController < ApplicationController
       
       redirect_to :reg_spot
     else
-      flash.now[:danger] = 'さくひんの名前を入力してください'
+      flash.now[:danger] = '入力漏れの無いようにしてください'
       redirect_to :add_spot
     end
   end
