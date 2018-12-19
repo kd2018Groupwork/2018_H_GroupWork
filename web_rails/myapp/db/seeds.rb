@@ -20,7 +20,6 @@ Product.create(
 Spot.create(
     :spot_name        => 'エリナミル',
     :product_id       => 1,
-    :rate             => 1,
     :details          => '場所凄いな',
     :postcode1        => 1,
     :postcode2        => 1,
