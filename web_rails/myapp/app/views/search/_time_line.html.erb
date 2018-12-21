@@ -3,7 +3,9 @@
 <% @spot.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
     <a class="pull-left" href="#">
+    <%= link_to search_detail_path(spot_id: data.id) do %>
       <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
+    <% end %>
     </a>
     <div class="media-body">
       <h4 class="media-heading">

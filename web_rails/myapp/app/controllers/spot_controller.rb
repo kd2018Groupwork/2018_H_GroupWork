@@ -42,8 +42,8 @@ class SpotController < ApplicationController
         flash[:success] = "観光地の登録が完了しました!"
         redirect_to :complete_spot
       else
-        flash[:danger] = 'さくひんの名前を入力してください'
-        redirect_to :add_spot
+        flash[:danger] = '入力漏れの無いようにしてください'
+        redirect_to :reg_spot
       end
     else
       redirect_to root_url
