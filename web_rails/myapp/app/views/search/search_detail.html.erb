@@ -1,8 +1,7 @@
-<%= render 'favorite/favorite'%>
-<h1><%= Time.now %></h1>
+<%= render 'favorite/favorite' , detail: @detail[0]%>
 <table>
     <tr>
-        <td><%= image_tag( 'hitokage.png' , :size => "200x200")  %></td>
+        <td><%= image_tag( 'default.jpg' , :size => "200x200")  %></td>
     </tr>
     <tr>
         <th>作品名：</th>
@@ -26,6 +25,6 @@
     </tr>
     <tr>
         <th>評価：</th>
-        <td><%= render 'rate/rate' %></td>
+        <td><%= render 'rate/rate' , detail: @detail[0] %></td>
     </tr>
 </table>
