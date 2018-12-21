@@ -1,0 +1,17 @@
+<% provide(:title, 'ゆーざー　さくせい') %>
+<h1>計画表作成</h1>
+
+<!-- 左寄せにする予定 -->
+<div class="">
+  <h2>ピックアップ一覧</h2>
+  <% @favorite = Favorite.where(user_id: session[:user_id]) %>
+  <% @favorite.each do |data| %>
+    <%= (Spot.find_by(id: data.spot_id)).spot_name %>
+    <br>
+  <% end %>
+</div>
+
+<!-- 右寄せにする予定 -->
+<div class="">
+
+</div>

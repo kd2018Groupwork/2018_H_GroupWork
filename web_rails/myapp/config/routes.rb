@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get     'help'                    => 'static_pages#help'
   get     'about'                   => 'static_pages#about'
 
-  get     'planning/new'
-  get     'planning/reference'
+  get     'planning_create'         =>  'planning#create'
+  get     'planning_show'           =>  'planning#show'
 
-  get     'search'                  => 'static_pages#home'
-  get     'search_result'           => 'search#search_result'
-  get     'search_detail/:spot_id'  => 'search#search_detail' , as:'search_detail'
-  get     'time_line'               => 'search#_time_line'
+  get     'search'                  =>  'static_pages#home'
+  get     'search_result'           =>  'search#search_result'
+  get     'search_detail/:spot_id'  =>  'search#search_detail' , as:'search_detail'
+  get     'time_line'               =>  'search#_time_line'
 
   get     'signup'                  =>  'users#new'
   get     'login'                   =>  'sessions#new'
@@ -19,17 +19,17 @@ Rails.application.routes.draw do
   get                                   'sessions/new'
 
   get     'add_spot'                =>  'spot#new'
-  post    'products'               =>  'spot#commit_product'
+  post    'products'                =>  'spot#commit_product'
   get     'reg_spot'                =>  'spot#create_s'
   post    'spots'                   =>  'spot#create'
   get     'complete_spot'           =>  'spot#complete'
 
-  get     'favorite/show/:user_id'  => 'favorite#show' , as: 'fav_show'
-  post    'favorite/:spot_id'       => 'favorite#create'  , as:'fav'
-  delete  'favorite/:spot_id'       => 'favorite#destroy' , as:'unfav'
+  get     'favorite/show/:user_id'  =>  'favorite#show' , as: 'fav_show'
+  post    'favorite/:spot_id'       =>  'favorite#create'  , as:'fav'
+  delete  'favorite/:spot_id'       =>  'favorite#destroy' , as:'unfav'
   
-  post    'rate/:spot_id'           => 'rate#create'  , as:'rate'
-  delete  'rate/:spot_id'           => 'rate#destroy' , as:'unrate'
+  post    'rate/:spot_id'           =>  'rate#create'  , as:'rate'
+  delete  'rate/:spot_id'           =>  'rate#destroy' , as:'unrate'
 
   get     'offer'                   =>  'offer#index'
   post    'offer/confirm'           =>  'offer#confirm'

@@ -7,19 +7,20 @@
     </a>
     <div class="media-body">
       <h4 class="media-heading">
-        
-        <!-- 完了 -->
-        <%= link_to  data.spot_name ,search_detail_path(spot_id: data.id) %>
-      
+        <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
       </h4>
-      <%= data.details %>        
-        <!-- 完了 -->
+      <%= data.details %>
+    </div>
+    <div>
       <%= render 'rate/rate' , detail: data %>
     </div>
     <div>
-      <span class="timestamp"><%= time_ago_in_words(data.updated_at) %>前</span>
+      <span class="timestamp">
+        <%= time_ago_in_words(data.updated_at) %>前
+      </span>
     </div>
   </div>
   <br>
   <br>
+
 <% end %>

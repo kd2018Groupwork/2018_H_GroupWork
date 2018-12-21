@@ -1,12 +1,19 @@
-<% provide(:title, @user.user_name) %>
+<% provide(:title, @user.user_name + "の") %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <% if @user.image_name? %>
-          <%= image_tag @user.image_name.thumb.url %>
-        <% end %>
-        <%= @user.user_name %>
+        <table class="table">
+          <% if @user.image_name? %>
+            <tr>
+              <td>
+                <%= image_tag @user.image_name.thumb.url %><br>
+              </td>
+            </tr>
+          <% end %>
+          <tr><td><%= @user.user_name %></td></tr>
+          <tr><td><%= @user.email %></td></tr>
+        </table>
       </h1>
     </section>
   </aside>
