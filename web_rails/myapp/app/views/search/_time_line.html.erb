@@ -8,18 +8,13 @@
     <div class="media-body">
       <h4 class="media-heading">
         
-        <!-- ここ -->
-        <%= link_to data.spot_name, add_spot_path %>
+        <!-- 完了 -->
+        <%= link_to  data.spot_name ,search_detail_path(spot_id: data.id) %>
       
       </h4>
-      <%= data.details %>
-      <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md pull-right" do %>
-        
-        <!-- ここ -->
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        
-        <%= data.rate %></span>
-      <% end %>
+      <%= data.details %>        
+        <!-- 完了 -->
+      <%= render 'rate/rate' , detail: data %>
     </div>
     <div>
       <span class="timestamp"><%= time_ago_in_words(data.updated_at) %>前</span>
