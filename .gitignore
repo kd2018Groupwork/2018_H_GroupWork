@@ -14,3 +14,6 @@
 
 #mysql_data
 /db_mysql/db_data/*
+
+# images
+web_rails/myapp/public/uploads/spots/*
