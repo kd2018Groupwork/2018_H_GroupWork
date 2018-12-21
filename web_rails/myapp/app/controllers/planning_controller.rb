@@ -1,7 +1,8 @@
 class PlanningController < ApplicationController
-  def new
+  def create
+  end
+  
+  def show
   end
 
-  def reference
-  end
 end
