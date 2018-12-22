@@ -1,6 +1,5 @@
 <% provide(:title, 'ゆーざー　さくせい') %>
 <h1>計画表作成</h1>
-
 <!-- 左寄せにする予定 -->
 <!--
 <div class="">
@@ -14,7 +13,7 @@
 -->
 <!-- 右寄せにする予定 -->
 <div class="">
-  <% form_for(@plan) do |f| %>
+  <%= form_for(@plan) do |f| %>
     <table class="table">
       <tr>
         <th>時間<span class="text-danger">（必須）</span></th>
@@ -29,8 +28,6 @@
         <td><%= f.text_field :comment, class: 'form-control' %></td>
       </tr>
     </table>
-
     <%= f.submit :"計画表を完成させる", class: "btn btn-primary" %>
   <% end %>
-
 </div>
