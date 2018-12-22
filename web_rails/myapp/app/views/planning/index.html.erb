@@ -1,0 +1,36 @@
+<% provide(:title, 'ゆーざー　さくせい') %>
+<h1>計画表作成</h1>
+
+<!-- 左寄せにする予定 -->
+<!--
+<div class="">
+  <h2>ピックアップ一覧</h2>
+  <% @favorite = Favorite.where(user_id: session[:user_id]) %>
+  <% @favorite.each do |data| %>
+    <%= (Spot.find_by(id: data.spot_id)).spot_name %>
+    <br>
+  <% end %>
+</div>
+-->
+<!-- 右寄せにする予定 -->
+<div class="">
+  <% form_for(@plan) do |f| %>
+    <table class="table">
+      <tr>
+        <th>時間<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :date, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>スポット名<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :spot_name, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>コメント</th>
+        <td><%= f.text_field :comment, class: 'form-control' %></td>
+      </tr>
+    </table>
+
+    <%= f.submit :"計画表を完成させる", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
