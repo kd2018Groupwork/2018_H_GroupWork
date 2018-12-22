@@ -14,7 +14,9 @@
 //= require jquery
 
 //= require bootstrap
-//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 //= require jquery.jpostal 
+//= require nested_form_fields
+//= require jquery_ujs
+//= require rails-ujs

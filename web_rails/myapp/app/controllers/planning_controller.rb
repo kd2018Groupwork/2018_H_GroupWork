@@ -1,17 +1,17 @@
 class PlanningController < ApplicationController
   def index
-    @plan = PlanDetail.new
+    @plan = Plan.new
   end
 
   def create
     # pransテーブルへの保存
-    @prans = Prans.new
-    @prans.user_id = session[:user_id]
-    @prans.plan_id = 
-    @prans.save
+    @pran = Plan.new
+    @pran.user_id = session[:user_id]
+    @pran.plan_id = Plan.count + 1
+    @pran.save
 
     # pran_detailテーブルへの保存
-    @pran_detail = PranDetail.new(pran_params)
+    @pran_detail = PlanDetail.new(pran_params)
     @pran_detail.plan_id = @prans.id
     if @pran_detail.save
     
@@ -25,11 +25,20 @@ class PlanningController < ApplicationController
 
   private
     def pran_params
-      params.require(:pran).permit(
+      params.require(:plan).permit(
         :plan_id,
         :date,
         :spot_name,
         :comment,
+        roomtypes_attributes: 
+        [
+          :id, 
+          :plan_id, 
+          :date, 
+          :spot_name, 
+          :comment, 
+          :_destroy
+        ]
       )
     end
 
