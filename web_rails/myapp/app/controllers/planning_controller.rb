@@ -1,13 +1,13 @@
 class PlanningController < ApplicationController
   def index
-    @plan = PlanDetail.new
+    @plan = Plan.new
   end
 
   def create
     # pransテーブルへの保存
-    @prans = Prans.new
+    @prans = Pran.new
     @prans.user_id = session[:user_id]
-    @prans.plan_id = 
+    @prans.plan_id = Pran.count + 1
     @prans.save
 
     # pran_detailテーブルへの保存
@@ -30,6 +30,15 @@ class PlanningController < ApplicationController
         :date,
         :spot_name,
         :comment,
+        roomtypes_attributes: 
+        [
+          :id, 
+          :plan_id, 
+          :date, 
+          :spot_name, 
+          :comment, 
+          :_destroy
+        ]
       )
     end
 
