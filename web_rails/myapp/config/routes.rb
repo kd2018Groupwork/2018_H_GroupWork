@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   get     'help'                    => 'static_pages#help'
   get     'about'                   => 'static_pages#about'
 
-  get     'planning_create'         =>  'planning#create'
-  get     'planning_show'           =>  'planning#show'
-
   get     'search'                  =>  'static_pages#home'
   get     'search_result'           =>  'search#search_result'
   get     'search_detail/:spot_id'  =>  'search#search_detail' , as:'search_detail'
@@ -35,6 +32,9 @@ Rails.application.routes.draw do
   post    'offer/confirm'           =>  'offer#confirm'
   post    'offer/complete'          =>  'offer#complete'
 
+  get     'planning_index'          =>  'planning#index'
+  post    'planning_create'         =>  'planning#create' , as:'plan_details'
+  get     'planning_show'           =>  'planning#show'
 
   resources :users
 
