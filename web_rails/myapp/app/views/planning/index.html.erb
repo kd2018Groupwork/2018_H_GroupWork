@@ -1,4 +1,4 @@
-<% provide(:title, 'ゆーざー　さくせい') %>
+<% provide(:title, '計画表作成') %>
 <h1>計画表作成</h1>
 <!-- 左寄せにする予定 -->
 <div class="col-md-2" style="text-align: center;">
@@ -21,7 +21,7 @@
       <th>コメント</th>
       <th></th>
     </tr>
-    <%= form_for(@plan) do |f| %>
+    <%= form_for @plan do |f| %>
       <%= f.nested_fields_for :plan_details, wrapper_tag: :tr do |q| %>
         <td style="text-align: center;">
           <%= q.datetime_select :date, {}, {class: 'form-control bootstrap-date'} %>
@@ -45,7 +45,7 @@
         <span class="glyphicon-plus"></span>
         Add new
       <% end %>
-
-      <%= f.submit :"計画表を完成させる", class: "btn btn-primary" %>
+      
+      <%= f.submit :計画表を完成させる, class: "btn btn-primary" %>
     <% end %>
 </div>

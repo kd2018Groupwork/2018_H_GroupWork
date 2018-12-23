@@ -35,7 +35,9 @@ Rails.application.routes.draw do
   get     'planning_index'          =>  'planning#index'
   post    'planning_create'         =>  'planning#create', as:'plans'
   get     'planning_show'           =>  'planning#show'
+  get     'complete_planning'       =>  'planning#complete'
 
+  resources :prans
   resources :users
 
 end
