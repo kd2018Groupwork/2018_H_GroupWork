@@ -21,12 +21,19 @@ class Spot < ApplicationRecord
   end
 
   #西田: 検索用
-  def self.search_products(search)
-    if search
-      @product = Product.where(['product_name LIKE ?', "%#{search}%"])
+  def self.search_products(product_name)
+    if product_name
+      @product = Product.where(['product_name LIKE ?', "%#{product_name}%"])
     else
       Product.all
     end
   end
 
+  def self.search_pref(pref_code)
+    if pref_code
+      @pref = Spot.find(pref_code)
+    else
+      Spot.all
+    end
+  end
 end
