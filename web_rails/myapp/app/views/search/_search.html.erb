@@ -1,4 +1,4 @@
-<!-- まだ未完成です　-->
+<!--西田: まだ未完成 12月23日　-->
 <% provide(:title, "けんさく") %>
 <h1>けんさくするよ</h1>
 
@@ -8,27 +8,61 @@
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a href="#product-tab" class="nav-link active" data-toggle="tab" >さくひん</a>
+          <a href="#product-tab" class="nav-link active" data-toggle="tab" >
+            さくひん
+          </a>
         </li>
         <li class="nav-item">
-          <a href="#pref-tab" class="nav-link" data-toggle="tab" >ちいき</a>
+          <a href="#pref-tab" class="nav-link" data-toggle="tab" >
+            ちいき
+          </a>
         </li>
       </ul>
 
       <div class="tab-content">
+        <!-- 作品検索フォーム -->
         <div id="product-tab" class="tab-pane active">
-          <%= form_tag(search_result_path, method: "get") do  %>
-            <%= text_field_tag :search, params[:search], placeholder: "さくひんめい", class:"form-control"%>
-            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
-          <% end %>
-        </div>
-        <div id="pref-tab" class="tab-pane">
-          <%= form_tag(search_result_path, method: "get") do  %>
-            <%= text_field_tag :search, params[:search], placeholder: "けんめい", class:"form-control" %>
+          <%= form_tag(
+                search_result_path,
+                method: "get",
+                 class: "form-horizontal"
+              ) do
+          %>
+            <%= text_field_tag :search, params[:search],
+              placeholder: "さくひんめい",
+                    class: "form-control"
+            %>
             <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
         </div>
 
+        <!-- 地域検索フォーム -->
+        <div id="pref-tab" class="tab-pane">
+          <%= form_tag(
+                search_result_path,
+                method: "get",
+                 class: "form-horizontal"
+                ) do 
+          %>
+            <div class="form-inline">
+              <%= select_tag 'pref',
+                options_from_collection_for_select(
+                  JpPrefecture::Prefecture.all,
+                  :code,
+                  :name
+                ),
+                class: "form-control"
+              %>
+            <!--西田: スポットに登録されたエリアを表示できるようにする -->
+              <%= text_field_tag :city,
+                params[:city],
+                placeholder: "しちょうそん",
+                      class: "form-control"
+              %>
+            </div>
+            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
