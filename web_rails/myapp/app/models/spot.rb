@@ -20,7 +20,7 @@ class Spot < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
-  #検索用
+  #西田: 検索用
   def self.search_products(search)
     if search
       @product = Product.where(['product_name LIKE ?', "%#{search}%"])
