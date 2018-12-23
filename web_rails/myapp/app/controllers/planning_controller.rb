@@ -1,6 +1,7 @@
 class PlanningController < ApplicationController
   def index
     @plan = Plan.new
+    @plan.plan_details.build
   end
 
   def create
@@ -12,11 +13,13 @@ class PlanningController < ApplicationController
 
     # pran_detailテーブルへの保存
     @pran_detail = PlanDetail.new(pran_params)
-    @pran_detail.plan_id = @prans.id
+    @pran_detail.plan_id = @pran.id
     if @pran_detail.save
-    
+      flash[:success] = "計画表作成を作成しました!"
+      redirect_to :complete_planning
     else
-      
+      flash[:denger] = "計画表作成に失敗しました"
+      redirect_to :planning_index
     end
   end
   
@@ -30,7 +33,7 @@ class PlanningController < ApplicationController
         :date,
         :spot_name,
         :comment,
-        roomtypes_attributes: 
+        plan_details: 
         [
           :id, 
           :plan_id, 
