@@ -47,9 +47,9 @@
             <div class="form-inline">
               <%= select_tag 'pref',
                 options_from_collection_for_select(
-                  JpPrefecture::Prefecture.all,
-                  :code,
-                  :name
+                  registered_prefs,
+                  :first,
+                  :second
                 ),
                 class: "form-control"
               %>
