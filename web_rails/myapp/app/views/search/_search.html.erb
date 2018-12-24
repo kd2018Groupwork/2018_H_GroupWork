@@ -45,11 +45,12 @@
                 ) do 
           %>
             <div class="form-inline">
+              <% debugger %>
               <%= select_tag 'pref',
                 options_from_collection_for_select(
-                  JpPrefecture::Prefecture.all,
-                  :code,
-                  :name
+                  registered_prefs,
+                  :first,
+                  :second
                 ),
                 class: "form-control"
               %>
