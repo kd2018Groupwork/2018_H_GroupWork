@@ -2,9 +2,13 @@ class SearchController < ApplicationController
   def search
   end
   
+  #西田: ToDo:保守性低いから後で変えること検討
   def search_result
-    #西田: ToDo:結果のIDが複数あるかどうか確認するメソッド追加
-    search_from_product_name
+    if params[:product]
+      search_spot_from_product
+    else
+      search_spot_from_location
+    end
   end
   
   def search_detail
@@ -13,9 +17,16 @@ class SearchController < ApplicationController
 
   private
 
-  def search_from_product_name
-    @product = Spot.search_products(params[:search]) 
-    @result  = Spot.find(@product.ids)
-  end
-  
+    def search_spot_from_product
+      @product = Spot.search_products(params[:product]) 
+      @result  = Spot.find(@product.ids)
+      render 'search_result'
+    end
+    
+    #西田: city検索用のコードあとで書く
+    def search_spot_from_location
+      @result  = Spot.search_pref(params[:pref])
+      render 'search_result'
+    end
+
 end

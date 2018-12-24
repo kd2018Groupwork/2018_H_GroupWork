@@ -9,7 +9,7 @@ class Spot < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
 
-  include JpPrefecture
+include JpPrefecture
   jp_prefecture :prefecture_code
   
   def prefecture_name
@@ -20,18 +20,20 @@ class Spot < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
+
   #西田: 検索用
   def self.search_products(product_name)
     if product_name
-      @product = Product.where(['product_name LIKE ?', "%#{product_name}%"])
+      Product.where(['product_name LIKE ?', "%#{product_name}%"])
     else
       Product.all
     end
   end
 
+  #西田： ToDo:きれいにする
   def self.search_pref(pref_code)
-    if pref_code
-      @pref = Spot.find(pref_code)
+    if !!Spot.find_by(prefecture_code: pref_code)
+      Spot.where(['prefecture_code = ?', pref_code])
     else
       Spot.all
     end
