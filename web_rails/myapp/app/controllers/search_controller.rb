@@ -10,6 +10,10 @@ class SearchController < ApplicationController
       search_spot_from_location
     end
   end
+
+  def get_cities
+    render partial: 'select_city', locals: {pref_code: params[:pref]}
+  end
   
   def search_detail
     @detail = Product.joins(:spots).select("*").where("spots.id" => params[:spot_id])
