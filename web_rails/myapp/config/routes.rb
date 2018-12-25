@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get     'search'                  =>  'static_pages#home'
   get     'search_result'           =>  'search#search_result'
   get     'search_detail/:spot_id'  =>  'search#search_detail' , as:'search_detail'
+  get     'search/get_cities'       =>  'search#get_cities'
   get     'time_line'               =>  'search#_time_line'
 
   get     'signup'                  =>  'users#new'
