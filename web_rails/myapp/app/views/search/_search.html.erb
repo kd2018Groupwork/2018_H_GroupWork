@@ -49,16 +49,15 @@
                 options_from_collection_for_select(
                   registered_prefs,
                   :first,
-                  :second
+                  :second,
+                  id: 'pref'
                 ),
                 class: "form-control"
               %>
-            <!--西田: スポットに登録されたエリアを表示できるようにする -->
-              <%= text_field_tag :city,
-                params[:city],
-                placeholder: "しちょうそん",
-                      class: "form-control"
-              %>
+
+              <label id="city-area">
+                <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
+              </label>
             </div>
             <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
