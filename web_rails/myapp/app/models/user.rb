@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   mount_uploader :image_name, ImagesUploader
   attr_accessor :remember_token

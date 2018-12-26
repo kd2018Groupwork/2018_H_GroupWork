@@ -62,6 +62,22 @@ Spot.create(
     #:images  =>  File.open("./public/uploads/spots/20181220042151.jpg")
 )
 
+Comment.create(
+    :user_id => 1,
+    :spot_id => 1,
+    :comment => 'こんにちは'
+)
+Comment.create(
+    :user_id => 1,
+    :spot_id => 1,
+    :comment => 'いいですね'
+)
+Comment.create(
+    :user_id => 1,
+    :spot_id => 2,
+    :comment => 'hello'
+)
+
 Genre.create(
     :genre_name => '歴史'
 )
