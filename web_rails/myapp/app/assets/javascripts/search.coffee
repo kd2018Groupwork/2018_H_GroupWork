@@ -6,4 +6,4 @@ $(document).on 'change', '#pref', ->
       pref: $(this).val()
     }
   ).done (data) ->
-    $('.city-area').html(data)
+    $('label#city-area').html(data)

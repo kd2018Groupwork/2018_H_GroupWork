@@ -38,4 +38,13 @@ include JpPrefecture
       Spot.all
     end
   end
+
+  def self.search_city(pref_code,city_name='')
+    if !city_name.blank?
+      Spot.where(['prefecture_code = ? and address_city LIKE ?', pref_code,city_name])
+    else
+      self.search_pref(pref_code)
+    end
+  end
+
 end
