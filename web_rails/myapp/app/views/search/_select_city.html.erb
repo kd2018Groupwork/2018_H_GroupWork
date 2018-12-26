@@ -1,6 +1,6 @@
 <%= select_tag 'city',
   options_from_collection_for_select(
-    spot(spots),
+    select_cities(spots),
     :first,
     :second,
     id: 'city'

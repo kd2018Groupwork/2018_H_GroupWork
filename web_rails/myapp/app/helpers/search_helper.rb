@@ -14,7 +14,7 @@ module SearchHelper
     result.map{|hash| [hash[:code], hash[:name]]}.uniq
   end
 
-  def spot(spots)
+  def select_cities(spots)
     result = [{code: '', name: ''}]
     if spots.select('prefecture_code').distinct.length == 1
       spots.each do |spt|
