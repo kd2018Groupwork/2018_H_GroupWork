@@ -5,14 +5,15 @@ class SearchController < ApplicationController
   #西田: ToDo:保守性低いから後で変えること検討
   def search_result
     if params[:product]
-      search_spot_from_product
+      @result = search_spot_from_product(params[:product])
     else
-      search_spot_from_location
+      @result = search_spot_from_location(params[:pref],params[:city])
     end
   end
 
   def get_cities
-    render partial: 'select_city', locals: {pref_code: params[:pref]}
+    result = Spot.search_pref(params[:pref])
+    render partial: 'select_city', locals: { spots: result }
   end
   
   def search_detail
@@ -23,16 +24,13 @@ class SearchController < ApplicationController
 
   private
 
-    def search_spot_from_product
-      @product = Spot.search_products(params[:product]) 
-      @result  = Spot.find(@product.ids)
-      render 'search_result'
+    def search_spot_from_product(product_name)
+      product = Spot.search_products(product_name)
+      Spot.find(product.ids)
     end
     
-    #西田: city検索用のコードあとで書く
-    def search_spot_from_location
-      @result  = Spot.search_pref(params[:pref])
-      render 'search_result'
+    def search_spot_from_location(pref_code,city_name='')
+      Spot.search_city(pref_code,city_name)
     end
 
 end

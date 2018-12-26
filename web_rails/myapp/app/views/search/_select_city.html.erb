@@ -1,1 +1,9 @@
-<%= pref_code %>
+<%= select_tag 'city',
+  options_from_collection_for_select(
+    select_cities(spots),
+    :first,
+    :second,
+    id: 'city'
+  ),
+  class: 'form-control'
+%>
