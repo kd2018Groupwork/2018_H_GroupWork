@@ -1,4 +1,7 @@
-<%= render 'favorite/favorite' , detail: @detail[0]%>
+<% if current_user%>
+    <%= render 'favorite/favorite' , detail: @detail[0]%>
+<% end %>
+<div id="media" style="width: 70%; margin: auto;">
 <table>
     <tr>
         <td><%= image_tag( 'default.jpg' , :size => "200x200")  %></td>
@@ -25,18 +28,10 @@
     </tr>
     <tr>
         <th>評価：</th>
-        <td><%= render 'rate/rate' , detail: @detail[0] %></td>
+        <td>
+            <%= render 'rate/rate' , detail: @detail[0] %>
+        </td>
     </tr>
 </table>
-<%= form_for @comment do |f| %>
-    <%= f.text_field :comment %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
-    <br>
-    <%= f.submit 'コメントする' %>
-<% end %>
-
-<% @comments.each do |comment| %>
-    <p><%= comment.user_id %></p>
-    <p><%= comment.comment %></p>
-<% end %>
+<%= render 'comment/comment' %>
+</div>

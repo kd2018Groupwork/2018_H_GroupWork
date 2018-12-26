@@ -19,7 +19,7 @@ class SearchController < ApplicationController
   def search_detail
     @detail = Product.joins(:spots).select("*").where("spots.id" => params[:spot_id])
     @comment = Comment.new
-    @comments = Comment.where(spot_id:params[:spot_id])
+    @comments = User.joins(:comments).select("*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')
   end
 
   private
