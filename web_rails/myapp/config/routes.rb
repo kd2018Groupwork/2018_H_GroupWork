@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root                                 'static_pages#home'
   get     'help'                    => 'static_pages#help'
   get     'about'                   => 'static_pages#about'
@@ -28,6 +27,9 @@ Rails.application.routes.draw do
   
   post    'rate/:spot_id'           =>  'rate#create'  , as:'rate'
   delete  'rate/:spot_id'           =>  'rate#destroy' , as:'unrate'
+
+  post    'comment/:spot_id'           =>  'comment#create'  , as:'comments'
+  delete  'comment/:spot_id'           =>  'comment#destroy' , as:'uncomment'
 
   get     'offer'                   =>  'offer#index'
   post    'offer/confirm'           =>  'offer#confirm'
