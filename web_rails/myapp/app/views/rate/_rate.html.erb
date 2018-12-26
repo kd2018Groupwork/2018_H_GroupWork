@@ -1,13 +1,18 @@
-<% if !Rating.exists?(user_id:current_user.id,spot_id:detail.id) %>
-    <%= link_to rate_path(detail.id) , method: :post , class:"btn btn-default"  do %>
-        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
-        <%= detail.rate %>
-        </span>
+<% if current_user %>
+    <% if !Rating.exists?(user_id:current_user.id,spot_id:detail.id) %>
+        <%= link_to rate_path(detail.id) , method: :post , class:"btn btn-default"  do %>
+            <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+            <%= detail.rate %>
+            </span>
+        <% end %>
+    <% else %>
+        <%= link_to unrate_path(detail.id),method: :delete , class:"btn btn-default"  do %>
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <%= detail.rate %>
+            </span>
+        <% end %>
     <% end %>
 <% else %>
-    <%= link_to unrate_path(detail.id),method: :delete , class:"btn btn-default"  do %>
-        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-        <%= detail.rate %>
-        </span>
-    <% end %>
+    <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+    <%= detail.rate %>
 <% end %>
