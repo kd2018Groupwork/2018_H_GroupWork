@@ -17,7 +17,7 @@ module SearchHelper
   end
 
   def select_genres
-    result = [{code: nil , name: 'ジャンル'},{code: nil, name: 'すべて'}]
+    result = [{code: nil, name: 'すべて'}]
     Genre.all.each do |gnr|
       result.append(
         {

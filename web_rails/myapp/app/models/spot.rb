@@ -56,7 +56,4 @@ include JpPrefecture
     end
   end
 
-  def search_product_and_pref_and_city(product_name,pref_code,city_name)
-  end
-
 end

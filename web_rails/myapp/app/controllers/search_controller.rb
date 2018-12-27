@@ -4,11 +4,12 @@ class SearchController < ApplicationController
   
   #西田: ToDo:保守性低いから後で変えること検討
   def search_result
-    if params[:product]
-      @result = search_spot_from_product(params[:product], params[:genre])
-    else
-      @result = search_spot_from_location(params[:pref],params[:city])
-    end
+    @result = search(
+      params[:product],
+      params[:genre],
+      params[:pref],
+      params[:city]
+      )
   end
 
   def get_cities
@@ -23,6 +24,12 @@ class SearchController < ApplicationController
   end
 
   private
+
+    def search(product_name,genre_id,pref_code,city_name)
+      spot_product  = search_spot_from_product(product_name,genre_id)
+      spot_location = search_spot_from_location(pref_code,city_name)
+      spot_product.merge(spot_location)
+    end
 
     def search_spot_from_product(product_name,genre_id)
       product = Spot.search_product_and_genre(product_name,genre_id)

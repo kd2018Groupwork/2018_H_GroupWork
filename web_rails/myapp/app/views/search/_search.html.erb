@@ -91,6 +91,16 @@
                 placeholder: "さくひんめい",
                       class: "form-control"
               %>
+              <!--西田：　あとでプロンプトつける　-->
+              <%= select_tag "genre",
+                options_from_collection_for_select(
+                  select_genres,
+                  :first,
+                  :second,
+                  id: "genre"
+                ),
+                class: "form-control"
+              %>         
               <strong>✕</strong>
               <%= select_tag 'pref',
                 options_from_collection_for_select(
