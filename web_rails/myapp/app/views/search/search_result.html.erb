@@ -1,8 +1,34 @@
-<% @result.each do |data| %>
-  <ul>
-    <li >
-      <span><%= data.spot_name %></span>
-      <span><%= data.details %></span>
-    </li>
-  </ul>
+<%= render 'search' %>
+<hr><P class="center">検索結果</p>
+<br><br>
+<!-- ココらへんに絞り込みレンダーする -->
+<% @result.each do |spot| %>
+  <div id="media" style="width: 50%; margin: auto;">
+<!-- 画像表示用
+    <a class="pull-left" href="#">
+    <%= link_to search_detail_path(spot_id: spot.id) do %>
+      <%= image_tag(
+        spot.images[0].url,
+        class: "img-thumbnail",
+         size: 100
+        ) if spot.images?
+      %>
+    <% end %>
+    </a>
+-->
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to spot.spot_name,
+          search_detail_path(spot_id: spot.id)
+        %>
+      </h4>
+      <%= spot.details %>
+    </div>
+    <div>
+      <%= render 'rate/rate' , detail: spot %>
+    </div>
+  </div>
+  <br>
+  <br>
+
 <% end %>
