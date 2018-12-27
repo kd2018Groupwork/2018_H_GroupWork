@@ -16,9 +16,9 @@ module SearchHelper
     result.map{|hash| [hash[:code], hash[:name]]}.uniq
   end
 
-  def select_genres()
+  def select_genres
     result = [{code: nil , name: 'ジャンル'},{code: nil, name: 'すべて'}]
-    Genre.all do |gnr|
+    Genre.all.each do |gnr|
       result.append(
         {
           code: gnr.id,
@@ -26,7 +26,7 @@ module SearchHelper
         }
       )
     end
-      result.map{|hash| [hash[:code], hash[:name]]}.uniq
+    result.map{|hash| [hash[:code], hash[:name]]}.uniq
   end
 
 

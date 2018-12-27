@@ -26,7 +26,7 @@ class SearchController < ApplicationController
 
     def search_spot_from_product(product_name,genre_id)
       product = Spot.search_product_and_genre(product_name,genre_id)
-      Spot.find(product.ids)
+      Spot.where(['product_id IN (?)', product.ids])
     end
     
     def search_spot_from_location(pref_code,city_name)

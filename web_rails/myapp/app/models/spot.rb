@@ -41,19 +41,22 @@ include JpPrefecture
 
   #西田： ToDo:きれいにする
   def self.search_pref(pref_code)
-    if !!Spot.find_by(prefecture_code: pref_code)
-      Spot.where(['prefecture_code = ?', "#{pref_code}"])
+    if !!self.find_by(prefecture_code: pref_code)
+      self.where(['prefecture_code = ?', "#{pref_code}"])
     else
-      Spot.all
+      self.all
     end
   end
 
   def self.search_pref_and_city(pref_code,city_name)
     if !city_name.blank?
-      Spot.where(['prefecture_code = ? AND address_city LIKE ?', "%#{pref_code}%", "#{city_name}"])
+      self.where(['prefecture_code = ? AND address_city LIKE ?', "%#{pref_code}%", "#{city_name}"])
     else
       self.search_pref(pref_code)
     end
+  end
+
+  def search_product_and_pref_and_city(product_name,pref_code,city_name)
   end
 
 end
