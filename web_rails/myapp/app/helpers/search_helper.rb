@@ -1,5 +1,7 @@
 module SearchHelper
-  def registered_prefs
+#西田：　重複コードたくさんあるので後できれいにするかも
+
+  def select_prefs
     result = [{code: 99, name: '全国'}]
     Spot.all.each do |spt|
       result.append(
@@ -14,8 +16,22 @@ module SearchHelper
     result.map{|hash| [hash[:code], hash[:name]]}.uniq
   end
 
+  def select_genres
+    result = [{code: nil, name: 'すべて'}]
+    Genre.all.each do |gnr|
+      result.append(
+        {
+          code: gnr.id,
+          name: gnr.genre_name
+        }
+      )
+    end
+    result.map{|hash| [hash[:code], hash[:name]]}.uniq
+  end
+
+
   def select_cities(spots)
-    result = [{code: '', name: ''}]
+    result = [{code: nil, name: 'すべて'}]
     if spots.select('prefecture_code').distinct.length == 1
       spots.each do |spt|
         result.append(
