@@ -2,7 +2,6 @@ class SearchController < ApplicationController
   def search
   end
   
-  #西田: ToDo:保守性低いから後で変えること検討
   def search_result
     @result = search(
       params[:product],

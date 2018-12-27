@@ -39,7 +39,6 @@ include JpPrefecture
     end
   end
 
-  #西田： ToDo:きれいにする
   def self.search_pref(pref_code)
     if !!self.find_by(prefecture_code: pref_code)
       self.where(['prefecture_code = ?', "#{pref_code}"])
