@@ -33,7 +33,7 @@ include JpPrefecture
 
   def self.search_product_and_genre(product_name,genre_id)
     if !genre_id.blank?
-      Product.where(['product_name LIKE ? AND genre_id = ?',"#{product_name}", "#{genre_id}"])
+      Product.where(['product_name LIKE ? AND genre_id = ?',"%#{product_name}%", "#{genre_id}"])
     else
       self.search_product(product_name)
     end
@@ -50,7 +50,7 @@ include JpPrefecture
 
   def self.search_pref_and_city(pref_code,city_name)
     if !city_name.blank?
-      self.where(['prefecture_code = ? AND address_city LIKE ?', "%#{pref_code}%", "#{city_name}"])
+      self.where(['prefecture_code = ? AND address_city LIKE ?', "#{pref_code}", "%#{city_name}%"])
     else
       self.search_pref(pref_code)
     end
