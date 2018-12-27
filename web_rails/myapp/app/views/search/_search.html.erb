@@ -28,10 +28,22 @@
                  class: "form-horizontal"
               ) do
           %>
-            <%= text_field_tag :product, params[:product],
-              placeholder: "さくひんめい",
-                    class: "form-control"
-            %>
+            <div class="form-inline">
+              <%= text_field_tag :product, params[:product],
+                placeholder: "さくひんめい",
+                      class: "form-control"
+              %>
+              <!--西田：　あとでプロンプトつける　-->
+              <%= select_tag "genre",
+                options_from_collection_for_select(
+                  select_genres,
+                  :first,
+                  :second,
+                  id: "genre"
+                ),
+                class: "form-control"
+              %>
+            </div>
             <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
         </div>
@@ -47,7 +59,7 @@
             <div class="form-inline">
               <%= select_tag 'pref',
                 options_from_collection_for_select(
-                  registered_prefs,
+                  select_prefs,
                   :first,
                   :second,
                   id: 'pref'
