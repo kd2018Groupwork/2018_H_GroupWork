@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   end
   
   def search_result
-    @result = search(
+    @result = search_spots(
       params[:product],
       params[:genre],
       params[:pref],
@@ -24,7 +24,7 @@ class SearchController < ApplicationController
 
   private
 
-    def search(product_name,genre_id,pref_code,city_name)
+    def search_spots(product_name,genre_id,pref_code,city_name)
       spot_product  = search_spot_from_product(product_name,genre_id)
       spot_location = search_spot_from_location(pref_code,city_name)
       spot_product.merge(spot_location)
