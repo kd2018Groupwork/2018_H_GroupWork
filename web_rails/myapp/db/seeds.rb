@@ -61,7 +61,7 @@ Spot.create(
     :address_building  =>  '逆瀬川の100円ショップ',
     #:images  =>  File.open("./public/uploads/spots/20181220042151.jpg")
 )
-
+=begin
 Comment.create(
     :user_id => 1,
     :spot_id => 1,
@@ -77,7 +77,7 @@ Comment.create(
     :spot_id => 2,
     :comment => 'hello'
 )
-
+=end
 Genre.create(
     :genre_name => '歴史'
 )
