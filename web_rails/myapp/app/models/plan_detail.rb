@@ -1,7 +1,6 @@
 class PlanDetail < ApplicationRecord
-  belongs_to :plans
+  belongs_to :plan
   
   validates :date,        presence: true
   validates :spot_name,   presence: true
-  validates :comment,     presence: true
 end
