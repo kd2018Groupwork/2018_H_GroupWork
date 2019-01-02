@@ -6,18 +6,10 @@ class PlanningController < ApplicationController
 
   def create
     # plansテーブルへの保存
-    #@plan = Plan.new(plan_params)
-    #@plan.user_id = session[:user_id]
-    #@plan.plan_id = Plan.count + 1
-    #if @plan.save
-    
     @plan = Plan.new(plan_params)
+    @plan.user_id = session[:user_id]
+    @plan.plan_id = Plan.count + 1
     if @plan.save
-    # plan_detailsテーブルへの保存
-    #@plan_detail = PlanDetail.new(plan_params)
-    #@plan_detail.plan_id = @pran.id
-
-    #if @pran_detail.save
       flash[:success] = "計画表作成を作成しました!"
       redirect_to :complete_planning
     else
@@ -29,11 +21,27 @@ class PlanningController < ApplicationController
   def show
   end
 
+  def plan_detail
+    @detail = PlanDetail.where(plan_id: params[:plan_id])
+  end
+
+  def destroy_all
+    checked_data = params[:deletes].keys
+    if Plan.destroy(checked_data)
+      flash[:success] = "計画表を削除しました!"
+      redirect_to :plan_detail
+    else
+      flash[:denger] = "削除に失敗しました"
+      render :plan_detail
+    end
+  end
+
   private
     def plan_params
       params.require(:plan).permit(
         :user_id,
         :plan_id,
+        :plan_name,
         plan_details_attributes: 
         [
           :id, 

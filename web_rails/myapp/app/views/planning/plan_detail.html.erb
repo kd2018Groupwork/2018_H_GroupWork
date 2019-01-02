@@ -1,0 +1,16 @@
+<% provide(:title, '計画表詳細') %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <table class="table table-striped table-bordered table-hover">
+        <% @detail.each do |d| %>
+          <tr>
+            <td><%= d.date.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= d.spot_name %>
+            <td><%= d.comment %></td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  </aside>
+</div>

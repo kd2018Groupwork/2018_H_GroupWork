@@ -1,6 +1,7 @@
 <% provide(:title, '計画表作成') %>
 <h1>計画表作成</h1>
 <!-- 左寄せにする予定 -->
+<!--
 <div class="col-md-2" style="text-align: center;">
   <h2>ピックアップ一覧</h2>
   <% hash = {} %>
@@ -11,7 +12,7 @@
   <br>
   <br>
 </div>
-
+-->
 <!-- 右寄せにする予定 -->
 <div class="col-md-10">
   <table class="table table-striped table-bordered table-hover">
@@ -22,6 +23,8 @@
       <th></th>
     </tr>
     <%= form_for @plan do |f| %>
+      <%= f.label :"計画表の名前" %>
+      <%= f.text_field :plan_name, class: 'form-control' %>
       <%= f.nested_fields_for :plan_details, wrapper_tag: :tr do |q| %>
         <td style="text-align: center;">
           <%= q.datetime_select :date, {}, {class: 'form-control bootstrap-date'} %>
