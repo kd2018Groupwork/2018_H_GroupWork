@@ -3,11 +3,11 @@
 <ul class="cbp_tmtimeline">
   <li>
     <% @detail.each do |d| %>
-      <time class="cbp_tmtime" datetime="2013-04-16 21:30">
+      <time class="cbp_tmtime">
         <span><%= d.date.strftime("%Y/%m/%d") %></span>
         <span><%= d.date.strftime("%H:%M") %></span>
       </time>
-      <div class="cbp_tmicon cbp_tmicon-earth"></div>
+      <div class="cbp_tmicon"></div>
       <div class="cbp_tmlabel">
         <h2 style="color: #fff">
           <%= d.spot_name %>
