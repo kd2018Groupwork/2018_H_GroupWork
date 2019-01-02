@@ -1,16 +1,23 @@
 <% provide(:title, '計画表詳細') %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <table class="table table-striped table-bordered table-hover">
-        <% @detail.each do |d| %>
-          <tr>
-            <td><%= d.date.strftime("%Y/%m/%d %H:%M") %></td>
-            <td><%= d.spot_name %>
-            <td><%= d.comment %></td>
-          </tr>
+<h1><%= @plan_name %></h1>
+<ul class="cbp_tmtimeline">
+  <li>
+    <% @detail.each do |d| %>
+      <time class="cbp_tmtime">
+        <span><%= d.date.strftime("%Y/%m/%d") %></span>
+        <span><%= d.date.strftime("%H:%M") %></span>
+      </time>
+      <div class="cbp_tmicon"></div>
+      <div class="cbp_tmlabel">
+        <h2 style="color: #fff">
+          <%= d.spot_name %>
+        </h2>
+        <% if !d.comment.empty? %>
+          <p style="color: #fff">
+            <%= d.comment %>
+          </p>
         <% end %>
-      </table>
-    </section>
-  </aside>
-</div>
+      </div>
+    <% end %>
+  </li>
+</ul>
