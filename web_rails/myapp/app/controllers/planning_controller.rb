@@ -22,9 +22,11 @@ class PlanningController < ApplicationController
   end
 
   def plan_detail
+    @plan_name = (Plan.find(params[:plan_id])).plan_name
     @detail = PlanDetail.where(plan_id: params[:plan_id])
   end
 
+  # 未完成
   def destroy_all
     checked_data = params[:deletes].keys
     if Plan.destroy(checked_data)
