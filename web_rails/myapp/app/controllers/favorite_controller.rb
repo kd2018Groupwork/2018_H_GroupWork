@@ -10,7 +10,9 @@ class FavoriteController < ApplicationController
 
   def create
     @spot = params[:spot_id]
+    @user_spot = UserSpot.find_by(spot_id: @spot)
     if Favorite.create(user_id: current_user.id , spot_id: @spot)
+      User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 5")
       redirect_to search_detail_path(spot_id: @spot)
     else  
       redirect_to root_path
@@ -19,7 +21,9 @@ class FavoriteController < ApplicationController
 
   def destroy
     @spot = params[:spot_id]
+    @user_spot = UserSpot.find_by(spot_id: @spot)
     if favorite = Favorite.find_by(user_id: current_user.id , spot_id: @spot)
+      User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 5")
       favorite.delete
       redirect_to search_detail_path(spot_id: @spot)
     else

@@ -1,37 +1,40 @@
 <% if current_user%>
     <%= render 'favorite/favorite' , detail: @detail[0]%>
 <% end %>
-<div id="media" style="width: 70%; margin: auto;">
-<table>
-    <tr>
-        <td><%= image_tag( 'default.jpg' , :size => "200x200")  %></td>
-    </tr>
-    <tr>
-        <th>作品名：</th>
-        <td><%= @detail[0].product_name %></td>
-    </tr>
-    <tr>
-        <th>スポット名：</th>
-        <td><%= @detail[0].spot_name %></td>
-    </tr>
-    <tr>
-        <th>住所：</th>
-        <td>あ</td>
-    </tr>
-    <tr>
-        <th>詳細：</th>
-        <td><%= @detail[0].details %></td>
-    </tr>
-    <tr>
-        <th>ジャンル：</th>
-        <td>アニメ</td>
-    </tr>
-    <tr>
-        <th>評価：</th>
-        <td>
-            <%= render 'rate/rate' , detail: @detail[0] %>
-        </td>
-    </tr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"><%= image_tag( 'default.jpg' , :size => "200x200")  %></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">作品名：</th>
+            <td><%= @detail[0].product_name %></td>
+        </tr>
+        <tr>
+            <th scope="row">スポット名：</th>
+            <td><%= @detail[0].spot_name %></td>
+        </tr>
+        <tr>
+            <th scope="row">住所：</th>
+            <td>あ</td>
+        </tr>
+        <tr>
+            <th scope="row">詳細：</th>
+            <td><%= @detail[0].details %></td>
+        </tr>
+        <tr>
+            <th scope="row">ジャンル：</th>
+            <td>アニメ</td>
+        </tr>
+        <tr>
+            <th scope="row">評価：</th>
+            <td>
+                <%= render 'rate/rate' , detail: @detail[0] %>
+            </td>
+        </tr>
+    </tbody>
 </table>
+<hr>
 <%= render 'comment/comment' %>
-</div>
