@@ -2,7 +2,7 @@ module SearchHelper
 #西田：　重複コードたくさんあるので後できれいにするかも
 
   def select_prefs
-    result = [{code: 99, name: '全国'}]
+    result = []
     Spot.all.each do |spt|
       result.append(
         {
@@ -13,11 +13,13 @@ module SearchHelper
         }
       )
     end
-    result.map{|hash| [hash[:code], hash[:name]]}.uniq
+    [[99, '全国']]+result.map do |hash|
+      [hash[:code], hash[:name]]
+    end.uniq.sort
   end
 
   def select_genres
-    result = [{code: nil, name: 'すべて'}]
+    result = []
     Genre.all.each do |gnr|
       result.append(
         {
@@ -26,12 +28,14 @@ module SearchHelper
         }
       )
     end
-    result.map{|hash| [hash[:code], hash[:name]]}.uniq
+    [[nil,'すべて']]+result.map do |hash|
+      [hash[:code], hash[:name]]
+    end.uniq.sort
   end
 
 
   def select_cities(spots)
-    result = [{code: nil, name: 'すべて'}]
+    result = []
     if spots.select('prefecture_code').distinct.length == 1
       spots.each do |spt|
         result.append(
@@ -42,6 +46,8 @@ module SearchHelper
         )
       end
     end
-    result.map{|hash| [hash[:code], hash[:name]]}.uniq
+    [[nil,'すべて']]+result.map do |hash|
+      [hash[:code], hash[:name]]
+    end.uniq.sort
   end
 end
