@@ -61,23 +61,22 @@ Spot.create(
     :address_building  =>  '逆瀬川の100円ショップ',
     #:images  =>  File.open("./public/uploads/spots/20181220042151.jpg")
 )
-=begin
-Comment.create(
+
+UserSpot.create(
     :user_id => 1,
-    :spot_id => 1,
-    :comment => 'こんにちは'
+    :spot_id => 1
 )
-Comment.create(
+
+UserSpot.create(
     :user_id => 1,
-    :spot_id => 1,
-    :comment => 'いいですね'
+    :spot_id => 2
 )
-Comment.create(
+
+UserSpot.create(
     :user_id => 1,
-    :spot_id => 2,
-    :comment => 'hello'
+    :spot_id => 3
 )
-=end
+
 Genre.create(
     :genre_name => '歴史'
 )
@@ -96,16 +95,6 @@ Genre.create(
 
 Genre.create(
     :genre_name => 'その他'
-)
-
-Favorite.create(
-    :user_id => 1,
-    :spot_id => 3
-)
-
-Favorite.create(
-    :user_id => 1,
-    :spot_id => 1
 )
 
 Genre.create( :genre_name => '小説' )

@@ -1,8 +1,10 @@
 class RateController < ApplicationController
   def create
     @spot = params[:'spot_id']
+    @user_spot = UserSpot.find_by(spot_id: @spot)
     if Rating.create(user_id: current_user.id , spot_id: @spot)
       Spot.where('id = ?', @spot).update_all("rate = rate + 1")
+      User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 10")
       if URI(request.referer).path == root_path
         redirect_to root_path
       else
@@ -15,9 +17,11 @@ class RateController < ApplicationController
 
   def destroy
     @spot = params[:'spot_id']
+    @user_spot = UserSpot.find_by(spot_id: @spot)
     if rate = Rating.find_by(user_id: current_user.id , spot_id: @spot)
       rate.delete
       Spot.where('id = ?', @spot).update_all("rate = rate - 1")
+      User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 10")
       if URI(request.referer).path == root_path
         redirect_to root_path
       else
