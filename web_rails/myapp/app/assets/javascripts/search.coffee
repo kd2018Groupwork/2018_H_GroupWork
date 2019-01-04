@@ -8,6 +8,7 @@ $(document).on 'change', '#pref', ->
   ).done (data) ->
     $('label#city-area').html(data)
 
-jQuery ->                          # viewが読まれ終わった後に実行
-  $('.auto-complete').autocomplete # 対象となるinputタグのクラス
+#作品名オートコンプリート
+$(document).on 'turbolinks:load', ->
+  $('.auto-complete').autocomplete
     source: "/search/auto_complete_product.json"
