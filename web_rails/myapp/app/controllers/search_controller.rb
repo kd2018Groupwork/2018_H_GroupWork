@@ -22,6 +22,11 @@ class SearchController < ApplicationController
     @comments = User.joins(:comments).select("*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')
   end
 
+  def auto_complete_product
+    product = Product.where(['product_name LIKE ?', "%#{params[:term]}%"]).map(&:product_name)
+    render json: product.to_json
+  end
+
   private
 
     def search_spots(product_name,genre_id,pref_code,city_name)

@@ -7,3 +7,7 @@ $(document).on 'change', '#pref', ->
     }
   ).done (data) ->
     $('label#city-area').html(data)
+
+jQuery ->                                     # DOMが読み込まれたのを確認
+  $('.auto-complete').autocomplete        # 対象となるinputタグのID
+    source: "/search/auto_complete_product.json"
