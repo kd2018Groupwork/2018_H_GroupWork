@@ -23,7 +23,9 @@ class SearchController < ApplicationController
   end
 
   def auto_complete_product
-    product = Product.where(['product_name LIKE ?', "%#{params[:term]}%"]).map(&:product_name)
+    product = Product.where(
+      ['product_name LIKE ?', "%#{params[:term]}%"]
+    ).map(&:product_name).uniq
     render json: product.to_json
   end
 

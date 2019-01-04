@@ -8,6 +8,6 @@ $(document).on 'change', '#pref', ->
   ).done (data) ->
     $('label#city-area').html(data)
 
-jQuery ->                                     # viewが読まれ終わった後に実行
-  $('.auto-complete').autocomplete            # 対象となるinputタグのクラス
+jQuery ->                          # viewが読まれ終わった後に実行
+  $('.auto-complete').autocomplete # 対象となるinputタグのクラス
     source: "/search/auto_complete_product.json"
