@@ -34,8 +34,9 @@
           %>
             <div class="form-inline">
               <%= text_field_tag :product, params[:product],
-                placeholder: "さくひんめい",
-                      class: "form-control"
+                 placeholder: "さくひんめい",
+                       class: "form-control auto-complete",
+                autocomplete: 'off'
               %>
               <!--西田：　あとでプロンプトつける　-->
               <%= select_tag "genre",
@@ -88,8 +89,9 @@
           %>
             <div class="form-inline">
               <%= text_field_tag :product, params[:product],
-                placeholder: "さくひんめい",
-                      class: "form-control"
+                 placeholder: "さくひんめい",
+                       class: "form-control auto-complete",
+                autocomplete: 'off'
               %>
               <!--西田：　あとでプロンプトつける　-->
               <%= select_tag "genre",
