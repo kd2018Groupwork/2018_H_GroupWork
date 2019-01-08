@@ -7,3 +7,8 @@ $(document).on 'change', '#pref', ->
     }
   ).done (data) ->
     $('label#city-area').html(data)
+
+#作品名オートコンプリート
+$(document).on 'turbolinks:load', ->
+  $('.auto-complete').autocomplete
+    source: "/search/auto_complete_product.json"

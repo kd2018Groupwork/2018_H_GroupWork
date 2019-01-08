@@ -1,4 +1,4 @@
-<!--西田: まだ未完成 12月23日　-->
+<!--西田：　重複コードたくさんあるので後できれいにするかも-->
 <% provide(:title, "けんさく") %>
 <h1>けんさくするよ</h1>
 
@@ -16,6 +16,10 @@
           <a href="#pref-tab" class="nav-link" data-toggle="tab" style="background-color:#99CCFF;">
             ちいき
           </a>
+        <li class="nav-item">
+          <a href="#product-and-pref-tab" class="nav-link" data-toggle="tab" >
+            さくひん×ちいき
+          </a>          
         </li>
       </ul>
       <div class="tab-content">
@@ -27,10 +31,23 @@
                  class: "form-horizontal"
               ) do
           %>
-            <%= text_field_tag :product, params[:product],
-              placeholder: "さくひんめい",
-                    class: "form-control"
-            %>
+            <div class="form-inline">
+              <%= text_field_tag :product, params[:product],
+                 placeholder: "さくひんめい",
+                       class: "form-control auto-complete",
+                autocomplete: 'off'
+              %>
+              <!--西田：　あとでプロンプトつける　-->
+              <%= select_tag "genre",
+                options_from_collection_for_select(
+                  select_genres,
+                  :first,
+                  :second,
+                  id: "genre"
+                ),
+                class: "form-control"
+              %>
+            </div>
             <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
           <% end %>
         </div>
@@ -46,7 +63,49 @@
             <div class="form-inline">
               <%= select_tag 'pref',
                 options_from_collection_for_select(
-                  registered_prefs,
+                  select_prefs,
+                  :first,
+                  :second,
+                  id: 'pref'
+                ),
+                class: "form-control"
+              %>
+              <label id="city-area">
+                <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
+              </label>
+            </div>
+            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+        <!--　作品×地域検索フォーム　-->
+        <div id="product-and-pref-tab" class="tab-pane">
+          <%= form_tag(
+                search_result_path,
+                method: "get",
+                 class: "form-horizontal"
+                ) do 
+          %>
+            <div class="form-inline">
+              <%= text_field_tag :product, params[:product],
+                 placeholder: "さくひんめい",
+                       class: "form-control auto-complete",
+                autocomplete: 'off'
+              %>
+              <!--西田：　あとでプロンプトつける　-->
+              <%= select_tag "genre",
+                options_from_collection_for_select(
+                  select_genres,
+                  :first,
+                  :second,
+                  id: "genre"
+                ),
+                class: "form-control"
+              %>         
+              <strong>✕</strong>
+              <%= select_tag 'pref',
+                options_from_collection_for_select(
+                  select_prefs,
                   :first,
                   :second,
                   id: 'pref'

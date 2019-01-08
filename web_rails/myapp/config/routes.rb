@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get     'search_detail/:spot_id'  =>  'search#search_detail' , as:'search_detail'
   get     'search/get_cities'       =>  'search#get_cities'
   get     'time_line'               =>  'search#_time_line'
+  get     'search/auto_complete_product'   =>  'search#auto_complete_product'
 
   get     'signup'                  =>  'users#new'
   get     'login'                   =>  'sessions#new'
@@ -38,6 +39,8 @@ Rails.application.routes.draw do
   get     'planning_index'          =>  'planning#index'
   post    'planning_create'         =>  'planning#create', as:'plans'
   get     'planning_show'           =>  'planning#show'
+  get     'plan_detail/:plan_id'    =>  'planning#plan_detail', as:'plan_detail'
+  post    'planning_destroy'        =>  'planning#destroy_all'
   get     'complete_planning'       =>  'planning#complete'
 
   resources :prans

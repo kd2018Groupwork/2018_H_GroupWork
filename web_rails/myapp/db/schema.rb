@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181226015013) do
+ActiveRecord::Schema.define(version: 20190103021129) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -36,17 +36,19 @@ ActiveRecord::Schema.define(version: 20181226015013) do
   end
 
   create_table "plan_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "plan_id"
+    t.bigint "plan_id"
     t.datetime "date"
     t.string "spot_name"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_plan_details_on_plan_id"
   end
 
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "plan_id"
+    t.string "plan_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(version: 20181226015013) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.integer "rating", default: 0
   end
 
   add_foreign_key "comments", "spots"

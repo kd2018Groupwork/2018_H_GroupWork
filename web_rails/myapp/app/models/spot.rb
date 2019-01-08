@@ -2,6 +2,7 @@ class Spot < ApplicationRecord
   mount_uploaders :images, SpotimagesUploader
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :user_spots, dependent: :destroy
   belongs_to :product
 
   validates :spot_name, presence: true
@@ -21,8 +22,9 @@ include JpPrefecture
   end
 
 
-  #西田: 検索用
-  def self.search_products(product_name)
+#西田: -----検索用-----
+
+  def self.search_product(product_name)
     if product_name
       Product.where(['product_name LIKE ?', "%#{product_name}%"])
     else
@@ -30,18 +32,25 @@ include JpPrefecture
     end
   end
 
-  #西田： ToDo:きれいにする
-  def self.search_pref(pref_code)
-    if !!Spot.find_by(prefecture_code: pref_code)
-      Spot.where(['prefecture_code = ?', pref_code])
+  def self.search_product_and_genre(product_name,genre_id)
+    if !genre_id.blank?
+      Product.where(['product_name LIKE ? AND genre_id = ?',"%#{product_name}%", "#{genre_id}"])
     else
-      Spot.all
+      self.search_product(product_name)
     end
   end
 
-  def self.search_city(pref_code,city_name='')
+  def self.search_pref(pref_code)
+    if !!self.find_by(prefecture_code: pref_code)
+      self.where(['prefecture_code = ?', "#{pref_code}"])
+    else
+      self.all
+    end
+  end
+
+  def self.search_pref_and_city(pref_code,city_name)
     if !city_name.blank?
-      Spot.where(['prefecture_code = ? and address_city LIKE ?', pref_code,city_name])
+      self.where(['prefecture_code = ? AND address_city LIKE ?', "#{pref_code}", "%#{city_name}%"])
     else
       self.search_pref(pref_code)
     end
