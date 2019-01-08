@@ -11,6 +11,9 @@
                 <%= pa.plan_name %>
               <% end %>
             </td>
+            <td>
+              <%= link_to '削除',plan_destroy_path(id: pa.id), method: :delete %>
+            </td>
           </tr>
         <% end %>
       </table>
