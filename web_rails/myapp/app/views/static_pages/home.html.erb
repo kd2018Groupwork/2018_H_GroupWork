@@ -3,7 +3,58 @@
   <%= render('search/search') %>
   <%= render('search/time_line') %>
 <% else %>
-  <div class="center jumbotron">
+  <div class="py-4">
+    <div class="container">
+      <div id="main_visual" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#main_visual" data-slide-to="0" class="active"></li>
+          <li data-target="#main_visual" data-slide-to="1"></li>
+          <li data-target="#main_visual" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active">
+          <center>
+          <%= image_tag("icon/1.jpg", :size => "1000x500") %>
+          </center> 
+            <div class="carousel-caption d-none d-md-block">
+              <h1>作品名or場所で検索！</h1>
+              <p>行きたい場所を知る！</p>
+            </div>
+          </div>
+          <div class="item">
+          <center>
+          <%= image_tag("icon/1.jpg",:size => "1000x500") %>
+          </center>
+            <div class="carousel-caption d-none d-md-block">
+            
+              <h1>計画表を作成！</h1>
+              <p>ピックアップしたスポットをもとに作成！</p>
+            </div>
+          </div>
+          <div class="item">
+          <center>
+          <%= image_tag("icon/1.jpg",:size => "1000x500") %>
+          </center>
+            <div class="carousel-caption d-none d-md-block">
+            
+              <h1>計画表をもとに観光！</h1>
+              <p>お気に入りの場所を見つかればスポットを登録しよう！</p>
+            </div>
+          </div>
+        </div>
+        <a class"carousel-control-prev" href="#main_visual" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">前に戻る</span>
+        </a>
+        <a class"carousel-control-next" href="#main_visual" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">次に進む</span>
+        </a>
+      </div>
+    </div>
+   </div>
+   <br>     
+  <div class="center jumbotron" style="background-color:white;">
     <h1>さくれへようこそ！</h1>
 
     <h2>
@@ -12,5 +63,6 @@
 
     <%= link_to "さくれのめんばーになる", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
+
   
 <% end %>
