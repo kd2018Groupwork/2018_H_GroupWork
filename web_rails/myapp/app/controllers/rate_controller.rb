@@ -7,10 +7,12 @@ class RateController < ApplicationController
       User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 10")
       if URI(request.referer).path == root_path
         redirect_to root_path
+      elsif URI(request.referer).path == search_result_path
+        redirect_to request.referer
       else
         redirect_to search_detail_path(spot_id: @spot)
       end
-      else  
+    else  
       redirect_to root_path
     end
   end
@@ -24,6 +26,8 @@ class RateController < ApplicationController
       User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 10")
       if URI(request.referer).path == root_path
         redirect_to root_path
+      elsif URI(request.referer).path == search_result_path
+        redirect_to request.referer
       else
         redirect_to search_detail_path(spot_id: @spot)
       end
