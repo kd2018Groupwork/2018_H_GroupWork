@@ -1,12 +1,12 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<header class="navbar navbar-light navbar-expand-lg navbar-fixed-top navbar-inverse" style="background-color:#FFCCCC;">
+  <div class="container navbar-dark" style="background-color:FFFFCC;"><!-- CC9966 -->
     <nav>
-      <%= link_to image_tag("icon/さくれロゴ1.png", :size => "112x50"), root_url %>
-      <ul class="nav navbar-nav navbar-right">
+      <%= link_to image_tag("icon/さくれロゴメイリオ4.png", :size => "112x50"), root_url %>
+      <ul class="nav navbar-nav navbar-right" >
         <% if logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              かんこうち <b class="caret"></b>
+            <a href="#" class="dropdown-toggle text-danger" data-toggle="dropdown">
+               かんこうち<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "とうろく", add_spot_path %></li>
