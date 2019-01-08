@@ -17,14 +17,14 @@
 
   <!-- 右寄せにする -->
   <div class="col-md-10">
-    <table class="table table-striped table-bordered table-hover">
-      <tr>
-        <th>日付<span class="text-danger">（必須）</span></th>
-        <th>スポット名<span class="text-danger">（必須）</span></th>
-        <th>コメント</th>
-        <th></th>
-      </tr>
-      <%= form_for @plan do |f| %>
+    <%= form_for @plan do |f| %>
+      <table class="table table-striped table-bordered table-hover">
+        <tr>
+          <th>日付<span class="text-danger">（必須）</span></th>
+          <th>スポット名<span class="text-danger">（必須）</span></th>
+          <th>コメント</th>
+          <th></th>
+        </tr>
         <%= f.label :"計画表の名前" %>
         <%= f.text_field :plan_name, class: 'form-control' %>
         <%= f.nested_fields_for :plan_details, wrapper_tag: :tr do |q| %>
