@@ -37,6 +37,8 @@ class SpotController < ApplicationController
 
         @user_spot.save
 
+        User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 1")
+        
         session.delete(:product_id)
       
         flash[:success] = "観光地の登録が完了しました!"
