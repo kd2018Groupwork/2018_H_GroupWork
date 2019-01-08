@@ -4,7 +4,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col"><%= image_tag( 'default.jpg' , :size => "200x200")  %></td>
+            <th scope="col"><%= image_tag( @detail[0].images[0].url , :size => "150x150") if @detail[0].images? %></td>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th scope="row">住所：</th>
-            <td>あ</td>
+            <td><%= @detail[0].prefecture.name +  @detail[0].address_city + @detail[0].address_street + @detail[0].address_building %></td>
         </tr>
         <tr>
             <th scope="row">詳細：</th>
@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <th scope="row">ジャンル：</th>
-            <td>アニメ</td>
+            <td><%= @detail[0].genre_name %></td>
         </tr>
         <tr>
             <th scope="row">評価：</th>
