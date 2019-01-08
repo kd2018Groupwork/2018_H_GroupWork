@@ -6,15 +6,15 @@ module SearchHelper
     Spot.all.each do |spt|
       result.append(
         {
-          code: spt.prefecture_code,
-          name: JpPrefecture::Prefecture.find(
+          value: spt.prefecture_code,
+           name: JpPrefecture::Prefecture.find(
                   code: spt.prefecture_code
                 ).name
         }
       )
     end
     [[99, '全国']]+result.map do |hash|
-      [hash[:code], hash[:name]]
+      [hash[:value], hash[:name]]
     end.uniq.sort
   end
 
@@ -23,13 +23,13 @@ module SearchHelper
     Genre.all.each do |gnr|
       result.append(
         {
-          code: gnr.id,
-          name: gnr.genre_name
+          value: gnr.id,
+           name: gnr.genre_name
         }
       )
     end
     [[nil,'すべて']]+result.map do |hash|
-      [hash[:code], hash[:name]]
+      [hash[:value], hash[:name]]
     end.uniq.sort
   end
 
@@ -40,14 +40,14 @@ module SearchHelper
       spots.each do |spt|
         result.append(
           {
-            code: spt.address_city,
-            name: spt.address_city
+            value: spt.address_city,
+             name: spt.address_city
           }
         )
       end
     end
     [[nil,'すべて']]+result.map do |hash|
-      [hash[:code], hash[:name]]
+      [hash[:value], hash[:name]]
     end.uniq.sort
   end
 end
