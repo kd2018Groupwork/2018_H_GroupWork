@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   post    'planning_create'         =>  'planning#create', as:'plans'
   get     'planning_show'           =>  'planning#show'
   get     'plan_detail/:plan_id'    =>  'planning#plan_detail', as:'plan_detail'
-  post    'planning_destroy'        =>  'planning#destroy_all'
+  delete    'planning/destroy/:id'        =>  'planning#destroy', as: 'plan_destroy'
   get     'complete_planning'       =>  'planning#complete'
 
   resources :prans
