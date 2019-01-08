@@ -11,10 +11,10 @@ class PlanningController < ApplicationController
     @plan.plan_id = Plan.count + 1
     if @plan.save
       flash[:success] = "計画表作成を作成しました!"
-      redirect_to :complete_planning
+      redirect_to complete_planning_path
     else
       flash[:denger] = "計画表作成に失敗しました"
-      redirect_to :planning_index
+      redirect_to planning_index_path
     end
   end
   
