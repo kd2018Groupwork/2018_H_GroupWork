@@ -1,3 +1,4 @@
+#県の値変更を受けて市町村を変更
 $(document).on 'change', '#pref', ->
   $.ajax(
     type: 'GET'
