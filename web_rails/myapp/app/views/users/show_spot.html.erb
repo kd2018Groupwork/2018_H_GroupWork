@@ -1,0 +1,35 @@
+<% provide(:title, "Spot View") %>
+<div class="row">
+<br>
+<% @spot = Spot.order('updated_at DESC') %>
+<% @spot.each do |data| %>
+  <div id="media" style="width: 50%; margin: auto;">
+    <a class="pull-left">
+    <%= link_to spot_edit_path(spot_id: data.id) do %>
+      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
+    <% end %>
+    </a>
+    
+    <div class="card my-3" style="background-color:white;">
+      <div class="card-header">
+        <h4>
+          <%= link_to data.spot_name ,spot_edit_path(spot_id: data.id) %>
+          </h4>
+      
+          <%= data.details %>
+          </div>
+          </div>
+        <div class="card-body">  
+        <div>
+          <%= render 'rate/rate' , detail: data %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="timestamp"> 
+          <%= time_ago_in_words(data.updated_at) %>前
+        </span>
+      </div>
+     </div>   
+  <br><br>
+<% end %>
+</div>
