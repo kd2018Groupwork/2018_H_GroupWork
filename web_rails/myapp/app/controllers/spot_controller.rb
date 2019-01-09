@@ -41,8 +41,6 @@ class SpotController < ApplicationController
         
         session.delete(:product_id)
       
-        #flash[:success] = "観光地の登録が完了しました!"
-        #redirect_to :complete_spot
         redirect_to spot_edit_path(spot_id: @spot.id)
       else
         flash[:danger] = '入力漏れの無いようにしてください'
@@ -60,8 +58,14 @@ class SpotController < ApplicationController
   def commit
     @spot = Spot.find(params[:spot][:id])
     @spot.review = params[:spot][:review]
-    @spot.review_flag = true
     
+    # 公開設定
+    if params[:spot][:review_flag] # 下書き保存
+      @spot.review_flag = false
+    else # 公開保存
+      @spot.review_flag = true
+    end  
+
     if @spot.save
       flash[:success] = "観光地の登録が完了しました!"
       redirect_to :complete_spot

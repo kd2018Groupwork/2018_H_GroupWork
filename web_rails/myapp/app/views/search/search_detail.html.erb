@@ -1,36 +1,46 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col"><%= image_tag( @detail[0].images[0].url , :size => "150x150") if @detail[0].images? %></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">作品名：</th>
-            <td><%= @detail[0].product_name %></td>
-        </tr>
-        <tr>
-            <th scope="row">スポット名：</th>
-            <td><%= @detail[0].spot_name %></td>
-        </tr>
-        <tr>
-            <th scope="row">住所：</th>
-            <td><%= @detail[0].prefecture.name +  @detail[0].address_city + @detail[0].address_street + @detail[0].address_building %></td>
-        </tr>
-        <tr>
-            <th scope="row">詳細：</th>
-            <td><%= @detail[0].details %></td>
-        </tr>
-        <tr>
-            <th scope="row">ジャンル：</th>
-            <td><%= @detail[0].genre_name %></td>
-        </tr>
-    </tbody>
-</table>
-<%= render 'favorite/favorite' , detail: @detail[0] %>
-<%= render 'rate/rate' , detail: @detail[0] %>
-<br>
-<hr>
-<div id="comments_area">
-<%= render 'comment/comment' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"><%= image_tag( @detail[0].images[0].url , :size => "150x150") if @detail[0].images? %></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">作品名：</th>
+                    <td><%= @detail[0].product_name %></td>
+                </tr>
+                <tr>
+                    <th scope="row">スポット名：</th>
+                    <td><%= @detail[0].spot_name %></td>
+                </tr>
+                <tr>
+                    <th scope="row">住所：</th>
+                    <td><%= @detail[0].prefecture.name +  @detail[0].address_city + @detail[0].address_street + @detail[0].address_building %></td>
+                </tr>
+                <tr>
+                    <th scope="row">詳細：</th>
+                    <td><%= @detail[0].details %></td>
+                </tr>
+                <tr>
+                    <th scope="row">ジャンル：</th>
+                    <td><%= @detail[0].genre_name %></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin: 10px auto;">
+            <%= sanitize @detail[0].review %>
+        </div>
+
+        <%= render 'favorite/favorite' , detail: @detail[0] %>
+        <%= render 'rate/rate' , detail: @detail[0] %>
+        <br>
+        <hr>
+        <div id="comments_area">
+        <%= render 'comment/comment' %>
+
+        </div>
+    </div>
 </div>
