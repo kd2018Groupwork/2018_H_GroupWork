@@ -5,121 +5,128 @@
 <div class=”container-fluid”>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a href="#product-tab" class="nav-link active" data-toggle="tab" style="background-color:#99CCFF;">
-            さくひん
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#pref-tab" class="nav-link" data-toggle="tab" style="background-color:#99CCFF;">
-            ちいき
-          </a>
-        <li class="nav-item">
-          <a href="#product-and-pref-tab" class="nav-link" data-toggle="tab" >
-            さくひん×ちいき
-          </a>          
-        </li>
-      </ul>
-      <div class="tab-content">
-        <!-- 作品検索フォーム -->
-        <div id="product-tab" class="tab-pane active">
-          <%= form_tag(
-                search_result_path,
-                method: "get",
-                 class: "form-horizontal"
-              ) do
-          %>
-            <div class="form-inline">
-              <%= text_field_tag :product, params[:product],
-                 placeholder: "さくひんめい",
-                       class: "form-control auto-complete",
-                autocomplete: 'off'
-              %>
-              <!--西田：　あとでプロンプトつける　-->
-              <%= select_tag "genre",
-                options_from_collection_for_select(
-                  select_genres,
-                  :first,
-                  :second,
-                  id: "genre"
-                ),
-                class: "form-control"
-              %>
-            </div>
-            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
-          <% end %>
+      <div class="panel with-nav-tabs panel-search">
+        <div class="panel-heading">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#product-tab" data-toggle="tab">
+                さくひん
+              </a>
+            </li>
+            <li>
+              <a href="#pref-tab" data-toggle="tab">
+                ちいき
+              </a>
+            <li>
+              <a href="#product-and-pref-tab" data-toggle="tab" >
+                さくひん×ちいき
+              </a>          
+            </li>
+          </ul>
         </div>
 
-        <!-- 地域検索フォーム -->
-        <div id="pref-tab" class="tab-pane">
-          <%= form_tag(
-                search_result_path,
-                method: "get",
-                 class: "form-horizontal"
-                ) do 
-          %>
-            <div class="form-inline">
-              <%= select_tag 'pref',
-                options_from_collection_for_select(
-                  select_prefs,
-                  :first,
-                  :second,
-                  id: 'pref'
-                ),
-                class: "form-control"
+        <div class="panel-body">
+          <div class="tab-content">
+            <!-- 作品検索フォーム -->
+            <div id="product-tab" class="tab-pane fade in active">
+              <%= form_tag(
+                    search_result_path,
+                    method: "get",
+                    class: "form-horizontal"
+                  ) do
               %>
-              <label id="city-area">
-                <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
-              </label>
+                <div class="form-inline">
+                  <%= text_field_tag :product, params[:product],
+                    placeholder: "さくひんめい",
+                          class: "form-control auto-complete",
+                    autocomplete: 'off'
+                  %>
+                  <!--西田：　あとでプロンプトつける　-->
+                  <%= select_tag "genre",
+                    options_from_collection_for_select(
+                      select_genres,
+                      :first,
+                      :second,
+                      id: "genre"
+                    ),
+                    class: "form-control"
+                  %>
+                </div>
+                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+              <% end %>
             </div>
-            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
-          <% end %>
-        </div>
 
-        <!--　作品×地域検索フォーム　-->
-        <div id="product-and-pref-tab" class="tab-pane">
-          <%= form_tag(
-                search_result_path,
-                method: "get",
-                 class: "form-horizontal"
-                ) do 
-          %>
-            <div class="form-inline">
-              <%= text_field_tag :product, params[:product],
-                 placeholder: "さくひんめい",
-                       class: "form-control auto-complete",
-                autocomplete: 'off'
+            <!-- 地域検索フォーム -->
+            <div id="pref-tab" class="tab-pane fade">
+              <%= form_tag(
+                    search_result_path,
+                    method: "get",
+                    class: "form-horizontal"
+                    ) do 
               %>
-              <!--西田：　あとでプロンプトつける　-->
-              <%= select_tag "genre",
-                options_from_collection_for_select(
-                  select_genres,
-                  :first,
-                  :second,
-                  id: "genre"
-                ),
-                class: "form-control"
-              %>         
-              <strong>✕</strong>
-              <%= select_tag 'pref',
-                options_from_collection_for_select(
-                  select_prefs,
-                  :first,
-                  :second,
-                  id: 'pref'
-                ),
-                class: "form-control"
-              %>
-
-              <label id="city-area">
-                <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
-              </label>
+                <div class="form-inline">
+                  <%= select_tag 'pref',
+                    options_from_collection_for_select(
+                      select_prefs,
+                      :first,
+                      :second,
+                      id: 'pref'
+                    ),
+                    class: "form-control"
+                  %>
+                  <label id="city-area">
+                    <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
+                  </label>
+                </div>
+                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+              <% end %>
             </div>
-            <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
-          <% end %>
+
+            <!--　作品×地域検索フォーム　-->
+            <div id="product-and-pref-tab" class="tab-pane fade">
+              <%= form_tag(
+                    search_result_path,
+                    method: "get",
+                    class: "form-horizontal"
+                    ) do 
+              %>
+                <div class="form-inline">
+                  <%= text_field_tag :product, params[:product],
+                    placeholder: "さくひんめい",
+                          class: "form-control auto-complete",
+                    autocomplete: 'off'
+                  %>
+                  <!--西田：　あとでプロンプトつける　-->
+                  <%= select_tag "genre",
+                    options_from_collection_for_select(
+                      select_genres,
+                      :first,
+                      :second,
+                      id: "genre"
+                    ),
+                    class: "form-control"
+                  %>         
+                  <strong>✕</strong>
+                  <%= select_tag 'pref',
+                    options_from_collection_for_select(
+                      select_prefs,
+                      :first,
+                      :second,
+                      id: 'pref'
+                    ),
+                    class: "form-control"
+                  %>
+
+                  <label id="city-area">
+                    <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
+                  </label>
+                </div>
+                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
