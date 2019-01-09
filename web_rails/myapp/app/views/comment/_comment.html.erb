@@ -5,7 +5,7 @@
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
         <br>
-        <%= f.submit 'コメントする' %>
+        <%= f.submit 'コメントする' , data:{ disable_with: '投稿中・・・'} %>
     <% end %>
 <% else %>
     <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
