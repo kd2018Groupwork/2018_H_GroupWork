@@ -1,5 +1,5 @@
 <% provide(:title, '観光地登録') %>
-<h1>かんこうち　とうろく</h1>
+<h1>観光地登録</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -7,22 +7,26 @@
   <%= form_for @spot = Spot.new do |f| %>
     <table class="table">
       <tr>
-        <th>すぽっとのがぞう<span class="text-danger">（必須）</span></th>
+        <th>スポットの画像<span class="text-danger">（必須）</span></th>
         <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
       </tr>
       <tr>
-        <th>すぽっとのなまえ<span class="text-danger">（必須）</span></th>
+        <th>スポットの名前<span class="text-danger">（必須）</span></th>
         <td><%= f.text_field :spot_name, class: 'form-control' %><td>
       </tr>
       <tr>
-        <th>さくひん しょうさい<span class="text-danger">（必須）</span></th>
+        <th>スポットの詳細<span class="text-danger">（必須）</span></th>
         <td><%= f.text_area :details, class: 'form-control' %></td>
       </tr>
       <tr>
         <th>郵便番号</th>
-        <td><%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'form-control post1' %></td>
-        <td>-</td>
-        <td><%= f.text_field :postcode2, maxlength: 4, class: 'form-control post2' %></td>
+        <td>
+          <div class="input-group">
+            <%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'post1', placeholder: "000" %>
+             -
+            <%= f.text_field :postcode2, maxlength: 4, class: 'post2', placeholder: "0000" %></td>
+          </div>
+        </td>
       </tr>
       <tr>
         <th>都道府県<span class="text-danger">（必須）</span></th>
