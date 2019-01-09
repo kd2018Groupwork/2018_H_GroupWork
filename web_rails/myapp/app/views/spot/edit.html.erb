@@ -1,0 +1,29 @@
+<% provide(:title, '観光地登録') %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+  <%= form_for @spot, url: {:action => 'commit'} do |f| %>
+    <%= f.trix_editor :review %>
+    <%= f.hidden_field :id, :value => @spot.id %>
+    <div class="btn-group">
+      <%= f.submit "観光地を登録する", class: "btn btn-primary" %>
+    </div>
+  
+  <% end %>
+  <!--
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default">
+      ドロップダウン
+    </button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">リンクのリスト１</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">リンクのリスト２</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">リンクのリスト３</a></li>
+    </ul>
+  </div>
+  -->
+</div>

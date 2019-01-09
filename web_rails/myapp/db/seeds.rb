@@ -77,26 +77,6 @@ UserSpot.create(
     :spot_id => 3
 )
 
-Genre.create(
-    :genre_name => '歴史'
-)
-
-Genre.create(
-    :genre_name => '映画'
-)
-
-Genre.create(
-    :genre_name => 'ドラマ'
-)
-
-Genre.create(
-    :genre_name => 'ゲーム'
-)
-
-Genre.create(
-    :genre_name => 'その他'
-)
-
 Genre.create( :genre_name => '小説' )
 Genre.create( :genre_name => '漫画' )
 Genre.create( :genre_name => 'アニメ' )

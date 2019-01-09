@@ -12,8 +12,8 @@ class SearchController < ApplicationController
   end
 
   def get_cities
-    result = Spot.search_pref(params[:pref])
-    render partial: 'select_city', locals: { spots: result }
+    matched_spots = Spot.search_pref(params[:pref])
+    render partial: 'select_city', locals: { spots: matched_spots }
   end
   
   def search_detail

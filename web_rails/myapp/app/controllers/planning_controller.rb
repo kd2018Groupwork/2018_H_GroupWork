@@ -27,14 +27,15 @@ class PlanningController < ApplicationController
   end
 
   # 未完成
-  def destroy_all
-    checked_data = params[:deletes].keys
-    if Plan.destroy(checked_data)
+  def destroy
+    id = params[:id]
+    user_id = session[:user_id]
+    if Plan.where('user_id = ?',user_id).find(id).destroy
       flash[:success] = "計画表を削除しました!"
-      redirect_to :plan_detail
+      redirect_to :planning_show
     else
-      flash[:denger] = "削除に失敗しました"
-      render :plan_detail
+      flash[:danger] = "削除に失敗しました"
+      render :planning_show
     end
   end
 

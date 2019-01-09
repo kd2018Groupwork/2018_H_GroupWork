@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post    'products'                =>  'spot#commit_product'
   get     'reg_spot'                =>  'spot#create_s'
   post    'spots'                   =>  'spot#create'
+  get     'spot/edit'               =>  'spot#edit', as:'spot_edit'
+  patch    'commit'                  =>  'spot#commit', as:'commit'
   get     'complete_spot'           =>  'spot#complete'
 
   get     'favorite/show/:user_id'  =>  'favorite#show' , as: 'fav_show'
@@ -40,7 +42,7 @@ Rails.application.routes.draw do
   post    'planning_create'         =>  'planning#create', as:'plans'
   get     'planning_show'           =>  'planning#show'
   get     'plan_detail/:plan_id'    =>  'planning#plan_detail', as:'plan_detail'
-  post    'planning_destroy'        =>  'planning#destroy_all'
+  delete    'planning/destroy/:id'        =>  'planning#destroy', as: 'plan_destroy'
   get     'complete_planning'       =>  'planning#complete'
 
   resources :prans

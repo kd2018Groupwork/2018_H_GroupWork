@@ -27,4 +27,40 @@ ul.ui-autocomplete {
 
 #inline-button{
   display: inline-block
+=======
+.panel.with-nav-tabs .panel-heading{
+  padding: 5px 5px 0 5px;
+	background-color: #333333;
+}
+.panel.with-nav-tabs .nav-tabs{
+  border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+  margin-bottom: -1px;
+}
+.with-nav-tabs.panel-search .nav-tabs > li > a,
+.with-nav-tabs.panel-search .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-search .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.with-nav-tabs.panel-search .nav-tabs > .open > a,
+.with-nav-tabs.panel-search .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-search .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-search .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-search .nav-tabs > li > a:focus {
+	color: #fff;
+	background-color: gray;
+	border-color: transparent;
+}
+.with-nav-tabs.panel-search .nav-tabs > li.active > a,
+.with-nav-tabs.panel-search .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-search .nav-tabs > li.active > a:focus {
+	color: #333333;
+	background-color: #fff;
+	border-color: #428bca;
+	border-bottom-color: transparent;
+}
+
+.panel-body {
+  background-color:　white;
 }
