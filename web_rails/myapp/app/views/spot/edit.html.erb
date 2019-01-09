@@ -10,10 +10,10 @@
 
       <div class="btn-group" data-toggle="buttons">
         <label class="btn btn-default active">
-          下書き<%= f.radio_button :review_flag, {:checked => true } %>
+          公開<%= f.radio_button :review_flag, {:checked => true } %>
         </label>
         <label class="btn btn-default">
-          公開<%= f.radio_button :review_flag, false %>
+          下書き<%= f.radio_button :review_flag, false %>
         </label>
       </div>
 
