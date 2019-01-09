@@ -1,0 +1,22 @@
+<h1><%= @plan_name %></h1>
+<ul class="cbp_tmtimeline">
+  <li>
+    <% @detail.each do |d| %>
+      <time >
+        <span><%= d.date.strftime("%Y/%m/%d") %></span>
+        <span><%= d.date.strftime("%H:%M") %></span>
+      </time>
+      <div >
+        <h2 style="color: #000">
+          <%= d.spot_name %>
+        </h2>
+        <% if !d.comment.empty? %>
+          <p style="color: #000"><%= d.comment %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </li>
+</ul>
+<%= wicked_pdf_image_tag('default.jpg') %>
+<i class="glyphicon glyphicon-heart"></i>
+<p>あああ</p>

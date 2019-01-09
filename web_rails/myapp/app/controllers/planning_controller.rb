@@ -28,19 +28,19 @@ class PlanningController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: 'plan',
-          layout: 'pdf',
-          template: 'planning/plan.pdf.erb', 
-          encording: 'UTF-8'
 =begin
+        render pdf: 'plan',
+          layout: 'pdf.html.erb',
+          template: 'planning/plan_pdf.html.erb', 
+          encording: 'UTF-8'
+=end
         pdf = render_to_string( 
-          pdf: @plan_name, 
-          layout: 'pdf',
-          template: 'planning/plan.pdf.erb', 
+          pdf: 'plan', 
+          layout: 'pdf.html.erb',
+          template: 'planning/plan_pdf.html.erb', 
           encording: 'UTF-8'
         )
         send_data(pdf,filename: "#{@plan_name}.pdf")
-=end
       end
     end
   end
