@@ -53,6 +53,11 @@ class SpotController < ApplicationController
 
   def edit
     @spot = Spot.find(params[:spot_id])
+    if UserSpot.find_by(spot_id: @spot.id).user_id == session[:user_id] # ユーザアカウントチェック
+      @spot = Spot.find(params[:spot_id])
+    else
+      redirect_to root_url
+    end 
   end
 
   def commit
