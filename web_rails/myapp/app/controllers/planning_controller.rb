@@ -24,6 +24,25 @@ class PlanningController < ApplicationController
   def plan_detail
     @plan_name = (Plan.find(params[:plan_id])).plan_name
     @detail = PlanDetail.where(plan_id: params[:plan_id])
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+=begin
+        render pdf: 'plan',
+          layout: 'pdf.html.erb',
+          template: 'planning/plan_pdf.html.erb', 
+          encording: 'UTF-8'
+=end
+        pdf = render_to_string( 
+          pdf: 'plan', 
+          layout: 'pdf.html.erb',
+          template: 'planning/plan_pdf.html.erb', 
+          encording: 'UTF-8'
+        )
+        send_data(pdf,filename: "#{@plan_name}.pdf")
+      end
+    end
   end
 
   # 未完成

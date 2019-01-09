@@ -21,3 +21,6 @@
     <% end %>
   </li>
 </ul>
+<%= link_to plan_detail_path(format: :pdf, plan_id: params[:plan_id]) , class:"btn btn-link btn-lg" do %>
+  <i class="glyphicon glyphicon-save">ダウンロード</i>
+<% end %>
