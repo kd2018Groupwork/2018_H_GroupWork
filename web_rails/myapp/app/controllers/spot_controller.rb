@@ -65,9 +65,9 @@ class SpotController < ApplicationController
     @spot.review = params[:spot][:review]
     
     # 公開設定
-    if params[:spot][:review_flag] # 下書き保存
+    if params[:spot][:review_flag] # 公開保存
       @spot.review_flag = false
-    else # 公開保存
+    else # 下書き保存
       @spot.review_flag = true
     end  
 
