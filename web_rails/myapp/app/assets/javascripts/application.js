@@ -18,10 +18,5 @@
 //= require_tree .
 //= require jquery.jpostal 
 //= require nested_form_fields
-<<<<<<< HEAD
 //= require rails-ujs
 //= require trix
-=======
-
-//= require rails-ujs
->>>>>>> ea5c30654215472e07374d17adac9696158279bc
