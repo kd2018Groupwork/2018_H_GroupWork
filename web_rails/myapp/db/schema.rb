@@ -71,7 +71,9 @@ ActiveRecord::Schema.define(version: 20190103021129) do
     t.string "spot_name"
     t.integer "product_id"
     t.text "details"
+    t.text "review"
     t.integer "rate", default: 0
+    t.boolean "review_flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "postcode1"
