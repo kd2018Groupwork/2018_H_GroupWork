@@ -17,6 +17,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'nested_form_fields'
 gem 'trix'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
