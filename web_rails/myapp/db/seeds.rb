@@ -29,6 +29,7 @@ Spot.create(
     :address_city  =>  '松山市',
     :address_street  =>  '道後湯之町',
     :address_building  =>  '道後温泉本館',
+    :review_flag =>  true,
     #:images  =>  '["20181220041222.jpg"]'
 )
 Spot.create(
@@ -42,6 +43,7 @@ Spot.create(
     :address_city  =>  '神戸市東灘区',
     :address_street  =>  '鴨子ケ原',
     :address_building  =>  '甲南病院',
+    :review_flag =>  true,
     #:images  =>  '["20181220041813.jpg"]'
 )
 Spot.create(
@@ -59,6 +61,7 @@ Spot.create(
     :address_city  =>  '宝塚市',
     :address_street  =>  '逆瀬川',
     :address_building  =>  '逆瀬川の100円ショップ',
+    :review_flag =>  true,
     #:images  =>  File.open("./public/uploads/spots/20181220042151.jpg")
 )
 
