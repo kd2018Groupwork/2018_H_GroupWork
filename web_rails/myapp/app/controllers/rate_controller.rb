@@ -2,10 +2,9 @@ class RateController < ApplicationController
   before_action :set_variables
 
   def create
-    @spot = params[:'spot_id']
-    @user_spot = UserSpot.find_by(spot_id: @spot)
-    if Rating.create(user_id: current_user.id , spot_id: @spot)
-      Spot.where('id = ?', @spot).update_all("rate = rate + 1")
+    @user_spot = UserSpot.find_by(spot_id: @spt.id)
+    if Rating.create(user_id: current_user.id , spot_id: @spt.id)
+      Spot.where('id = ?', @spt.id).update_all("rate = rate + 1")
       User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 10")
       @spt.reload
 =begin
@@ -23,11 +22,10 @@ class RateController < ApplicationController
   end
 
   def destroy
-    @spot = params[:'spot_id']
-    @user_spot = UserSpot.find_by(spot_id: @spot)
-    if rate = Rating.find_by(user_id: current_user.id , spot_id: @spot)
+    @user_spot = UserSpot.find_by(spot_id: @spt.id)
+    if rate = Rating.find_by(user_id: current_user.id , spot_id: @spt.id)
       rate.delete
-      Spot.where('id = ?', @spot).update_all("rate = rate - 1")
+      Spot.where('id = ?', @spt.id).update_all("rate = rate - 1")
       User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 10")
       @spt.reload
 =begin
@@ -48,6 +46,7 @@ class RateController < ApplicationController
 
   def set_variables
     @spt = Spot.find(params[:spot_id])
+    puts @spt.id
     @id_name = "#like-link-#{@spt.id}"
   end
 

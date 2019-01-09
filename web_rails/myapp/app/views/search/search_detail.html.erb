@@ -1,6 +1,3 @@
-<% if current_user %>
-    <%= render 'favorite/favorite' , detail: @detail[0] %>
-<% end %>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -28,13 +25,12 @@
             <th scope="row">ジャンル：</th>
             <td><%= @detail[0].genre_name %></td>
         </tr>
-        <tr>
-            <th scope="row">評価：</th>
-            <td>
-                <%= render 'rate/rate' , detail: @detail[0] %>
-            </td>
-        </tr>
     </tbody>
 </table>
+<%= render 'favorite/favorite' , detail: @detail[0] %>
+<%= render 'rate/rate' , detail: @detail[0] %>
+<br>
 <hr>
+<div id="comments_area">
 <%= render 'comment/comment' %>
+</div>

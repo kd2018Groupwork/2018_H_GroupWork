@@ -11,9 +11,9 @@ class FavoriteController < ApplicationController
   end
 
   def create
-    @spot = params[:spot_id]
-    @user_spot = UserSpot.find_by(spot_id: @spot)
-    if Favorite.create(user_id: current_user.id , spot_id: @spot)
+    puts params[:spot_id]
+    @user_spot = UserSpot.find_by(spot_id: params[:spot_id])
+    if Favorite.create(user_id: current_user.id , spot_id: params[:spot_id])
       User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 5")
       #redirect_to search_detail_path(spot_id: @spot)
     else  
@@ -24,8 +24,8 @@ class FavoriteController < ApplicationController
   def destroy
     @user_spot = UserSpot.find_by(spot_id: params[:spot_id])
     if favorite = Favorite.find_by(user_id: current_user.id , spot_id: params[:spot_id])
-      User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 5")
       favorite.delete
+      User.where('id = ?', @user_spot.user_id).update_all("rating = rating - 5")
       #redirect_to search_detail_path(spot_id: @spot)
     else
       redirect_to root_path
@@ -35,8 +35,8 @@ class FavoriteController < ApplicationController
   private
 
   def set_variables
+    puts params[:spot_id]
     @spt = Spot.find(params[:spot_id])
     @id_name = "#fav-link-#{@spt.id}"
-    @id_star = "#star-#{@spt.id}"
   end
 end

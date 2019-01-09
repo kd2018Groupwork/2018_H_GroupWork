@@ -17,7 +17,7 @@ class SearchController < ApplicationController
   end
   
   def search_detail
-    @detail = Spot.joins(" inner join products on spots.product_id  = products.id inner join genres on genres.id = products.genre_id").where("spots.id" => params[:spot_id]).select("*")
+    @detail = Spot.joins(" inner join products on spots.product_id  = products.id inner join genres on genres.id = products.genre_id").where("spots.id" => params[:spot_id]).select("spots.*,products.product_name,genres.genre_name")
     @comment = Comment.new
     @comments = User.joins(:comments).select("*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')
   end
