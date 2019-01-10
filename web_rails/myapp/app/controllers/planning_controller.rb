@@ -29,7 +29,7 @@ class PlanningController < ApplicationController
       format.html
       format.pdf do
 =begin
-        render pdf: 'plan',
+        render pdf: "#{@plan_name}",
           layout: 'pdf.html.erb',
           template: 'planning/plan_pdf.html.erb', 
           encording: 'UTF-8'

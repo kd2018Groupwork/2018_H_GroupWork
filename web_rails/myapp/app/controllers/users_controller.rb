@@ -31,6 +31,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def fav_show
+    #params[]はString型
+    if current_user.id === params[:user_id].to_i
+      @fav_spot = Spot.joins(:favorites).select("spots.id,spot_name,rate").where(favorites: {user_id: params[:user_id]})
+    else
+      redirect_to root_path
+    end
+  end
+  
   private                                                                       
 
     def user_params
