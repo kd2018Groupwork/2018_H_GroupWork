@@ -28,23 +28,29 @@ class SpotController < ApplicationController
     if logged_in?
       @p = Product.find_by(product_name: session[:product_name])
       @spot = Spot.new(spot_params)
-      @spot.rate = 0
-      @spot.product_id = @p.id
-      if @spot.save
-        @user_spot = UserSpot.new()
-        @user_spot.user_id = session[:user_id]
-        @user_spot.spot_id = @spot.id
-
-        @user_spot.save
-
-        User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 1")
-        
-        session.delete(:product_id)
       
-        redirect_to spot_edit_path(spot_id: @spot.id)
-      else
-        flash[:danger] = '入力漏れの無いようにしてください'
+      if Spot.exists?(spot_name: @spot.spot_name)
+        flash[:danger] = 'そのスポット名は既に存在しています'
         redirect_to :reg_spot
+      else  
+        @spot.rate = 0
+        @spot.product_id = @p.id
+        if @spot.save
+          @user_spot = UserSpot.new()
+          @user_spot.user_id = session[:user_id]
+          @user_spot.spot_id = @spot.id
+
+          @user_spot.save
+
+          User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 1")
+          
+          session.delete(:product_id)
+        
+          redirect_to spot_edit_path(spot_id: @spot.id)
+        else
+          flash[:danger] = '入力漏れの無いようにしてください'
+          redirect_to :reg_spot
+        end
       end
     else
       redirect_to root_url
