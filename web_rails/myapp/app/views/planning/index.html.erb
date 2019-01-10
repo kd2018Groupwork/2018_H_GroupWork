@@ -9,8 +9,10 @@
       <% hash.merge!(data.spot_id => (Spot.find_by(id: data.spot_id)).spot_name) %>
     <% end %>
     <table class="table">
-      <% hash.values.each do |h| %>
-        <tr><td><%= h %></td></tr>
+      <% hash.keys.each do |key| %>
+        <tr><td>
+          <%=link_to hash[key],search_detail_path(spot_id: key)%>
+        </td></tr>
       <% end %>
     </table>
   </div>
