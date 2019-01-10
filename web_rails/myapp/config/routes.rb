@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   patch   'commit'                  =>  'spot#commit', as:'commit'
   get     'complete_spot'           =>  'spot#complete'
 
-  get     'favorite/show/:user_id'  =>  'favorite#show' , as: 'fav_show'
+  get     'favorite/show/:user_id'  =>  'users#fav_show' , as: 'fav_show'
   post    'favorite/:spot_id'       =>  'favorite#create'  , as:'fav'
   delete  'favorite/:spot_id'       =>  'favorite#destroy' , as:'unfav'
   
