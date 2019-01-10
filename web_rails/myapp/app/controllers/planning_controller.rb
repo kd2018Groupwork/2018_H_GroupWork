@@ -29,12 +29,11 @@ class PlanningController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-=begin
         render pdf: "#{@plan_name}",
           layout: 'pdf.html.erb',
           template: 'planning/plan_pdf.html.erb', 
           encording: 'UTF-8'
-=end
+=begin
         pdf = render_to_string( 
           pdf: 'plan', 
           layout: 'pdf.html.erb',
@@ -42,8 +41,10 @@ class PlanningController < ApplicationController
           encording: 'UTF-8'
         )
         send_data(pdf,filename: "#{@plan_name}.pdf")
+=end
       end
     end
+    
   end
 
   # 未完成
