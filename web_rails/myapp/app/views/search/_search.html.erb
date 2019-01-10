@@ -36,21 +36,7 @@
                   ) do
               %>
                 <div class="form-inline">
-                  <%= text_field_tag :product, params[:product],
-                    placeholder: "作品名",
-                          class: "form-control auto-complete",
-                    autocomplete: 'off'
-                  %>
-                  <!--西田：　あとでプロンプトつける　-->
-                  <%= select_tag "genre",
-                    options_from_collection_for_select(
-                      select_genres,
-                      :first,
-                      :second,
-                      id: "genre"
-                    ),
-                    class: "form-control"
-                  %>
+                  <%= render partial: 'search/product_genre_form' %>
                 </div>
                 <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
@@ -65,18 +51,7 @@
                     ) do 
               %>
                 <div class="form-inline">
-                  <%= select_tag 'pref',
-                    options_from_collection_for_select(
-                      select_prefs,
-                      :first,
-                      :second,
-                      id: 'pref'
-                    ),
-                    class: "form-control"
-                  %>
-                  <label id="city-area">
-                    <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
-                  </label>
+                  <%= render partial: 'search/pref_city_form' %>
                 </div>
                 <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
@@ -91,35 +66,9 @@
                     ) do 
               %>
                 <div class="form-inline">
-                  <%= text_field_tag :product, params[:product],
-                    placeholder: "作品名",
-                          class: "form-control auto-complete",
-                    autocomplete: 'off'
-                  %>
-                  <!--西田：　あとでプロンプトつける　-->
-                  <%= select_tag "genre",
-                    options_from_collection_for_select(
-                      select_genres,
-                      :first,
-                      :second,
-                      id: "genre"
-                    ),
-                    class: "form-control"
-                  %>         
+                  <%= render partial: 'search/product_genre_form' %>
                   <strong>✕</strong>
-                  <%= select_tag 'pref',
-                    options_from_collection_for_select(
-                      select_prefs,
-                      :first,
-                      :second,
-                      id: 'pref'
-                    ),
-                    class: "form-control"
-                  %>
-
-                  <label id="city-area">
-                    <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
-                  </label>
+                  <%= render partial: 'search/pref_city_form'%>
                 </div>
                 <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
