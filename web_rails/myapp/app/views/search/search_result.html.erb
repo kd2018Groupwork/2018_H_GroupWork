@@ -1,6 +1,7 @@
 <%= render partial: 'search/search'%>
-
+<hr><P class="center">検索結果</p>
 <br>
+
 <% @result.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
     <a class="pull-left" href="#">
@@ -26,18 +27,8 @@
           <%= render 'favorite/favorite' , detail: data%>
           <%= render 'rate/rate' , detail: data %>
         </div>
+        <br>
       </div>
-      <div class="card-footer">
-        <!-- <div> -->
-          <span class="timestamp"> 
-            <%= time_ago_in_words(data.updated_at) %>前
-          </span>
-        <!-- </div> -->
-      </div>
-     </div>   
-     
-    
-  <br>
-  <br>
-
+    </div>   
+<br><br>
 <% end %>
