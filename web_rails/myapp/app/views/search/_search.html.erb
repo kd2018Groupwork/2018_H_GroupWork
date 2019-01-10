@@ -1,6 +1,6 @@
 <!--西田：　重複コードたくさんあるので後できれいにするかも-->
-<% provide(:title, "けんさく") %>
-<h1>かんこうち　けんさく</h1>
+<% provide(:title, "検索") %>
+<h1>観光地検索</h1>
 
 <div class=”container-fluid”>
   <div class="row">
@@ -10,16 +10,16 @@
           <ul class="nav nav-tabs">
             <li class="active">
               <a href="#product-tab" data-toggle="tab">
-                さくひん
+                作品名
               </a>
             </li>
             <li>
               <a href="#pref-tab" data-toggle="tab">
-                ちいき
+                地域
               </a>
             <li>
               <a href="#product-and-pref-tab" data-toggle="tab" >
-                さくひん×ちいき
+                作品名×地域
               </a>          
             </li>
           </ul>
@@ -37,7 +37,7 @@
               %>
                 <div class="form-inline">
                   <%= text_field_tag :product, params[:product],
-                    placeholder: "さくひんめい",
+                    placeholder: "作品名",
                           class: "form-control auto-complete",
                     autocomplete: 'off'
                   %>
@@ -52,7 +52,7 @@
                     class: "form-control"
                   %>
                 </div>
-                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+                <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
             </div>
 
@@ -78,7 +78,7 @@
                     <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
                   </label>
                 </div>
-                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+                <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
             </div>
 
@@ -92,7 +92,7 @@
               %>
                 <div class="form-inline">
                   <%= text_field_tag :product, params[:product],
-                    placeholder: "さくひんめい",
+                    placeholder: "作品名",
                           class: "form-control auto-complete",
                     autocomplete: 'off'
                   %>
@@ -121,7 +121,7 @@
                     <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
                   </label>
                 </div>
-                <%= submit_tag "けんさく", name: nil, class: "btn btn-primary" %>
+                <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
               <% end %>
             </div>
           </div>
