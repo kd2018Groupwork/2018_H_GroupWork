@@ -1,33 +1,42 @@
-<%= render 'search' %>
-<hr><P class="center">検索結果</p>
-<br><br>
-<% @result.each do |spot| %>
+<%= render partial: 'search/search'%>
+
+<br>
+<% @result.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
-<!-- 画像表示用
     <a class="pull-left" href="#">
-    <%= link_to search_detail_path(spot_id: spot.id) do %>
-      <%= image_tag(
-        spot.images[0].url,
-        class: "img-thumbnail",
-         size: 100
-        ) if spot.images?
-      %>
+    <%= link_to search_detail_path(spot_id: data.id) do %>
+      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
     <% end %>
     </a>
--->
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to spot.spot_name,
-          search_detail_path(spot_id: spot.id)
-        %>
-      </h4>
-      <%= spot.details %>
-    </div>
-    <div>
-      <%= render 'favorite/favorite' , detail: spot%>
-      <%= render 'rate/rate' , detail: spot %>
-    </div>
-  </div>
+    
+    <div class="card my-3" style="background-color:white;">
+      <div class="card-header">
+     
+        <!-- <div class="media-body"> -->
+          <h4> <!-- class="media-heading" -->
+          <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
+          </h4>
+      
+          <%= data.details %>
+          </div>
+          </div>
+        <!--</div>-->
+        <div class="card-body">  
+        <div>
+          <%= render 'favorite/favorite' , detail: data%>
+          <%= render 'rate/rate' , detail: data %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <!-- <div> -->
+          <span class="timestamp"> 
+            <%= time_ago_in_words(data.updated_at) %>前
+          </span>
+        <!-- </div> -->
+      </div>
+     </div>   
+     
+    
   <br>
   <br>
 
