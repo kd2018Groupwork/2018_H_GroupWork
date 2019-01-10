@@ -15,13 +15,14 @@ Rails.application.routes.draw do
   post    'login'                   =>  'sessions#create'
   delete  'logout'                  =>  'sessions#destroy'
   get                                   'sessions/new'
+  get     'show_spot'               =>  'users#show_spot'
 
   get     'add_spot'                =>  'spot#new'
   post    'products'                =>  'spot#commit_product'
   get     'reg_spot'                =>  'spot#create_s'
   post    'spots'                   =>  'spot#create'
   get     'spot/edit'               =>  'spot#edit', as:'spot_edit'
-  patch    'commit'                  =>  'spot#commit', as:'commit'
+  patch   'commit'                  =>  'spot#commit', as:'commit'
   get     'complete_spot'           =>  'spot#complete'
 
   get     'favorite/show/:user_id'  =>  'users#fav_show' , as: 'fav_show'

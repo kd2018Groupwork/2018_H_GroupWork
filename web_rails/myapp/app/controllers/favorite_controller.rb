@@ -26,8 +26,10 @@ class FavoriteController < ApplicationController
   private
 
   def set_variables
-    puts params[:spot_id]
-    @spt = Spot.find(params[:spot_id])
-    @id_name = "#fav-link-#{@spt.id}"
+    if params[:spot_id]
+      puts params[:spot_id]
+      @spt = Spot.find(params[:spot_id])
+      @id_name = "#fav-link-#{@spt.id}"
+    end
   end
 end

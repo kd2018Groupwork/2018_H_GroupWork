@@ -7,7 +7,10 @@
         <span><%= d.date.strftime("%Y/%m/%d") %></span>
         <span><%= d.date.strftime("%H:%M") %></span>
       </time>
-      <div class="cbp_tmicon"></div>
+      <div class="cbp_tmicon">
+        <% @s = Spot.find_by(spot_name: d.spot_name) %>
+        <%= image_tag(@s.images[0].url, class: "img-thumbnail", size: 100) if @s.images? %>
+      </div>
       <div class="cbp_tmlabel">
         <h2 style="color: #fff">
           <%= d.spot_name %>

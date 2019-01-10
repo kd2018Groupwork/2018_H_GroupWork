@@ -10,6 +10,7 @@ class PlanningController < ApplicationController
     @plan.user_id = session[:user_id]
     @plan.plan_id = Plan.count + 1
     if @plan.save
+      Favorite.where(user_id: session[:user_id]).delete_all
       flash[:success] = "計画表作成を作成しました!"
       redirect_to complete_planning_path
     else
