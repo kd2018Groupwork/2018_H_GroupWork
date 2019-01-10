@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.jpostal 
-//= require nested_form_fields
 //= require rails-ujs
+//= require jquery_ujs
+//= require nested_form_fields
 //= require trix
