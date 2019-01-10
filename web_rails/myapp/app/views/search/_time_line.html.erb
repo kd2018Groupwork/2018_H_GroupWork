@@ -1,5 +1,5 @@
 <br>
-<% @spot = Spot.order('updated_at DESC') %>
+<% @spot = Spot.where('review_flag = ?',true).order('updated_at DESC') %>
 <% @spot.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
     <a class="pull-left" href="#">
