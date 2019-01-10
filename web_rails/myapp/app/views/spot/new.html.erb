@@ -11,7 +11,7 @@
         </tr>
         <tr>
           <th>ジャンル</th>
-          <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, {prompt: "選択してください", class: 'form-control'}) %></td>
+          <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name, {prompt: "選択してください"}, class: 'form-control') %></td>
         </tr>
       </table>
       <%= f.submit "この作品で登録する", class: "btn btn-primary" %>
