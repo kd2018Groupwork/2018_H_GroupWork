@@ -9,18 +9,13 @@
         <div class="panel-heading">
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#product-tab" data-toggle="tab">
-                作品名
-              </a>
+              <a href="#product-tab" data-toggle="tab">作品名</a>
             </li>
             <li>
-              <a href="#pref-tab" data-toggle="tab">
-                地域
-              </a>
+              <a href="#pref-tab" data-toggle="tab">地域</a>
+            </li>
             <li>
-              <a href="#product-and-pref-tab" data-toggle="tab" >
-                作品名×地域
-              </a>          
+              <a href="#product-and-pref-tab" data-toggle="tab" >作品名×地域</a>          
             </li>
           </ul>
         </div>
@@ -28,7 +23,7 @@
         <div class="panel-body">
           <div class="tab-content">
             <!-- 作品検索フォーム -->
-            <div id="product-tab" class="tab-pane fade in active">
+            <div id="product-tab" class="tab-pane in active">
               <%= form_tag(
                     search_result_path,
                     method: "get",
@@ -43,7 +38,7 @@
             </div>
 
             <!-- 地域検索フォーム -->
-            <div id="pref-tab" class="tab-pane fade">
+            <div id="pref-tab" class="tab-pane">
               <%= form_tag(
                     search_result_path,
                     method: "get",
@@ -58,7 +53,7 @@
             </div>
 
             <!--　作品×地域検索フォーム　-->
-            <div id="product-and-pref-tab" class="tab-pane fade">
+            <div id="product-and-pref-tab" class="tab-pane">
               <%= form_tag(
                     search_result_path,
                     method: "get",
