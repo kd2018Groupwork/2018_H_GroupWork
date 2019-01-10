@@ -1,0 +1,13 @@
+<%= select_tag 'pref',
+  options_from_collection_for_select(
+    select_prefs,
+    :first,
+    :second,
+    id: 'pref'
+  ),
+  class: "form-control"
+%>
+
+<label id="city-area">
+  <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
+</label>
