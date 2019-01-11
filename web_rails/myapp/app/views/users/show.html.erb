@@ -5,11 +5,9 @@
       <h1>
         <table class="table">
           <% if @user.image_name? %>
-            <tr>
-              <td>
-                <%= image_tag @user.image_name.thumb.url %><br>
-              </td>
-            </tr>
+            <tr><td><%= image_tag @user.image_name.thumb.url %></td></tr>
+          <% else %>
+            <tr><td><%= image_tag("icon/NoImage.png", size: 100) %></td></tr>
           <% end %>
           <tr><th>Name</th><td><%= @user.user_name %></td></tr>
           <tr><th>Address</th><td><%= @user.email %></td></tr>
