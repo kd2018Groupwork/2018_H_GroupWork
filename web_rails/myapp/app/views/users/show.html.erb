@@ -1,6 +1,6 @@
 <% provide(:title, @user.user_name + "の") %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside>
     <section class="user_info">
       <h1>
         <table class="table">
@@ -13,6 +13,26 @@
           <% end %>
           <tr><th>Name</th><td><%= @user.user_name %></td></tr>
           <tr><th>Address</th><td><%= @user.email %></td></tr>
+        </table>
+
+        <table class="table">
+          <% @user_spot = UserSpot.find_by(user_id: @user.id) %>
+          <% @spot = Spot.where('review_flag = ?',true).where(id: @user_spot.spot_id) %>
+          <% @spot.each do |data| %>
+            <tr>
+              <td class="table-img">
+                <% if data.images? %>
+                  <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) %>
+                <% else %>
+                  <%= image_tag("icon/NoImage.png", size: 100) %>
+                <% end %>
+              </td>
+              <td class="table-txt">
+                <%= data.spot_name %><br>
+                <%= data.details %>
+              </td>
+            </tr>
+          <% end %>
         </table>
       </h1>
     </section>
