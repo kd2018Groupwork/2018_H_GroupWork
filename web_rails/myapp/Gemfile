@@ -19,6 +19,7 @@ gem 'nested_form_fields'
 gem 'trix'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'kaminari', '~> 0.17.0'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
