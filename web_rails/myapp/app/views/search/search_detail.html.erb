@@ -12,6 +12,12 @@
                     <td><%= @detail[0].product_name %></td>
                 </tr>
                 <tr>
+                    <th scope="row" width="20%">登録者：</th>
+                    <td>
+                        <%= link_to @user_name ,user_path(id: @user_id) %>
+                    </td>
+                </tr>
+                <tr>
                     <th scope="row">スポット名：</th>
                     <td><%= @detail[0].spot_name %></td>
                 </tr>
