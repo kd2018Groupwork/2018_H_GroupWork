@@ -3,6 +3,7 @@ class Spot < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :user_spots, dependent: :destroy
+  has_many :comments, dependent: :destroy
   belongs_to :product
 
   validates :spot_name, presence: true

@@ -1,24 +1,13 @@
-<% if current_user %>
-    <h2>コメント欄</h2>
-    <%= form_for @comment do |f| %>
-        <%= f.text_area :comment %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
-        <br>
-        <%= f.submit 'コメントする' , data:{ disable_with: '投稿中・・・'}, class: "form-control btn-primary" %>
-    <% end %>
-<% else %>
-    <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
-    <h2>コメント欄</h2>
-<% end %>
-<% @comments.each do |comment| %>
+<% comments.each do |comment| %>
     <div style="border:#d0d0d0 solid 1px;" >
         <%= link_to user_path(id: comment.user_id) do %>
             <%= image_tag( comment.image_name.url , :size => "30x30" , :class => "rounded-circle") if comment.image_name? %>
             <%= comment.user_name %>さん
         <% end %>
-        <%= link_to uncomment_path(id: comment.spot_id) do %>
-
+        <% unless !current_user || current_user.id != comment.user_id %>
+            <%= link_to uncomment_path(spot_id:comment.spot_id) , method: :delete , remote: true do %>
+                <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
         <% end %>
         <p>
         <%= comment.comment %> 
