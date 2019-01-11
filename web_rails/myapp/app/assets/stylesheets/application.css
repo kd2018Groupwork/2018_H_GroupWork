@@ -13,9 +13,4 @@
  *= require_self
  *= require_tree .
  *= require trix
- */
-
-body {
-	font-family: 'ＭＳ ゴシック', sans-serif;
-	color: green;
-}
+*/
