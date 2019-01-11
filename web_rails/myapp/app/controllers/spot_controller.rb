@@ -46,7 +46,8 @@ class SpotController < ApplicationController
           
           session.delete(:product_id)
         
-          redirect_to spot_edit_path(spot_id: @spot.id)
+          flash[:success] = "観光地の登録が完了しました!"
+          redirect_to show_spot_path(id: session[:user_id])
         else
           flash[:danger] = '入力漏れの無いようにしてください'
           redirect_to :reg_spot
@@ -78,7 +79,7 @@ class SpotController < ApplicationController
     end  
 
     if @spot.save
-      flash[:success] = "観光地の登録が完了しました!"
+      flash[:success] = "観光地の詳細を編集しました!"
       redirect_to :complete_spot
     else
     end

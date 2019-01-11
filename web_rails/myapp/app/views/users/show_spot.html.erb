@@ -5,33 +5,34 @@
 <% @spot = Spot.where('id in (?)', @user_spot.select(:spot_id).map(&:spot_id)) %>
 
 <% @spot.each do |data| %>
-  <div id="media" style="width: 50%; margin: auto;">
-    <a class="pull-left">
-    <%= link_to spot_edit_path(spot_id: data.id) do %>
-      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
-    <% end %>
-    </a>
-    
-    <div class="card my-3" style="background-color:white;">
-      <div class="card-header">
-        <h4>
-          <%= link_to data.spot_name ,spot_edit_path(spot_id: data.id) %>
-          </h4>
-      
-          <%= data.details %>
-          </div>
-          </div>
-        <div class="card-body">  
-        <div>
-          <%= render 'rate/rate' , detail: data %>
-        </div>
-      </div>
-      <div class="card-footer">
+  <table class="table">
+    <tr>
+      <td class="table-img">
+        <% if data.images? %>
+          <%= image_tag(data.images[0].url, size: 100) %>
+        <% else %>
+          <%= image_tag("icon/NoImage.png", size: 100) %>
+        <% end %>
+      </td>
+      <td class="table-text">
+        <%= data.spot_name %>
+        <% if data.review_flag %>
+          <span class="label label-info">公開</span>
+        <% else %>
+          <span class="label  label-danger">編集中</span><br>
+        <% end %>
+        <br>
+        <%= data.details %><br><br>
+        <a class="btn-group">
+          <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary btn-sm"} %>
+        </a>
+        <%= render 'favorite/favorite' , detail: data%>
+        <%= render 'rate/rate' , detail: data %>
         <span class="timestamp"> 
           <%= time_ago_in_words(data.updated_at) %>前
         </span>
-      </div>
-     </div>
-  <br><br>
+      </td>
+    </tr>
+  </table>
 <% end %>
 </div>
