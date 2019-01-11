@@ -1,7 +1,9 @@
 <% provide(:title, "Spot View") %>
 <div class="row">
 <br>
-<% @spot = Spot.order('updated_at DESC') %>
+<% @user_spot = UserSpot.where('user_id = ?', session[:user_id]) %>
+<% @spot = Spot.where('id in (?)', @user_spot.select(:spot_id).map(&:spot_id)) %>
+
 <% @spot.each do |data| %>
   <div id="media" style="width: 50%; margin: auto;">
     <a class="pull-left">
