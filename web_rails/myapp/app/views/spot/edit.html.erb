@@ -4,6 +4,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
+    <h4><%= @spot.spot_name %></h4><br>
     <%= form_for @spot, url: {:action => 'commit'} do |f| %>
       <%= f.trix_editor :review %>
       <%= f.hidden_field :id, :value => @spot.id %>
