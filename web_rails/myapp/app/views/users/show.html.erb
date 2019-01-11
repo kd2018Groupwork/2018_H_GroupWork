@@ -5,24 +5,22 @@
       <h1>
         <table class="table">
           <% if @user.image_name? %>
-            <tr>
-              <td>
-                <%= image_tag @user.image_name.thumb.url %><br>
-              </td>
-            </tr>
+            <tr><td><%= image_tag @user.image_name.thumb.url %></td></tr>
+          <% else %>
+            <tr><td><%= image_tag("icon/NoImage.png", size: 100) %></td></tr>
           <% end %>
           <tr><th>Name</th><td><%= @user.user_name %></td></tr>
           <tr><th>Address</th><td><%= @user.email %></td></tr>
         </table>
 
         <table class="table">
-          <% @user_spot = UserSpot.find_by(user_id: @user.id) %>
-          <% @spot = Spot.where('review_flag = ?',true).where(id: @user_spot.spot_id) %>
+          <% @user_spot = UserSpot.where('user_id = ?', @user.id) %>
+          <% @spot = Spot.where('review_flag = ? and id in (?)', true, @user_spot.select(:spot_id).map(&:spot_id)) %>
           <% @spot.each do |data| %>
             <tr>
               <td class="table-img">
                 <% if data.images? %>
-                  <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) %>
+                  <%= image_tag(data.images[0].url, size: 100) %>
                 <% else %>
                   <%= image_tag("icon/NoImage.png", size: 100) %>
                 <% end %>

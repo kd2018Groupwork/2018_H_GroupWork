@@ -5,7 +5,7 @@
     <tr>
       <td class="table-img">
         <% if data.images? %>
-          <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) %>
+          <%= image_tag(data.images[0].url, size: 100) %>
         <% else %>
           <%= image_tag("icon/NoImage.png", size: 100) %>
         <% end %>
