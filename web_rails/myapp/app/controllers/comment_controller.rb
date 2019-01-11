@@ -10,6 +10,7 @@ class CommentController < ApplicationController
   end
 
   def destroy
+    
   end
 
   private

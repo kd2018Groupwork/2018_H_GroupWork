@@ -13,12 +13,15 @@
 <% end %>
 <% @comments.each do |comment| %>
     <div style="border:#d0d0d0 solid 1px;" >
-        <p>
-            <%= image_tag("default.jpg", :size => "30x30" ,:class => "rounded-circle") %>
+        <%= link_to user_path(id: comment.user_id) do %>
+            <%= image_tag( comment.image_name.url , :size => "30x30" , :class => "rounded-circle") if comment.image_name? %>
             <%= comment.user_name %>さん
-        </p>
+        <% end %>
+        <%= link_to uncomment_path(id: comment.spot_id) do %>
+
+        <% end %>
         <p>
-        <%= comment.comment %>
+        <%= comment.comment %> 
         </p>
         <div class="timestamp">
             <%= time_ago_in_words(comment.updated_at) %>前
