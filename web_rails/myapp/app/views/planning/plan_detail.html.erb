@@ -17,6 +17,7 @@
         </h2>
         <% if !d.comment.empty? %>
           <p style="color: #fff">
+            <%= d.prefecture.name + " " + d.address_city + " " + d.address_street + " " + d.address_building %><br>
             <%= d.comment %>
           </p>
         <% end %>
