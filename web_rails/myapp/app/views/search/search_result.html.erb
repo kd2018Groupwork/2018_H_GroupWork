@@ -3,32 +3,24 @@
 <br>
 
 <% @result.each do |data| %>
-  <div id="media" style="width: 50%; margin: auto;">
-    <a class="pull-left" href="#">
-    <%= link_to search_detail_path(spot_id: data.id) do %>
-      <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) if data.images? %>
-    <% end %>
-    </a>
-    
-    <div class="card my-3" style="background-color:white;">
-      <div class="card-header">
-     
-        <!-- <div class="media-body"> -->
-          <h4> <!-- class="media-heading" -->
-          <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
-          </h4>
-      
-          <%= data.details %>
-          </div>
-          </div>
-        <!--</div>-->
-        <div class="card-body">  
-        <div>
-          <%= render 'favorite/favorite' , detail: data%>
-          <%= render 'rate/rate' , detail: data %>
-        </div>
-        <br>
-      </div>
-    </div>   
-<br><br>
+  <table class="table">
+    <tr>
+      <td class="table-img">
+        <% if data.images? %>
+          <%= image_tag(data.images[0].url, class: "img-thumbnail", size: 100) %>
+        <% else %>
+          <%= image_tag("icon/NoImage.png", size: 100) %>
+        <% end %>
+      </td>
+      <td class="table-text">
+        <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %><br>
+        <%= data.details %><br><br>
+        <%= render 'favorite/favorite' , detail: data%>
+        <%= render 'rate/rate' , detail: data %>
+        <span class="timestamp"> 
+          <%= time_ago_in_words(data.updated_at) %>前
+        </span>
+      </td>
+    </tr>
+  </table>
 <% end %>
