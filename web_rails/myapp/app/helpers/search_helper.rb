@@ -3,7 +3,8 @@ module SearchHelper
 
   def select_prefs
     result = []
-    Spot.all.each do |spt|
+    checked_spot = Spot.where('review_flag = ?',true)
+    checked_spot.each do |spt|
       result.append(
         {
           value: spt.prefecture_code,
