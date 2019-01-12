@@ -30,8 +30,6 @@
           <d class="text-muted" style="font-size: 12px;">
             - <%= time_ago_in_words(data.updated_at) %>前
           </d>
-          <%= render 'favorite/favorite' , detail: data%>
-          <%= render 'rate/rate' , detail: data %>
         </td>
       </tr>
       <% i += 1 %>
