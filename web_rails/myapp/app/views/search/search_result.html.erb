@@ -1,7 +1,6 @@
 <%= render partial: 'search/search'%>
 <hr><P class="center">検索結果</p>
 <br>
-<div class="col-md-9">
   <% @result.each do |data| %>
     <table class="table">
       <tr>
@@ -26,3 +25,5 @@
     <%= paginate @result %>
   </div>
 </div>
+
+<%= render('search/ranking') %>

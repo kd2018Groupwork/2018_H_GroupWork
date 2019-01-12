@@ -1,6 +1,6 @@
 <br>
 <% @spot = Spot.where('review_flag = ?',true).order('updated_at DESC') %>
-<div class="col-md-6">
+
   <hr><p class="center">タイムライン</p>
   <% @spot.each do |data| %>
     <table class="table">
