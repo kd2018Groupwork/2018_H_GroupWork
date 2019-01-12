@@ -3,14 +3,14 @@
 <!-- 左寄せにする -->
 <div class="row">
   <div class="col-md-2" style="text-align: center;">
-    <h2>ピックアップ一覧</h2>
     <% hash = {} %>
     <% (Favorite.where(user_id: session[:user_id])).each do |data| %>
       <% hash.merge!(data.spot_id => (Spot.find_by(id: data.spot_id)).spot_name) %>
     <% end %>
     <table class="table">
+      <tr style="bgcolor: #3C71C6">ピックアップ一覧</tr>
       <% hash.keys.each do |spot_id| %>
-        <tr><td>
+        <tr style="bgcolor: #fff"><td>
           <% spot_name = hash[spot_id] %>
           <%=link_to spot_name,search_detail_path(spot_id: spot_id)%>
         </td></tr>
