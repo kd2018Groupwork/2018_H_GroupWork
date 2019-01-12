@@ -1,37 +1,68 @@
 <% provide(:title, "Spot View") %>
 <div class="row">
-<br>
-<% @user_spot = UserSpot.where('user_id = ?', session[:user_id]) %>
-<% @spot = Spot.where('id in (?)', @user_spot.select(:spot_id).map(&:spot_id)) %>
+  <br>
 
-<% @spot.each do |data| %>
-  <table class="table">
-    <tr>
-      <td>
-        <% if data.images? %>
-          <%= image_tag(data.images[0].url, size: 100) %>
-        <% else %>
-          <%= image_tag("icon/NoImage.png", size: 100) %>
-        <% end %>
-      </td>
-      <td style="width: 3000px;margin-left: auto;">
-        <div class="form-inline">
-          <% if data.review_flag %>
-            <span class="label label-info">公　開</span>
-          <% else %>
-            <span class="label  label-danger">編集中</span>
-          <% end %>
-          <%= data.spot_name %>
-          <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
+  <div class="col-md-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-radius: 16px;">
+              <div class="well profile col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                  <figure>
+                    <% if @user.image_name? %>
+                      <tr><td><%= image_tag @user.image_name.thumb.url, class: "img-circle" %></td></tr>
+                    <% else %>
+                      <tr><td><%= image_tag("icon/NoImage.png", size: 100, class: "img-circle") %></td></tr>
+                    <% end %>
+                  </figure>
+                  <h5 style="text-align:center;">
+                    <strong id="user-name">
+                      <%= @user.user_name %>
+                    </strong>
+                  </h5>
+                  <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="user-email">
+                    <%= @user.email %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
-        <a class="btn-group">
-          <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary btn-sm"} %>
-        </a>
-        <%= render 'favorite/favorite' , detail: data%>
-        <%= render 'rate/rate' , detail: data %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <% @spot.each do |data| %>
+      <table class="table">
+        <tr>
+          <td>
+            <% if data.images? %>
+              <%= image_tag(data.images[0].url, size: 100) %>
+            <% else %>
+              <%= image_tag("icon/NoImage.png", size: 100) %>
+            <% end %>
+          </td>
+          <td style="width: 3000px;margin-left: auto;">
+            <div class="form-inline">
+              <% if data.review_flag %>
+                <span class="label label-info">公　開</span>
+              <% else %>
+                <span class="label  label-danger">編集中</span>
+              <% end %>
+              <%= data.spot_name %>
+              <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
+            </div>
+            <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
+            <a class="btn-group">
+              <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary btn-sm"} %>
+            </a>
+            <%= render 'favorite/favorite' , detail: data%>
+            <%= render 'rate/rate' , detail: data %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
 </div>

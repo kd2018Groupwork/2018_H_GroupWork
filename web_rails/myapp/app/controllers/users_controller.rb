@@ -39,6 +39,12 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def show_spot
+    @user = User.find(session[:user_id])
+    @user_spot = UserSpot.where('user_id = ?', session[:user_id])
+    @spot = Spot.where('id in (?)', @user_spot.select(:spot_id).map(&:spot_id)).order('updated_at DESC')  
+  end
   
   private                                                                       
 
