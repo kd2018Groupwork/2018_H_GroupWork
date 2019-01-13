@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    build: ./db_psql
+    container_name: "db_psql"
+    environment:
+      POSTGRES_USER: ${psql_user}
+      POSTGRES_PASSWORD: ${psql_root_password}
+    volumes:
+      - ./db_psql/db_data:/var/lib/postgresql
+  web:
+    tty: true
+    stdin_open: true
+    build: ./web_rails
+    container_name: "web_rails"
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./web_rails/myapp:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

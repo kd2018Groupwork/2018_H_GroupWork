@@ -1,0 +1,64 @@
+<% provide(:title, @user.user_name) %>
+<div class="row">
+  <aside>
+    <section class="user_info">
+      <h1>
+        <div class="col-md-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-radius: 16px;">
+                    <div class="well profile col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <figure>
+                          <% if @user.image_name? %>
+                            <tr><td><%= image_tag @user.image_name.thumb.url, class: "img-circle" %></td></tr>
+                          <% else %>
+                            <tr><td><%= image_tag("icon/NoImage.png", size: 100, class: "img-circle") %></td></tr>
+                          <% end %>
+                        </figure>
+                        <h5 style="text-align:center;">
+                          <strong id="user-name">
+                            <%= @user.user_name %>
+                          </strong>
+                        </h5>
+                        <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="user-email">
+                          <%= @user.email %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <table class="table">
+            <% @user_spot = UserSpot.where('user_id = ?', @user.id) %>
+            <% @spot = Spot.where('review_flag = ? and id in (?)', true, @user_spot.select(:spot_id).map(&:spot_id)) %>
+            <% @spot.each do |data| %>
+              <tr>
+                <td>
+                  <% if data.images? %>
+                    <%= image_tag(data.images[0].url, size: 100) %>
+                  <% else %>
+                    <%= image_tag("icon/NoImage.png", size: 100) %>
+                  <% end %>
+                </td>
+                <td style="width: 3000px;margin-left: auto;">
+                  <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
+                  <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
+                  <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
+                  <%= render 'favorite/favorite' , detail: data%>
+                  <%= render 'rate/rate' , detail: data %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </h1>
+    </section>
+  </aside>
+</div>

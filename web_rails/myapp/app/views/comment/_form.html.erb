@@ -1,0 +1,7 @@
+<%= form_with(model: [comment]) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
+    <br>
+    <%= f.submit 'コメントする' , data:{ disable_with: '投稿中・・・'}, class: "form-control btn-primary" %>
+<% end %>

@@ -1,0 +1,21 @@
+# Ignore bundler config.
+/web_rails/myapp/.bundle
+
+# Ignore all logfiles and tempfiles.
+/web_rails/myapp/log/*
+/web_rails/myapp/tmp/*
+!/web_rails/myapp/log/.keep
+!/web_rails/myapp/tmp/.keep
+
+/web_rails/myapp/node_modules
+/web_rails/myapp/yarn-error.log
+
+/web_rails/myapp/.byebug_history
+
+#mysql_data
+/db_psql/db_data/*
+
+# images
+web_rails/myapp/public/uploads/spots/*
+web_rails/myapp/public/uploads/users/*
+web_rails/myapp/public/uploads/tmp/*

@@ -1,0 +1,30 @@
+<% provide(:title, '計画表詳細') %>
+<h1><%= @plan_name %></h1>
+<ul class="cbp_tmtimeline">
+  <li>
+    <% @detail.each do |d| %>
+      <time class="cbp_tmtime">
+        <span><%= d.date.strftime("%Y/%m/%d") %></span>
+        <span><%= d.date.strftime("%H:%M") %></span>
+      </time>
+      <div class="cbp_tmicon">
+        <% @s = Spot.find_by(spot_name: d.spot_name) %>
+        <%= image_tag(@s.images[0].url, class: "img-thumbnail", size: 100) if @s.images? %>
+      </div>
+      <div class="cbp_tmlabel">
+        <h2 style="color: #fff">
+          <%= d.spot_name %>
+        </h2>
+        <% if !d.comment.empty? %>
+          <p style="color: #fff">
+            <%= d.prefecture.name + " " + d.address_city + " " + d.address_street + " " + d.address_building %><br>
+            <%= d.comment %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  </li>
+</ul>
+<%= link_to plan_detail_path(format: :pdf, plan_id: params[:plan_id]) , class:"btn btn-link btn-lg" do %>
+  <i class="glyphicon glyphicon-save">ダウンロード</i>
+<% end %>

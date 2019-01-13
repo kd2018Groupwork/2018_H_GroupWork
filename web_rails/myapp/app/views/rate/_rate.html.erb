@@ -1,0 +1,17 @@
+<% if current_user %>
+<div class="like-link" id="like-link-<%= detail.id %>">
+    <% if !Rating.exists?(user_id:current_user.id,spot_id:detail.id) %>
+        <%= link_to rate_path(spot_id:detail.id) , method: :post , class:"btn btn-link btn-sm" , remote: true do %>
+            <i class="glyphicon glyphicon-heart-empty" ><%= detail.rate %></i>
+        <% end %>
+    <% else %>
+        <%= link_to unrate_path(spot_id:detail.id), method: :delete, class:"btn btn-link btn-sm", remote: true do %>
+            <i class="glyphicon glyphicon-heart" ><%= detail.rate %></i>
+        <% end %>
+    <% end %>
+</div>
+<% else %>
+    <%= link_to "#", class:"btn btn-link btn-sm disabled" , remote: true do %>
+        <i class="glyphicon glyphicon-heart"><%= detail.rate %></i>
+    <% end %>
+<% end %>

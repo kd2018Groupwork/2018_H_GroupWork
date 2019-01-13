@@ -1,0 +1,42 @@
+<% provide(:title, "Profile Edit") %>
+<h1>Profile Edit</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@user, :html => {:multiple => true}) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <table class="table">
+        <tr>
+          <% if @user.image_name? %>
+            <%= image_tag @user.image_name.thumb.url %>
+        　<% end %>
+        </tr>
+        <tr>
+          <th>Change Icon</th>
+          <td><%= f.file_field :image_name %></td>
+        </tr>
+        <tr>
+          <th>User Name</th>
+          <td><%= f.text_field :user_name, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Mail Address</th>
+          <td><%= f.email_field :email, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td><%= f.password_field :password, class: 'form-control' %></td>
+        </tr>
+        <tr>
+          <th>Re-entry</th>
+          <td><%= f.password_field :password_confirmation, class: 'form-control' %><td>
+        </tr>
+      </table>
+
+      <%= f.submit :"Update", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
