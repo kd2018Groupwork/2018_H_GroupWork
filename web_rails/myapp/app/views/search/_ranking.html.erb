@@ -1,38 +1,36 @@
-<br>
 <% @spot = Spot.where('review_flag = ?',true).order('rate DESC').limit(10) %>
-<div class="col-md-3">
-  <table class="table">
-    <p class="center">ランキング</p>
-    <% i = 1 %>
-    <% @spot.each do |data| %>
-      <tr>
-        <td style="text-align: center;vertical-align: middle;">
-          <% if i == 1 %>
-            <span class="glyphicon glyphicon-king" style="color: #FFFF00"></span>
-          <% elsif i == 2 %>
-            <span class="glyphicon glyphicon-queen" style="color: #CCCCCC"></span>
-          <% elsif i == 3 %>
-            <span class="glyphicon glyphicon-pawn" style="color: #FF9966"></span>
-          <% else %>
-          <% end %>
-        </td>
-        <td style="text-align: center;vertical-align: middle;">
-          <% if data.images? %>
-            <%= image_tag(data.images[0].url, size: 40, class: "img-circle") %>
-          <% else %>
-            <%= image_tag("icon/NoImage.png", size: 40, class: "img-circle") %>
-          <% end %>
-        </td>
-        <td style="width: 3000px;margin-left: auto;">
-          <d class="text-muted" style="font-size: 12px;">
-            <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
-          </d>
-          <d class="text-muted" style="font-size: 12px;">
-            - <%= time_ago_in_words(data.updated_at) %>前
-          </d>
-        </td>
-      </tr>
-      <% i += 1 %>
-    <% end %>
-  </table>
-</div>
+
+<table class="table">
+  <h4 class="center">ランキング</h4>
+  <% i = 1 %>
+  <% @spot.each do |data| %>
+    <tr>
+      <td style="text-align: center;vertical-align: middle;">
+        <% if i == 1 %>
+          <span class="glyphicon glyphicon-king" style="color: #FFFF00"></span>
+        <% elsif i == 2 %>
+          <span class="glyphicon glyphicon-queen" style="color: #CCCCCC"></span>
+        <% elsif i == 3 %>
+          <span class="glyphicon glyphicon-pawn" style="color: #FF9966"></span>
+        <% else %>
+        <% end %>
+      </td>
+      <td style="text-align: center;vertical-align: middle;">
+        <% if data.images? %>
+          <%= image_tag(data.images[0].url, size: 40, class: "img-circle") %>
+        <% else %>
+          <%= image_tag("icon/NoImage.png", size: 40, class: "img-circle") %>
+        <% end %>
+      </td>
+      <td style="width: 3000px;margin-left: auto;">
+        <d class="text-muted" style="font-size: 12px;">
+          <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
+        </d>
+        <d class="text-muted" style="font-size: 12px;">
+          - <%= time_ago_in_words(data.updated_at) %>前
+        </d>
+      </td>
+    </tr>
+    <% i += 1 %>
+  <% end %>
+</table>

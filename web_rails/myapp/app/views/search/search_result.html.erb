@@ -1,6 +1,11 @@
-<%= render partial: 'search/search'%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render partial: 'search' %>
+  </div>
+</div>
 <hr><P class="center">検索結果</p>
 <br>
+
   <% @result.each do |data| %>
     <table class="table">
       <tr>
