@@ -19,3 +19,4 @@
 web_rails/myapp/public/uploads/spots/*
 web_rails/myapp/public/uploads/users/*
 web_rails/myapp/public/uploads/tmp/*
+web_rails/myapp/public/uploads/comment/*

@@ -25,7 +25,7 @@ class CommentController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment, :user_id, :spot_id)
+    params.require(:comment).permit(:comment, :user_id, :spot_id , {images: []})
   end
 
   def set_variables
