@@ -164,6 +164,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    remotipart (1.4.2)
     rmagick (2.16.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
@@ -245,6 +246,7 @@ DEPENDENCIES
   rails (~> 5.1.6, >= 5.1.6.1)
   rails-i18n
   rails-ujs
+  remotipart
   rmagick
   sass-rails (~> 5.0)
   selenium-webdriver

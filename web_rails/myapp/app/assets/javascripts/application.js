@@ -20,3 +20,4 @@
 //= require jquery_ujs
 //= require nested_form_fields
 //= require trix
+//= require jquery.remotipart

@@ -21,6 +21,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'remotipart'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
