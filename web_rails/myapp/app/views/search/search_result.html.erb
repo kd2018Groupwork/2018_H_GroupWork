@@ -1,29 +1,37 @@
-<%= render partial: 'search/search'%>
-<hr><P class="center">検索結果</p>
-<br>
-  <% @result.each do |data| %>
-    <table class="table">
-      <tr>
-        <td>
-          <% if data.images? %>
-            <%= image_tag(data.images[0].url, size: 100) %>
-          <% else %>
-            <%= image_tag("icon/NoImage.png", size: 100) %>
-          <% end %>
-        </td>
-        <td style="width: 3000px;margin-left: auto;">
-          <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
-          <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
-          <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
-          <%= render 'favorite/favorite' , detail: data%>
-          <%= render 'rate/rate' , detail: data %>
-        </td>
-      </tr>
-    </table>
-  <% end %>
-  <div class="center">
-    <%= paginate @result %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render partial: 'search' %>
+  </div>
+
+  <div class="col-md-6 col-md-offset-3">
+    <hr><P class="center">検索結果</p>
+    <% @result.each do |data| %>
+      <table class="table">
+        <tr>
+          <td>
+            <% if data.images? %>
+              <%= image_tag(data.images[0].url, size: 100) %>
+            <% else %>
+              <%= image_tag("icon/NoImage.png", size: 100) %>
+            <% end %>
+          </td>
+          <td style="width: 3000px;margin-left: auto;">
+            <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
+            <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
+            <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
+            <%= render 'favorite/favorite' , detail: data%>
+            <%= render 'rate/rate' , detail: data %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <div class="center">
+      <%= paginate @result %>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <br><br>
+    <%= render('search/ranking') %>
   </div>
 </div>
-
-<%= render('search/ranking') %>

@@ -1,76 +1,69 @@
 <!--西田：　重複コードたくさんあるので後できれいにするかも-->
-<% provide(:title, "検索") %>
-<h1>観光地検索</h1>
-<div class="col-md-9">
-  <div class=”container-fluid”>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="panel with-nav-tabs panel-search">
-          <div class="panel-heading">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#product-tab" data-toggle="tab">作品名</a>
-              </li>
-              <li>
-                <a href="#pref-tab" data-toggle="tab">地域</a>
-              </li>
-              <li>
-                <a href="#product-and-pref-tab" data-toggle="tab" >作品名×地域</a>          
-              </li>
-            </ul>
+<h4 class="center">観光地検索</h4>
+
+<div class="panel with-nav-tabs panel-search">
+  <div class="panel-heading">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#product-tab" data-toggle="tab">作品名</a>
+      </li>
+      <li>
+        <a href="#pref-tab" data-toggle="tab">地域</a>
+      </li>
+      <li>
+        <a href="#product-and-pref-tab" data-toggle="tab" >作品名×地域</a>          
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel-body">
+    <div class="tab-content">
+      <!-- 作品検索フォーム -->
+      <div id="product-tab" class="tab-pane in active">
+        <%= form_tag(
+              search_result_path,
+              method: "get",
+              class: "form-horizontal"
+            ) do
+        %>
+          <div class="form-inline">
+            <%= render partial: 'search/product_genre_form' %>
           </div>
+          <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
+        <% end %>
+      </div>
 
-          <div class="panel-body">
-            <div class="tab-content">
-              <!-- 作品検索フォーム -->
-              <div id="product-tab" class="tab-pane in active">
-                <%= form_tag(
-                      search_result_path,
-                      method: "get",
-                      class: "form-horizontal"
-                    ) do
-                %>
-                  <div class="form-inline">
-                    <%= render partial: 'search/product_genre_form' %>
-                  </div>
-                  <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
-                <% end %>
-              </div>
-
-              <!-- 地域検索フォーム -->
-              <div id="pref-tab" class="tab-pane">
-                <%= form_tag(
-                      search_result_path,
-                      method: "get",
-                      class: "form-horizontal"
-                      ) do 
-                %>
-                  <div class="form-inline">
-                    <%= render partial: 'search/pref_city_form' %>
-                  </div>
-                  <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
-                <% end %>
-              </div>
-
-              <!--　作品×地域検索フォーム　-->
-              <div id="product-and-pref-tab" class="tab-pane">
-                <%= form_tag(
-                      search_result_path,
-                      method: "get",
-                      class: "form-horizontal"
-                      ) do 
-                %>
-                  <div class="form-inline">
-                    <%= render partial: 'search/product_genre_form' %>
-                    <strong>✕</strong>
-                    <%= render partial: 'search/pref_city_form'%>
-                  </div>
-                  <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
-                <% end %>
-              </div>
-            </div>
+      <!-- 地域検索フォーム -->
+      <div id="pref-tab" class="tab-pane">
+        <%= form_tag(
+              search_result_path,
+              method: "get",
+              class: "form-horizontal"
+              ) do 
+        %>
+          <div class="form-inline">
+            <%= render partial: 'search/pref_city_form' %>
           </div>
-        </div>
+          <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <!--　作品×地域検索フォーム　-->
+      <div id="product-and-pref-tab" class="tab-pane">
+        <%= form_tag(
+              search_result_path,
+              method: "get",
+              class: "form-horizontal"
+              ) do 
+        %>
+          <div class="form-inline">
+            <%= render partial: 'search/product_genre_form' %>
+            <p class="center"><strong>✕</strong></p>
+            <%= render partial: 'search/pref_city_form'%>
+          </div>
+          <%= submit_tag "検索", name: nil, class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

@@ -1,8 +1,18 @@
 <% if logged_in? %>
   <div>
-    <%= render('search/search') %>
-    <%= render('search/time_line') %>
-    <%= render('search/ranking') %>
+    <h1>さくれへようこそ！</h1>
+    <div class=row>
+      <br>
+      <div class="col-md-3">
+        <%= render('search/search') %>
+      </div>
+      <div class="col-md-6">
+        <%= render('search/time_line') %>
+      </div>
+      <div class="col-md-3">
+        <%= render('search/ranking') %>
+      </div>
+    </div>
   </div>
 <% else %>
   <div class="center jumbotron">
