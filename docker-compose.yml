@@ -1,13 +1,13 @@
 version: '3'
 services:
   db:
-    build: ./db_mysql
-    container_name: "db_mysql"
+    build: ./db_psql
+    container_name: "db_psql"
     environment:
-      MYSQL_USER: ${mysql_user}
-      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      POSTGRES_USER: ${psql_user}
+      POSTGRES_PASSWORD: ${psql_root_password}
     volumes:
-      - ./db_mysql/db_data:/var/lib/mysql
+      - ./db_psql/db_data:/var/lib/postgresql
   web:
     tty: true
     stdin_open: true
