@@ -13,7 +13,7 @@
 /web_rails/myapp/.byebug_history
 
 #mysql_data
-/db_mysql/db_data/*
+/db_psql/db_data/*
 
 # images
 web_rails/myapp/public/uploads/spots/*
