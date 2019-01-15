@@ -22,7 +22,7 @@ class SearchController < ApplicationController
   def search_detail
     @detail = Spot.joins(" inner join products on spots.product_id  = products.id inner join genres on genres.id = products.genre_id").where("spots.id" => params[:spot_id]).select("spots.*,products.product_name,genres.genre_name")
     @comment = Comment.new
-    @comments = User.joins(:comments).select("*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')
+    @comments = User.joins(:comments).select("user_name,image_name,comments.*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')
     
     @user_id = UserSpot.find_by(spot_id: @detail[0].id).user_id
     @user_name = User.find(@user_id).user_name

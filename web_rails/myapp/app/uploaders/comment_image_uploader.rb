@@ -21,15 +21,10 @@ class CommentImageUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-  
+
   def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
-  
-  def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
-    name.downcase
+    var = "#{SecureRandom.uuid}"
+    @name ||= "#{var}" + ".jpg" if original_filename.present?
   end
 
 end

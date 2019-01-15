@@ -15,7 +15,7 @@ class CommentController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find_by(user_id: current_user.id , spot_id: params[:spot_id])
+    @comment = Comment.find_by(user_id: current_user.id , id: params[:comment_id])
     @comment.delete
     @cmts.reload
     render :index
@@ -25,10 +25,10 @@ class CommentController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment, :user_id, :spot_id , {images: []})
+    params.require(:comment).permit(:comment, :user_id, :spot_id ,:comment_id, {images: []})
   end
 
   def set_variables
-    @cmts = User.joins(:comments).select("*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC')  
+    @cmts = User.joins(:comments).select("user_name,image_name,comments.*").where("comments.spot_id" => params[:spot_id]).order('comments.updated_at DESC') 
   end
 end
