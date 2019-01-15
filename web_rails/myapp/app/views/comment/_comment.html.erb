@@ -5,11 +5,18 @@
             <%= comment.user_name %>さん
         <% end %>
         <% unless !current_user || current_user.id != comment.user_id %>
-            <%= link_to uncomment_path(spot_id:comment.spot_id) , method: :delete , remote: true do %>
+            <%= link_to uncomment_path(spot_id:comment.spot_id,comment_id:comment.id) , method: :delete , remote: true do %>
                 <i class="glyphicon glyphicon-trash"></i>
             <% end %>
         <% end %>
         <p>
+        <% unless comment.images %>
+        <% else %>
+        <% comment.images.each do |image| %>
+            <%= image_tag( "/uploads/comment/#{image}" , :size => "80x80" , :class => "rounded-circle") %>
+            <br>
+        <% end %>
+        <% end %>
         <%= comment.comment %> 
         </p>
         <div class="timestamp">
