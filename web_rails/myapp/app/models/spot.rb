@@ -11,6 +11,13 @@ class Spot < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
 
+  geocoded_by :spot_address
+  after_validation :geocode
+  # spotの住所結合
+  def spot_address
+    "兵庫県神戸市"
+  end
+
 include JpPrefecture
   jp_prefecture :prefecture_code
   

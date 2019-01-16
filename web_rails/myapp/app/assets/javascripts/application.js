@@ -21,3 +21,4 @@
 //= require nested_form_fields
 //= require trix
 //= require jquery.remotipart
+//= require leaflet
