@@ -1,7 +1,7 @@
 <% @spot = Spot.where('review_flag = ?',true).order('rate DESC').limit(10) %>
 
 <table class="table">
-  <h4 class="center">ランキング</h4>
+  <h1 class="center">ランキング</h1>
   <% i = 1 %>
   <% @spot.each do |data| %>
     <tr>
