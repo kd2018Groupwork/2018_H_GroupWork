@@ -5,7 +5,7 @@
 
   <!-- 検索結果に作品名表示する -->
   <div class="col-md-6 col-md-offset-3">
-    <% product_names = fetch_product_names(@result) %>
+    <% product_names = get_product_names(@result) %>
     <hr>
     <p class="center">
       <% if product_names.blank? %>
@@ -28,7 +28,8 @@
             <% end %>
           </td>
           <td style="width: 3000px;margin-left: auto;">
-            <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
+            <% title = '「'+data.product_name+'」'+data.spot_name%>
+            <%= link_to title ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
             <d class="text-muted" style="font-size: 16px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             <p class="text-muted" style="font-size: 16px;"><%= data.details %></p><br>
             <%= render 'favorite/favorite' , detail: data%>
