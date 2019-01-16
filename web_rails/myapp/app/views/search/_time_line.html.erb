@@ -1,5 +1,5 @@
 <% @spot = Spot.where('review_flag = ?',true).order('updated_at DESC') %>
-<h4 class="center">タイムライン</h4>
+<h1 class="center">タイムライン</h1>
 
 <% @spot.each do |data| %>
   <table class="table">
@@ -11,6 +11,7 @@
           <%= image_tag("icon/NoImage.png", size: 100) %>
         <% end %>
       </td>
+
       <td style="width: 3000px;margin-left: auto;">
         <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
         <d class="text-muted" style="font-size: 16px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
