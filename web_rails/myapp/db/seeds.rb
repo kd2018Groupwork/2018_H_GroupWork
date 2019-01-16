@@ -17,71 +17,70 @@ Product.create(
     :product_name   =>  '阪急電車',
     :genre_id   =>  1
 )
-Product.create{
+Product.create(
     :product_name   => '艦隊これくしょん',
     :genre_id   => 7
-}
-Product.create{
+)
+Product.create(
     :product_name   => '薄桜鬼',
     :genre_id   => 7
-}
-Product.create{
+)
+Product.create(
     :product_name   => '青い月の夜、もう一度彼女に恋をする',
     :genre_id   => 1
-}
-Product.create{
+)
+Product.create(
     :product_name   => '砂時計',
     :genre_id   => 2
-}
-Product.create{
+)
+Product.create(
     :product_name   => 'orange',
     :genre_id   => 2
-}
-Product.create{
+)
+Product.create(
     :product_name   => '恋は雨上がりのように',
     :genre_id   => 2
-}
-Product.create{
+)
+Product.create(
     :product_name   => '竹取物語',
     :genre_id   => 4
-}
-Product.create{
+)
+Product.create(
     :product_name   => '源氏物語',
     :genre_id   => 4
-}
-Product.create{
+)
+Product.create(
     :product_name   => '土佐日記',
     :genre_id   => 4
-}
-Product.create{
+)
+Product.create(
     :product_name   => '真田丸',
     :genre_id   => 6
-}
-Product.create{
+)
+Product.create(
     :product_name   => 'とと姉ちゃん',
     :genre_id   => 6
-}
-Product.create{
+)
+Product.create(
     :product_name   => '獣になれない私たち',
     :genre_id   => 6
-}
-Product.create{
+)
+Product.create(
     :product_name   => 'Love Letter',
     :genre_id   => 5
-}
-Product.create{
+)
+Product.create(
     :product_name   => '聲の形',
     :genre_id   => 5
-}
-Product.create{
+)
+Product.create(
     :product_name   => '少年たち',
     :genre_id   => 5
-}
-Product.create{
+)
+Product.create(
     :product_name   => 'AIR',
     :genre_id   => 7
-}
-
+)
 
 Spot.create(
     :spot_name  =>  '坊ちゃんの舞台',
