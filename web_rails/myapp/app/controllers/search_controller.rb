@@ -37,10 +37,14 @@ class SearchController < ApplicationController
 
   private
 
+    #　肥大化してきた...
     def search_spots(product_name,genre_id,pref_code,city_name,page_num)
       spot_product  = search_spot_from_product(product_name,genre_id)
       spot_location = search_spot_from_location(pref_code,city_name)
-      spot_product.merge(spot_location).where('review_flag = ?',true).page(page_num).per(PER)
+      merged_spots = spot_product.merge(spot_location).where('review_flag = ?',true)
+      merged_spots.joins(:product).select(
+        'spots.*','products.*'
+        ).page(page_num).per(PER)
     end
 
     def search_spot_from_product(product_name,genre_id)
