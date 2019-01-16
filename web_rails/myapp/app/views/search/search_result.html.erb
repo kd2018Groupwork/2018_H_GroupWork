@@ -11,7 +11,9 @@
       <% if product_name.blank? %>
         <%= '該当するスポットが見つかりませんでした:('%>
       <% else %>
-        <%= '「'+product_name.join(' ')+'」のスポットが見つかりました' %>
+        <% format_product_name = '「'+product_name.join(' ')+'」' %>
+        <% str_result_cnt = @result.length.to_s %>
+        <%= format_product_name+'のスポットが'+str_result_cnt+'件見つかりました。' %>
       <% end %>
     </p>
     <% @result.each do |data| %>
