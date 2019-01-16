@@ -51,12 +51,12 @@
         <br>
         <hr>
         <div>
-            <h2>コメント</h2>
             <% if current_user %>
                 <%= render 'comment/form' , comment: @comment%>
             <% else %>
                 <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
             <% end %>
+            <h2>コメント欄</h2>
             <div id="comment_area">
                 <%= render 'comment/comment' , comments: @comments%>
             </div>

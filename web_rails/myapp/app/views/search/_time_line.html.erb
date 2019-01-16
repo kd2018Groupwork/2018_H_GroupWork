@@ -11,10 +11,11 @@
           <%= image_tag("icon/NoImage.png", size: 100) %>
         <% end %>
       </td>
-      <td style="width: 3000px;margin-left: auto; font-size: 17px;">
-        <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
-        <d class="text-muted" style="font-size: 17px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
-        <p class="text-muted" style="font-size: 17px;"><%= data.details %></p><br>
+
+      <td style="width: 3000px;margin-left: auto;">
+        <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
+        <d class="text-muted" style="font-size: 16px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
+        <p class="text-muted" style="font-size: 16px;"><%= data.details %></p><br>
         <%= render 'favorite/favorite' , detail: data%>
         <%= render 'rate/rate' , detail: data %>
       </td>

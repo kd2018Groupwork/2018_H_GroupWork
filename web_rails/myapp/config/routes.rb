@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   delete  'rate/:spot_id'           =>  'rate#destroy' , as:'unrate'
 
   post    'comment/:spot_id'           =>  'comment#create'  , as:'comments'
-  delete  'comment/destroy/:spot_id'           =>  'comment#destroy' , as:'uncomment'
+  delete  'comment/destroy/:spot_id/:comment_id'           =>  'comment#destroy' , as:'uncomment'
 
   get     'offer'                   =>  'offer#index'
   post    'offer/confirm'           =>  'offer#confirm'
