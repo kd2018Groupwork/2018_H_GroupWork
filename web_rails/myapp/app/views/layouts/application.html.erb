@@ -7,15 +7,35 @@
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application","https://fonts.googleapis.com/css?family=Kosugi+Maru",:media => "all" %>
   </head>
+  <style>
+  html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+h1 {
+  font-family: 'Kosugi Maru', sans-serif;
+}
+  </style>
   <body>
     <%= render 'layouts/header' %>
+    <div class="content">
     <div class="container">
+  
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
       <!--<%= debug(params) if Rails.env.development? %>-->
+    </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>
