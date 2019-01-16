@@ -56,25 +56,27 @@ gitのエイリアスとして``` git graph ``` を登録
 ` $ git checkout HEAD^ `
 
 ## リポジトリのfork
-開発元のリポジトリをforkすることで自分のリモートリポジトリにコピーされる
-forkすることにより間違えて開発元のmasterブランチにpushしてしまう等のリスクを軽減することができる
-ローカルでforkしたリポジトリを扱うにはローカルに新しいリポジトリを作成しgit cloneで取得する
-cloneした後 
-`$git remote add {適当な名前} fork元のpath` //名前は何でもいい(以下ではrootにしている)
-forkしたリポジトリでやること
-編集
-↓
-`$git add .`
-↓
-`$git commit -m "コメント"`
-↓
-`$git push origin master` //origin = forkしたリポジトリ
-↓
-プルリク
+開発元のリポジトリをforkすることで自分のリモートリポジトリにコピーされる  
+forkすることにより間違えて開発元のmasterブランチにpushしてしまう等のリスクを軽減することができる  
+ローカルでforkしたリポジトリを扱うにはローカルに新しいリポジトリを作成しgit cloneで取得する  
+cloneした後の設定  
+`$git remote add {適当な名前} fork元のpath` //名前は何でもいい(以下ではrootにしている)  
 
-fork元が変更あったとき
-`$git fetch root` //rootの変更取り込む root=fork元のリポジトリ
-↓
-`$git merge root/master`
-↓
-`$git push origin master` //origin = forkしたやつ
+
+forkしたリポジトリでやること  
+編集  
+↓  
+`$git add .`  
+↓  
+`$git commit -m "コメント"`  
+↓  
+`$git push origin master` //origin = forkしたリポジトリ  
+↓  
+プルリク  
+
+fork元が変更あったとき  
+`$git fetch root` //rootの変更取り込む root=fork元のリポジトリ  
+↓  
+`$git merge root/master`  
+↓  
+`$git push origin master` //origin = forkしたやつ  
