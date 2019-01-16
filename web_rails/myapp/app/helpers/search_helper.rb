@@ -51,4 +51,14 @@ module SearchHelper
       [hash[:value], hash[:name]]
     end.uniq.sort
   end
+
+  #西田：　本当はcontrolerで取りたかったが
+  #　　　メソッド肥大化するのでここに書く
+  def fetch_product_name(result)
+    product_ids = result.select(:product_id).map(&:product_id)
+    Product.where(
+      'id in (?)',product_ids
+      ).select(:product_name).map(&:product_name)
+  end
+
 end

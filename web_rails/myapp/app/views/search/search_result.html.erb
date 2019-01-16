@@ -3,8 +3,17 @@
     <%= render partial: 'search' %>
   </div>
 
+  <!-- 検索結果に作品名表示する -->
   <div class="col-md-6 col-md-offset-3">
-    <hr><P class="center">検索結果</p>
+    <% product_name = fetch_product_name(@result) %>
+    <hr>
+    <p class="center">
+      <% if product_name.blank? %>
+        <%= '該当するスポットが見つかりませんでした:('%>
+      <% else %>
+        <%= '「'+product_name.join(' ')+'」のスポットが見つかりました' %>
+      <% end %>
+    </p>
     <% @result.each do |data| %>
       <table class="table">
         <tr>
