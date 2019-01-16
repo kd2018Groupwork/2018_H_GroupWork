@@ -61,3 +61,25 @@ ul.ui-autocomplete {
 .panel-body {
   background-color:　white;
 }
+
+.form-inline .form-control {
+  vertical-align: unset !important;
+}
+
+select {
+  width: 60% !important;
+  display: inline-block !important;
+}
+
+
+label {
+  padding-right: 25%;
+  margin: auto;
+  text-align: right !important;
+  display: block !important;
+}
+
+input#product {
+  display: inline-block !important;
+  width: 60%;
+}

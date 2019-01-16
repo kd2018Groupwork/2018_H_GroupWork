@@ -1,13 +1,17 @@
-<%= select_tag 'pref',
-  options_from_collection_for_select(
-    select_prefs,
-    :first,
-    :second,
-    id: 'pref'
-  ),
-  class: "form-control"
-%>
+<label id="pref" class="center">
+  県
+  <%= select_tag 'pref',
+    options_from_collection_for_select(
+      select_prefs,
+      :first,
+      :second,
+      id: 'pref'
+    ),
+    class: "form-control"
+  %>
+</label>
 
-<label id="city-area">
+<label id="city-area" class="center">
+  市町村
   <%= render partial: 'search/select_city', locals: {spots: Spot.all} %>
 </label>
