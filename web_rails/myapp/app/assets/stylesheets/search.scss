@@ -62,10 +62,22 @@ ul.ui-autocomplete {
   background-color:　white;
 }
 
-label#city-area {
+.form-inline .form-control {
+  vertical-align: unset !important;
+}
+
+select {
+  width: 60% !important;
+}
+
+
+label {
+  padding-right: 25%;
+  margin: auto;
+  text-align: right !important;
   display: block !important;
 }
 
 input#product {
-  width: 75%;
+  width: 60%;
 }

@@ -1,15 +1,21 @@
-<%= text_field_tag :product, params[:product],
-  placeholder: "作品名",
-        class: "form-control auto-complete",
-  autocomplete: 'off'
-%>
+<label id="product" class="center">
+  作品
+  <%= text_field_tag :product, params[:product],
+    placeholder: "作品名",
+          class: "form-control auto-complete",
+    autocomplete: 'off'
+  %>
+</label>
 <!--西田：　あとでプロンプトつける　-->
-<%= select_tag "genre",
-  options_from_collection_for_select(
-    select_genres,
-    :first,
-    :second,
-    id: "genre"
-  ),
-  class: "form-control"
-%>
+<label id="genre" class="center">
+  ジャンル
+  <%= select_tag "genre",
+    options_from_collection_for_select(
+      select_genres,
+      :first,
+      :second,
+      id: "genre"
+    ),
+    class: "form-control"
+  %>
+</label>
