@@ -1,5 +1,7 @@
 <%= form_with(model: [comment]) do |f| %>
+    <h4>コメント</h4>
     <%= f.text_area :comment , placeholder:"3文字以上200文字以内で入力してください"%>
+    <h4>写真をつける</h4>
     <%= f.file_field :images, id:'file',multiple: true %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
