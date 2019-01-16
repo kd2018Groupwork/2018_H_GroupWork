@@ -12,10 +12,19 @@ $gray-medium-light: #eaeaea;
 }
 
 /* universal */
+html {
+  height: 100%;
+}
+.content {
+  flex: 1;
+}
 
 body {
 	background-color: #eeeeee;
   padding-top: 60px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 section {
@@ -37,6 +46,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
 h1 {
@@ -47,7 +57,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
