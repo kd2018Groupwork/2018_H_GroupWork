@@ -55,7 +55,7 @@ module SearchHelper
   #西田：　本当はcontrolerで取りたかったが
   #　　　メソッド肥大化するのでここに書く
   def get_product_names(result)
-    result.select('product_name').map(&:product_name)
+    result.select('product_name').map(&:product_name).uniq
   end
 
 end

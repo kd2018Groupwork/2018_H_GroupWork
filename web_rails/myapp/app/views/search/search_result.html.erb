@@ -14,7 +14,7 @@
         <!-- 作品名の数が多くなった場合の処理はまだ書いてない-->
         <% format_product_names = '「'+product_names.join(' ')+'」' %>
         <% str_result_cnts = @result.length.to_s %>
-        <%= format_product_names+'のスポットが'+str_result_cnts+'件見つかりました。' %>
+        <%= format_product_names+'のスポットを'+str_result_cnts+'件表示しています。' %>
       <% end %>
     </p>
     <% @result.each do |data| %>
