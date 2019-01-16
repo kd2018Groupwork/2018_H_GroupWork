@@ -68,6 +68,7 @@ ul.ui-autocomplete {
 
 select {
   width: 60% !important;
+  display: inline-block !important;
 }
 
 
@@ -79,5 +80,6 @@ label {
 }
 
 input#product {
+  display: inline-block !important;
   width: 60%;
 }
