@@ -6,7 +6,6 @@
   <!-- 検索結果に作品名表示する -->
   <div class="col-md-6 col-md-offset-3">
     <% product_names = get_product_names(@result) %>
-    <hr>
     <p class="center">
       <% if product_names.blank? %>
         <%= '該当するスポットが見つかりませんでした:('%>
@@ -17,6 +16,7 @@
         <%= format_product_names+'のスポットを'+str_result_cnts+'件表示しています。' %>
       <% end %>
     </p>
+    <br>
     <% @result.each do |data| %>
       <table class="table">
         <tr>

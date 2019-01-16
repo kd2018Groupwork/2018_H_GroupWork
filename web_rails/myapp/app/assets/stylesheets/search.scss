@@ -27,7 +27,7 @@ ul.ui-autocomplete {
 
 .panel.with-nav-tabs .panel-heading{
   padding: 5px 5px 0 5px;
-	background-color: #333333;
+	background-color: lightskyblue;
 }
 .panel.with-nav-tabs .nav-tabs{
   border-bottom: none;
@@ -46,7 +46,7 @@ ul.ui-autocomplete {
 .with-nav-tabs.panel-search .nav-tabs > li > a:hover,
 .with-nav-tabs.panel-search .nav-tabs > li > a:focus {
 	color: #fff;
-	background-color: gray;
+	background-color: slategray;
 	border-color: transparent;
 }
 .with-nav-tabs.panel-search .nav-tabs > li.active > a,
@@ -54,7 +54,7 @@ ul.ui-autocomplete {
 .with-nav-tabs.panel-search .nav-tabs > li.active > a:focus {
 	color: #333333;
 	background-color: #fff;
-	border-color: #428bca;
+	border-color: slategray;
 	border-bottom-color: transparent;
 }
 
@@ -82,4 +82,15 @@ label {
 input#product {
   display: inline-block !important;
   width: 60%;
+}
+
+.btn-primary {
+  background-color: slategray;
+  border-color: whitesmoke;
+}
+.btn-primary:hover {
+  background-color: gray;
+}
+.btn-primary:focus {
+  background-color: gray;
 }

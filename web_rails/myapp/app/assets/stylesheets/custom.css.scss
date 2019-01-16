@@ -62,7 +62,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
 }
 
 p {
@@ -75,6 +74,12 @@ div .card-header {
 }
 
 /* header */
+
+.navbar-inverse {
+  background-color: lightskyblue;
+  border-color: whitesmoke;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
