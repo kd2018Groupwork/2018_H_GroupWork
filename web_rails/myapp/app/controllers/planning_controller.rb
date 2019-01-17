@@ -11,10 +11,10 @@ class PlanningController < ApplicationController
     @plan.plan_id = Plan.count + 1
     if @plan.save
       Favorite.where(user_id: session[:user_id]).delete_all
-      flash[:success] = "計画表作成を作成しました!"
+      flash[:success] = "聖地巡礼スケジュール表作成を作成しました!"
       redirect_to planning_show_path
     else
-      flash[:danger] = "計画表作成に失敗しました"
+      flash[:danger] = "聖地巡礼スケジュール表作成に失敗しました"
       redirect_to planning_index_path
     end
   end
@@ -53,7 +53,7 @@ class PlanningController < ApplicationController
     id = params[:id]
     user_id = session[:user_id]
     if Plan.where('user_id = ?',user_id).find(id).destroy
-      flash[:success] = "計画表を削除しました!"
+      flash[:success] = "聖地巡礼スケジュール表を削除しました!"
       redirect_to :planning_show
     else
       flash[:danger] = "削除に失敗しました"
