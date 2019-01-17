@@ -1,5 +1,5 @@
 <% provide(:title, '計画表一覧') %>
-  <h1>聖地巡礼スケジュール一覧</h1>
+  <h1>聖地巡礼スケジュール表一覧</h1>
       <div class="table-responsive">
         <% @plan = Plan.where(user_id: session[:user_id]) %>
         <table class="table table-striped table-bordered">

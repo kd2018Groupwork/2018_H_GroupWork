@@ -81,6 +81,10 @@ Product.create(
     :product_name   => 'AIR',
     :genre_id   => 7
 )
+Product.create(
+    :product_name   => '君の名は。',
+    :genre_id   => 5
+)
 
 Spot.create(
     :spot_name  =>  '坊ちゃんの舞台',
@@ -371,6 +375,20 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '[AIR.PNG]'
 )
+Spot.create(
+    :spot_name  =>  'ポスターに使われいるあの場所',
+    :product_id  =>  '20',
+    :details  =>  '君の名は ポスター&クライマックスシーンの聖地。 四ツ谷 須賀神社前階段。',
+    :rate  =>  '0',
+    :postcode1  =>  '160',
+    :postcode2  =>  '0018',
+    :prefecture_code  =>  '13',
+    :address_city  =>  '新宿区',
+    :address_street  =>  '須賀町5番地',
+    :address_building  =>  '四谷須賀神社',
+    :review_flag =>  true,
+    #:images  =>  '[君の名は.PNG]'
+)
     
 UserSpot.create(
     :user_id => 1,
@@ -469,6 +487,11 @@ UserSpot.create(
 UserSpot.create(
     :user_id => 1,
     :spot_id => 19
+)
+
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 20
 )
 
 Genre.create( :genre_name => '小説' )

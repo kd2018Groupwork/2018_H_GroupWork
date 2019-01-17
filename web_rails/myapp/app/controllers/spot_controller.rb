@@ -35,7 +35,7 @@ class SpotController < ApplicationController
       @spot = Spot.new(spot_params)
       
       if Spot.exists?(spot_name: @spot.spot_name)
-        flash[:danger] = 'そのスポット名は既に存在しています'
+        flash[:danger] = 'その聖地は既に存在しています'
         redirect_to :reg_spot
       else  
         @spot.rate = 0
@@ -51,7 +51,7 @@ class SpotController < ApplicationController
           
           session.delete(:product_id)
         
-          flash[:success] = "観光地の登録が完了しました!"
+          flash[:success] = "聖地の登録が完了しました!"
           redirect_to show_spot_path(id: session[:user_id])
         else
           flash[:danger] = '入力漏れの無いようにしてください'
@@ -84,7 +84,7 @@ class SpotController < ApplicationController
     end  
 
     if @spot.save
-      flash[:success] = "観光地の詳細を編集しました!"
+      flash[:success] = "聖地の詳細を編集しました!"
       redirect_to :complete_spot
     else
     end
