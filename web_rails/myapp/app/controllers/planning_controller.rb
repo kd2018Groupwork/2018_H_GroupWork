@@ -14,7 +14,7 @@ class PlanningController < ApplicationController
       flash[:success] = "計画表作成を作成しました!"
       redirect_to planning_show_path
     else
-      flash[:denger] = "計画表作成に失敗しました"
+      flash[:danger] = "計画表作成に失敗しました"
       redirect_to planning_index_path
     end
   end
@@ -24,6 +24,7 @@ class PlanningController < ApplicationController
 
   def plan_detail
     @plan_name = (Plan.find(params[:plan_id])).plan_name
+    @plan_detail = (Plan.find(params[:plan_id])).plan_detail
     @detail = PlanDetail.where(plan_id: params[:plan_id])
     
     respond_to do |format|
@@ -66,6 +67,7 @@ class PlanningController < ApplicationController
         :user_id,
         :plan_id,
         :plan_name,
+        :plan_detail,
         plan_details_attributes: 
         [
           :id, 
