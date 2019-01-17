@@ -2,16 +2,16 @@
     <div class="fav-link" id="fav-link-<%= detail.id %>">
     <% if !Favorite.exists?(user_id:current_user.id,spot_id:detail.id) %>
         <%= link_to fav_path(detail.id) , method: :post , class:"btn btn-link btn-sm" , remote: true do %>
-            <i class="glyphicon glyphicon-check">リストに追加</i>
+            <i class="glyphicon glyphicon-check" style="font-size: large;">リストに追加</i>
         <% end %>
     <% else %>
         <%= link_to unfav_path(detail.id),method: :delete , class:"btn btn-link btn-sm" , remote: true do %>
-            <i class="glyphicon glyphicon-new-window">リストから外す</i>
+            <i class="glyphicon glyphicon-new-window" style="font-size: large;">リストから外す</i>
         <% end %>
     <% end %>
     </div>
 <% else %>
     <%= link_to "#", class:"btn btn-link btn-sm disabled" , remote: true do %>
-        <i class="glyphicon glyphicon-new-window">リストに追加</i>
+        <i class="glyphicon glyphicon-new-window" style="font-size: large;">リストに追加</i>
     <% end %>
 <% end %>

@@ -80,6 +80,34 @@ div .card-header {
   border-color: whitesmoke;
 }
 
+.navbar-nav > li > a  {
+  color: white !important;
+}
+
+.navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff !important;
+  background-color: lightskyblue !important;
+}
+
+.navbar-toggle {
+  background-color: lightskyblue !important;
+  border-color: lightskyblue !important;
+}
+
+.navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: lightskyblue !important;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: lightskyblue;
+}
+
+.dropdown-menu > li > a {
+  color: white;
+  background-color: lightskyblue;
+}
 #logo {
   float: left;
   margin-right: 10px;
