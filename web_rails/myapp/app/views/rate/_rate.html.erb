@@ -7,6 +7,7 @@
     <% else %>
         <%= link_to unrate_path(spot_id:detail.id), method: :delete, class:"btn btn-link btn-lg", remote: true do %>
             <i class="glyphicon glyphicon-heart" style="color: #FF00FF" title="いいねを外す"><%= detail.rate %></i>
+
         <% end %>
     <% end %>
 </div>

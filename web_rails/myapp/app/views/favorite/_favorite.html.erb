@@ -7,11 +7,12 @@
     <% else %>
         <%= link_to unfav_path(detail.id),method: :delete , class:"btn btn-link btn-lg" , remote: true do %>
             <i class="glyphicon glyphicon-star" style="color: #FFFF00" title="リストから外す"></i>
+
         <% end %>
     <% end %>
     </div>
 <% else %>
     <%= link_to "#", class:"btn btn-link btn-lg disabled" , remote: true do %>
-        <i class="glyphicon glyphicon-new-window" title="リストに追加"></i>
+        <i class="glyphicon glyphicon-star" title="リストに追加"></i>
     <% end %>
 <% end %>
