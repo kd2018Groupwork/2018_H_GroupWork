@@ -14,7 +14,7 @@ class PlanningController < ApplicationController
       flash[:success] = "計画表作成を作成しました!"
       redirect_to planning_show_path
     else
-      flash[:denger] = "計画表作成に失敗しました"
+      flash[:danger] = "計画表作成に失敗しました"
       redirect_to planning_index_path
     end
   end
