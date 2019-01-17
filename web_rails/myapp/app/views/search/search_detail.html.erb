@@ -55,13 +55,12 @@
       <div id="map" style="text-align: center; height: 370px; width: 100%;"></div>
     </div>
     <hr>
-    <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3">
       <% if current_user %>
         <%= render 'comment/form' , comment: @comment%>
       <% else %>
         <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
       <% end %>
-      <h2>コメント欄</h2>
       <div id="comment_area">
         <%= render 'comment/comment' , comments: @comments%>
       </div>
