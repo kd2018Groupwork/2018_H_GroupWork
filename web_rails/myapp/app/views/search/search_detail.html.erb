@@ -65,15 +65,16 @@
     <div id="map" style="height: 370px; width: 370px;"></div>
 </div>
 <%=
-map(:center => {
+map(
+    :center => {
     :latlng => [@detail[0].latitude, @detail[0].longitude],
     :zoom => 18,
-},
-  :markers => [
+    },
+    :markers => [
     {
      :latlng => [@detail[0].latitude, @detail[0].longitude],
      :popup => "#{@detail[0].spot_name}"
     }
-  ]
+    ]
 )
 %>

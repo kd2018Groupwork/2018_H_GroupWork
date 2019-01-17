@@ -13,10 +13,6 @@ class Spot < ApplicationRecord
 
   geocoded_by :spot_address
   after_validation :geocode
-  # spotの住所結合
-  def spot_address
-    "兵庫県神戸市"
-  end
 
 include JpPrefecture
   jp_prefecture :prefecture_code
@@ -29,6 +25,18 @@ include JpPrefecture
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
+  def spot_address
+    pref_name = JpPrefecture::Prefecture.find self.prefecture_code
+    unless self.address_street.blank?
+      address_city= "#{pref_name.name}#{self.address_city}#{self.address_street}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+      puts "#{address_city}"
+      "#{address_city}"
+    else
+      address_city = "#{pref_name.name}#{self.address_city}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+      puts "#{address_city}"
+      "#{address_city}"
+    end
+  end
 
 #西田: -----検索用-----
 
