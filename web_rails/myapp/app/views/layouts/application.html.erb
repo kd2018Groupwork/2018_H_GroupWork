@@ -9,9 +9,19 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application","https://fonts.googleapis.com/css?family=Kosugi+Maru",:media => "all" %>
   </head>
+  <style>
+  .jumbotron{
+  background: url(/images/1.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+  </style>
   <body>
     <%= render 'layouts/header' %>
+  
     <div class="content">
+  
     <div class="container">
   
       <% flash.each do |message_type, message| %>
@@ -21,6 +31,7 @@
       <!--<%= debug(params) if Rails.env.development? %>-->
     </div>
     </div>
+    
     <%= render 'layouts/footer' %>
   </body>
 </html>
