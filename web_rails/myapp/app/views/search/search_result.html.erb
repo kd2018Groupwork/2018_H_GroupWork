@@ -5,15 +5,16 @@
 
   <!-- 検索結果に作品名表示する -->
   <div class="col-md-6 col-md-offset-3">
+    <br><br>
     <% product_names = get_product_names(@result) %>
     <p class="center">
       <% if product_names.blank? %>
-        <%= '該当するスポットが見つかりませんでした:('%>
+        <%= '該当する聖地が見つかりませんでした:('%>
       <% else %>
         <!-- 作品名の数が多くなった場合の処理はまだ書いてない-->
-        <% format_product_names = '「'+product_names.join(' ')+'」' %>
+        <% format_product_names = '『'+product_names.join('、')+'』' %>
         <% str_result_cnts = @result.length.to_s %>
-        <%= format_product_names+'のスポットを'+str_result_cnts+'件表示しています。' %>
+        <%= format_product_names+'の聖地を'+str_result_cnts+'件表示しています。' %>
       <% end %>
     </p>
     <br>
@@ -28,7 +29,7 @@
             <% end %>
           </td>
           <td style="width: 3000px;margin-left: auto;">
-            <% title = '「'+data.product_name+'」'+data.spot_name%>
+            <% title = '【'+data.product_name+'】'+data.spot_name%>
             <%= link_to title ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
             <d class="text-muted" style="font-size: 16px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             <p class="text-muted" style="font-size: 16px;"><%= data.details %></p><br>
