@@ -69,7 +69,7 @@ class SpotController < ApplicationController
       @spot = Spot.find(params[:spot_id])
     else
       redirect_to root_url
-    end 
+    end
   end
 
   def commit
