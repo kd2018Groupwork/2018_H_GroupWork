@@ -3,12 +3,14 @@
     <thead>
       <tr>
         <th scope="col">
-          <% if @detail[0].images? %>
-            <%= image_tag( @detail[0].images[0].url , :size => "150x150") %>
+          <% unless @detail[0].images.blank? %>
+            <% @detail[0].images.each do |image| %>
+               <%= image_tag( image.url , :size => "150x150") %>
+            <% end %>
           <% else %>
             <%= image_tag("icon/NoImage.png", size: "150x150") %>
           <% end %>
-        </th>
+         </th>
       </tr>
     </thead>
     <tbody>
@@ -40,7 +42,6 @@
       </tr>
     </tbody>
   </table>
-
   <div style="margin: 10px auto;">
     <%= sanitize @detail[0].review %>
   </div>

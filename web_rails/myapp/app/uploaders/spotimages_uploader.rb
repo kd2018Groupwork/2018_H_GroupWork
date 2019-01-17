@@ -28,8 +28,10 @@ class SpotimagesUploader < CarrierWave::Uploader::Base
   
   def filename
     time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+    name = time.strftime('%Y%m%d%H%M%S')
     name.downcase
+    var = "#{SecureRandom.hex(10)}"
+    @name ||= "#{var}-" + "#{name}" + ".jpg" if original_filename.present?
   end
   
 end

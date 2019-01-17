@@ -27,15 +27,8 @@ include JpPrefecture
 
   def spot_address
     pref_name = JpPrefecture::Prefecture.find self.prefecture_code
-    unless self.address_street.blank?
-      address_city= "#{pref_name.name}#{self.address_city}#{self.address_street}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
-      puts "#{address_city}"
-      "#{address_city}"
-    else
-      address_city = "#{pref_name.name}#{self.address_city}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
-      puts "#{address_city}"
-      "#{address_city}"
-    end
+    address_city= "#{pref_name.name}#{self.address_city}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+    "#{address_city}"
   end
 
 #西田: -----検索用-----
