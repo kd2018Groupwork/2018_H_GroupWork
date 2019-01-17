@@ -1,10 +1,12 @@
 <%= form_with(model: [comment]) do |f| %>
-    <h4>コメント</h4>
-    <%= f.text_area :comment , placeholder:"3文字以上200文字以内で入力してください", size: "60x3"%>
-    <h4>写真をつける</h4>
-    <%= f.file_field :images, id:'file', multiple: true %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
-    <br>
+  <h4>コメント</h4>
+  <%= f.text_area :comment , placeholder:"3文字以上200文字以内で入力してください", size: "60x3"%>
+  <h4>写真をつける</h4>
+  <%= f.file_field :images, id:'file', multiple: true %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :spot_id, :value => params[:spot_id] %>
+  <br>
+  <div class="btn-group">
     <%= f.submit 'コメントする' , data:{ disable_with: '投稿中・・・'}, class: "form-control btn-primary" %>
+  </div>
 <% end %>
