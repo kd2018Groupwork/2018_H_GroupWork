@@ -4,6 +4,7 @@ class CreatePlans < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.integer :plan_id
       t.string  :plan_name
+      t.text    :plan_detail
 
       t.timestamps
     end

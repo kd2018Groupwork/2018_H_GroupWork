@@ -24,6 +24,7 @@ class PlanningController < ApplicationController
 
   def plan_detail
     @plan_name = (Plan.find(params[:plan_id])).plan_name
+    @plan_detail = (Plan.find(params[:plan_id])).plan_detail
     @detail = PlanDetail.where(plan_id: params[:plan_id])
     
     respond_to do |format|
@@ -66,6 +67,7 @@ class PlanningController < ApplicationController
         :user_id,
         :plan_id,
         :plan_name,
+        :plan_detail,
         plan_details_attributes: 
         [
           :id, 
