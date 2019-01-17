@@ -1,8 +1,8 @@
 <div class="row">
-  <table class="table table-striped bg-danger">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">
+        <th colspan="2">
           <% unless @detail[0].images.blank? %>
             <% @detail[0].images.each do |image| %>
                <%= image_tag( image.url , :size => "150x150") %>
@@ -51,18 +51,21 @@
   <br>
   <hr>
   <div>
-    <% if current_user %>
-      <%= render 'comment/form' , comment: @comment%>
-    <% else %>
-      <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
-    <% end %>
-    <h2>コメント欄</h2>
-    <div id="comment_area">
-      <%= render 'comment/comment' , comments: @comments%>
+    <div class="col-md-offset-1 col-md-10">
+      <div id="map" style="text-align: center; height: 370px; width: 100%;"></div>
     </div>
-  </div>
-  <div class="col-md-offset-1 col-md-10">
-    <div id="map" style="text-align: center; height: 370px; width: 100%;"></div>
+    <hr>
+    <div class="col-md-12">
+      <% if current_user %>
+        <%= render 'comment/form' , comment: @comment%>
+      <% else %>
+        <h2>コメントするには<%= link_to "ログイン", login_path %>してください</h2>
+      <% end %>
+      <h2>コメント欄</h2>
+      <div id="comment_area">
+        <%= render 'comment/comment' , comments: @comments%>
+      </div>
+    </div>
   </div>
 </div>
 <%=
