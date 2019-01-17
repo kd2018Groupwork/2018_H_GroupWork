@@ -1,5 +1,5 @@
-<% provide(:title, '観光地登録') %>
-<h1>観光地登録</h1>
+<% provide(:title, '聖地登録') %>
+<h1>聖地登録</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -7,15 +7,15 @@
   <%= form_for @spot = Spot.new do |f| %>
     <table class="table">
       <tr>
-        <th>スポットの画像<span class="text-danger">（必須）</span></th>
+        <th>聖地の画像<span class="text-danger">（必須）</span></th>
         <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
       </tr>
       <tr>
-        <th>スポットの名前<span class="text-danger">（必須）</span></th>
+        <th>聖地の名前<span class="text-danger">（必須）</span></th>
         <td><%= f.text_field :spot_name, class: 'form-control' %><td>
       </tr>
       <tr>
-        <th>スポットの詳細<span class="text-danger">（必須）</span></th>
+        <th>聖地の詳細<span class="text-danger">（必須）</span></th>
         <td><%= f.text_area :details, class: 'form-control' %></td>
       </tr>
       <tr>
@@ -41,11 +41,11 @@
         <td><%= f.text_field :address_street, class: 'form-control' %></td>
       <tr>
       </tr>
-        <th><%= f.label :"建物" %></th>
+        <th>建物</th>
         <td><%= f.text_field :address_building, class: 'form-control' %></td>
       </tr>
     </table>
-    <%= f.submit "観光地を登録する", class: "btn btn-primary" %>
+    <%= f.submit "聖地を登録する", class: "btn btn-primary" %>
     
   <% end %>
   </div>
