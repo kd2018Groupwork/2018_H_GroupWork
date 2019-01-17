@@ -12,11 +12,11 @@
         <p>
         <% unless comment.images %>
         <% else %>
-        <% comment.images.each do |image| %>
-            <%= image_tag( "/uploads/comment/#{image}" , :size => "80x80" , :class => "rounded-circle") %>
-            <br>
+            <% comment.images.each do |image| %>
+                <%= image_tag( "/uploads/comment/#{image}" , :size => "80x80" , :class => "rounded-circle") %>
+            <% end %>
         <% end %>
-        <% end %>
+        <br>
         <%= comment.comment %> 
         </p>
         <div class="timestamp">
