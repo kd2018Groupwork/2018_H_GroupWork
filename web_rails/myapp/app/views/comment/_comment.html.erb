@@ -10,16 +10,15 @@
             <% end %>
           <% end %>
         </td>
-        <td style="text-align: center;vertical-align: middle;">
+        <td style="vertical-align: middle;">
+          <%= link_to user_path(id: comment.user_id) do %>
+            <%= image_tag( comment.image_name.url , :size => "30x30" , :class => "img-circle") if comment.image_name? %>
+            <%= comment.user_name %>さん
+          <% end %>
           <% unless !current_user || current_user.id != comment.user_id %>
             <%= link_to uncomment_path(spot_id:comment.spot_id,comment_id:comment.id) , method: :delete , remote: true do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
-          <% end %>
-          <p>
-          <%= link_to user_path(id: comment.user_id) do %>
-            <%= image_tag( comment.image_name.url , :size => "30x30" , :class => "img-circle") if comment.image_name? %>
-            <%= comment.user_name %>さん
           <% end %>
           <br>
           <%= comment.comment %> 
