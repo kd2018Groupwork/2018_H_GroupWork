@@ -469,7 +469,7 @@ Spot.create(
     #:images  =>  '[AIR.PNG]'
 )
 Spot.create(
-    :spot_name  =>  'ちびまる子ちゃんランド',
+    :spot_name  =>  'まる子の通う小学校',
     :product_id  =>  '21',
     :details  =>  '静岡市立清水入江小学校は、
     静岡県静岡市清水区追分二丁目にある公立小学校。',
@@ -594,6 +594,14 @@ UserSpot.create(
 UserSpot.create(
     :user_id => 1,
     :spot_id => 22
+)
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 23
+)
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 24
 )
 Genre.create( :genre_name => '小説' )
 Genre.create( :genre_name => '漫画' )
