@@ -81,7 +81,10 @@ Product.create(
     :product_name   => 'AIR',
     :genre_id   => 7
 )
-
+Product.create(
+    :product_name   => '徒然草',
+    :genre_id   => 4
+)
 Spot.create(
     :spot_name  =>  '坊ちゃんの舞台',
     :product_id  =>  '1',
@@ -126,7 +129,7 @@ Spot.create(
     :address_street  =>  '逆瀬川',
     :address_building  =>  '逆瀬川の100円ショップ',
     :review_flag =>  true,
-    #:images  =>  File.open("./public/uploads/spots/20181220042151.jpg")
+    #:images  =>  File.open("./app/assets/images/kankore.png")
 )
 Spot.create(
     :spot_name  =>  'ゲームサーバー名のもとになってる場所',
@@ -371,7 +374,48 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '[AIR.PNG]'
 )
-    
+Spot.create(
+    :spot_name  =>  '徒然草の例のお寺',
+    :product_id  =>  '20',
+    :details  =>  '仁和寺（にんなじ）は、京都府京都市右京区御室にある真言宗御室派総本山の仏教寺院。山号は大内山。本尊は阿弥陀如来、開基（創立者）は宇多天皇。「古都京都の文化財」として、世界遺産に登録されている。',
+    :rate  =>  '0',
+    :postcode1  =>  '616',
+    :postcode2  =>  '8092',
+    :prefecture_code  =>  '26',
+    :address_city  =>  '京都市',
+    :address_street  =>  '右京区御室大内33',
+    :address_building  =>  '',
+    :review_flag =>  true,
+    #:images  =>  '["20181220041813.jpg"]'
+)
+Spot.create(
+    :spot_name  =>  '仁和寺のお坊さんが訪れた場所',
+    :product_id  =>  '20',
+    :details  =>  '石清水八幡宮（いわしみずはちまんぐう）は、京都府八幡市にある神社。旧称は「男山八幡宮」。二十二社（上七社）の1つで、伊勢神宮（三重県伊勢市）とともに二所宗廟の1つ。旧社格は官幣大社で、現在は神社本庁の別表神社。宇佐神宮（大分県宇佐市）・筥崎宮（福岡市東区）または鶴岡八幡宮（神奈川県鎌倉市）とともに日本三大八幡宮の1つ。また宮中の四方拝で遥拝される神社の1つである。本殿を含む建造物10棟が国宝に指定されている。',
+    :rate  =>  '0',
+    :postcode1  =>  '614',
+    :postcode2  =>  '8588',
+    :prefecture_code  =>  '26',
+    :address_city  =>  '八幡市',
+    :address_street  =>  '八幡高坊30',
+    :address_building  =>  '',
+    :review_flag =>  true,
+    #:images  =>  '["20181220041813.jpg"]'
+)
+Spot.create(
+    :spot_name  =>  '競馬が行われていた場所',
+    :product_id  =>  '20',
+    :details  =>  '賀茂別雷神社（かもわけいかづちじんじゃ）は、京都市北区にある神社。通称は上賀茂神社（かみがもじんじゃ）。式内社（名神大社）、山城国一宮、二十二社（上七社）の一社。旧社格は官幣大社で、現在は神社本庁の別表神社。ユネスコの世界遺産に「古都京都の文化財」の1つとして登録されている。',
+    :rate  =>  '0',
+    :postcode1  =>  '603',
+    :postcode2  =>  '8047',
+    :prefecture_code  =>  '26',
+    :address_city  =>  '京都市',
+    :address_street  =>  '北区上賀茂本山339',
+    :address_building  =>  '',
+    :review_flag =>  true,
+    #:images  =>  '["20181220041813.jpg"]'
+)
 UserSpot.create(
     :user_id => 1,
     :spot_id => 1
@@ -471,6 +515,18 @@ UserSpot.create(
     :spot_id => 19
 )
 
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 20
+)
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 21
+)
+UserSpot.create(
+    :user_id => 1,
+    :spot_id => 22
+)
 Genre.create( :genre_name => '小説' )
 Genre.create( :genre_name => '漫画' )
 Genre.create( :genre_name => 'アニメ' )
