@@ -18,7 +18,7 @@ User.create(
 )
 #ND
 User.create(
-    :user_name  => 'picklerick',
+    :user_name  => 'pickle_rick',
     :email      => 'picrick@example.com',
     :password   => 'picklepower'
 )
