@@ -81,10 +81,6 @@ Product.create(
     :product_name   => 'AIR',
     :genre_id   => 7
 )
-Product.create(
-    :product_name   => '徒然草',
-    :genre_id   => 4
-)
 Spot.create(
     :spot_name  =>  '坊ちゃんの舞台',
     :product_id  =>  '1',
@@ -131,6 +127,7 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  File.open("./app/assets/images/kankore.png")
 )
+
 Spot.create(
     :spot_name  =>  'ゲームサーバー名のもとになってる場所',
     :product_id  =>  '4',
@@ -374,6 +371,11 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '[AIR.PNG]'
 )
+
+Product.create(
+    :product_name   => '徒然草',
+    :genre_id   => 4
+)
 Spot.create(
     :spot_name  =>  '徒然草の例のお寺',
     :product_id  =>  '20',
@@ -416,6 +418,43 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '["20181220041813.jpg"]'
 )
+
+Product.create(
+    :product_name   => 'ちびまる子ちゃん',
+    :genre_id   => 7
+)
+Spot.create(
+    :spot_name  =>  'ちびまる子ちゃんランド',
+    :product_id  =>  '21',
+    :details  =>  '学校や公園、自宅など、ちびまる子ちゃんの舞台を
+    再現したミュージアム。駄菓子屋のみつや、
+    グッズショップ、砂絵の体験コーナーも併設。',
+    :rate  =>  '0',
+    :postcode1  =>  '424',
+    :postcode2  =>  '0942',
+    :prefecture_code  =>  '22',
+    :address_city  =>  '静岡市',
+    :address_street  =>  '清水区入船町１３−１５',
+    :address_building  =>  'ちびまる子ちゃんランド',
+    :review_flag =>  true,
+    #:images  =>  '[AIR.PNG]'
+)
+Spot.create(
+    :spot_name  =>  'ちびまる子ちゃんランド',
+    :product_id  =>  '21',
+    :details  =>  '静岡市立清水入江小学校は、
+    静岡県静岡市清水区追分二丁目にある公立小学校。',
+    :rate  =>  '0',
+    :postcode1  =>  '424',
+    :postcode2  =>  '0841',
+    :prefecture_code  =>  '22',
+    :address_city  =>  '静岡市',
+    :address_street  =>  '清水区追分２丁目３−１',
+    :address_building  =>  '静岡市立清水入江小学校',
+    :review_flag =>  true,
+    #:images  =>  '[AIR.PNG]'
+)
+
 UserSpot.create(
     :user_id => 1,
     :spot_id => 1
