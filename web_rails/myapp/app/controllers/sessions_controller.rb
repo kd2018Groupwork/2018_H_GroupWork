@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       remember user
       redirect_to root_url
     else
-      flash.now[:danger] = 'めーるあどれす又は、ぱすわーどが違います'
+      flash.now[:danger] = 'メールアドレス又は、パスワードが違います'
       render 'new'
     end
   end
