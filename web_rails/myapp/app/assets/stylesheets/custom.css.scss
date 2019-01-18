@@ -19,6 +19,10 @@ html {
   flex: 1;
 }
 
+.btn {
+  border: unset !important; 
+}
+
 body {
   font-family: 'Kosugi Maru', sans-serif;
 	background-color: #eeeeee;
