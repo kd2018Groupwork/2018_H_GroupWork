@@ -4,3 +4,23 @@
 .fav-link{
     float: left;
 }
+
+.btn-warning {
+    color: #fff;
+    background-color: dodgerblue;
+    border-color: whitesmoke;
+}
+.btn-warning:hover, .btn-warning:focus, 
+.btn-warning:active, .btn-warning:active:focus, .btn-warning:active:hover, .btn-warning:active.focus,
+.btn-warning.active, .btn-warning.active:focus, .btn-warning.active:hover, .btn-warning.active.focus,
+.open > .dropdown-toggle.btn-warning, 
+.open > .dropdown-toggle.btn-warning:hover,
+.open > .dropdown-toggle.btn-warning:focus, 
+.open > .dropdown-toggle.btn-warning.focus,
+.btn-warning.disabled:hover, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover,
+.btn-warning.disabled:focus, .btn-warning[disabled]:focus, fieldset[disabled] .btn-warning:focus,
+.btn-warning.disabled.focus, .btn-warning[disabled].focus, fieldset[disabled] .btn-warning.focus {
+    color: white;
+    background-color: cornflowerblue;
+    border-color: whitesmoke
+}
