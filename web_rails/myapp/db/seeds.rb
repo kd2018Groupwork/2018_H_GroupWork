@@ -1,9 +1,28 @@
-
+#GT
 User.create(
-    :user_name  => 'test',
+    :user_name  => 'pact',
     :email      => 'test@yahoo.co.jp',
-    :password   => 'zzzzzzzz'
+    :password   => 'testtest'
 )
+#KH
+User.create(
+    :user_name  => 'kenko',
+    :email      => 'ture@example.com',
+    :password   => 'yoshida'
+)
+#ST
+User.create(
+    :user_name  => 'lastfinal',
+    :email      => 'last@example.com',
+    :password   => 'lastfinal'
+)
+#ND
+User.create(
+    :user_name  => 'picklerick',
+    :email      => 'picrick@example.com',
+    :password   => 'picklepower'
+)
+
 
 Product.create(
     :product_name   =>  '坊ちゃん',
