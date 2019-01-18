@@ -1,5 +1,5 @@
 <% provide(:title, "Spot View") %>
-<h1>登録したスポットを編集</h1>
+<h1>登録した聖地を編集</h1>
 <div class="row">
   <br>
 
@@ -57,7 +57,7 @@
             </div>
             <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
             <a class="btn-group">
-              <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary btn-sm"} %>
+              <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary"} %>
             </a>
             <%= render 'favorite/favorite' , detail: data%>
             <%= render 'rate/rate' , detail: data %>
