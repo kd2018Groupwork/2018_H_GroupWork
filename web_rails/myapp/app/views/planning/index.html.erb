@@ -1,5 +1,5 @@
-<% provide(:title, '計画表作成') %>
-<h1>聖地巡礼スケジュール作成</h1>
+<% provide(:title, '聖地巡礼スケジュール表作成') %>
+<h1>聖地巡礼スケジュール表作成</h1>
 <!-- 左寄せにする -->
 <div class="row">
   <div class="col-md-2" style="text-align: center;">
@@ -22,9 +22,9 @@
   <div class="col-md-10">
     <%= form_for @plan do |f| %>
       <table class="table table-striped table-bordered table-hover">
-        計画表の名前<span class="text-danger">（必須）</span>
+        聖地巡礼スケジュール表の名前<span class="text-danger">（必須）</span>
         <%= f.text_field :plan_name, class: 'form-control' %>
-        計画表の詳細
+        聖地巡礼スケジュール表の詳細
         <%= f.text_area :plan_detail, class: 'form-control' %>
         <%= f.nested_fields_for :plan_details, wrapper_tag: :tbody do |q| %>
           <tr>
@@ -34,7 +34,7 @@
             </td>
           </tr>
           <tr>
-            <td>スポット名<span class="text-danger">（必須）</span></td>
+            <td>聖地名<span class="text-danger">（必須）</span></td>
             <td style="text-align: center;">
               <%= q.select :spot_name, hash.values, {}, {class:"form-control"} %>
             </td>
