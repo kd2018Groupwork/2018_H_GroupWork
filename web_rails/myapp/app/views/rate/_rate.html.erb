@@ -1,17 +1,17 @@
 <% if current_user %>
 <div class="like-link" id="like-link-<%= detail.id %>">
     <% if !Rating.exists?(user_id:current_user.id,spot_id:detail.id) %>
-        <%= link_to rate_path(spot_id:detail.id) , method: :post , class:"btn btn-danger" , remote: true do %>
-            <i class="glyphicon glyphicon-heart-empty" title="いいねをつける"></i> <span class="badge"><%= detail.rate %></span>
+        <%= link_to rate_path(spot_id:detail.id) , method: :post , class:"btn btn-tertiary" , remote: true do %>
+            <i class="glyphicon glyphicon-heart-empty" title="いいねをつける">いいね</i> <span class="badge"><%= detail.rate %></span>
         <% end %>
     <% else %>
-        <%= link_to unrate_path(spot_id:detail.id), method: :delete, class:"btn btn-danger", remote: true do %>
-            <i class="glyphicon glyphicon-heart" title="いいねを外す"></i> <span class="badge"><%= detail.rate %></span>
+        <%= link_to unrate_path(spot_id:detail.id), method: :delete, class:"btn btn-tertiary  active", remote: true do %>
+            <i class="glyphicon glyphicon-heart" title="いいねを外す">いいね解除</i> <span class="badge"><%= detail.rate %></span>
         <% end %>
     <% end %>
 </div>
 <% else %>
-    <%= link_to "#", class:"btn btn-default btn-danger disabled" , remote: true do %>
-        <i class="glyphicon glyphicon-heart" title="いいねをつける"></i><span class="badge"><%= detail.rate %></span>
+    <%= link_to "#", class:"btn btn-default btn-tertiary disabled" , remote: true do %>
+        <i class="glyphicon glyphicon-heart" title="いいねをつける"></i> <span class="badge"><%= detail.rate %></span>
     <% end %>
 <% end %>
