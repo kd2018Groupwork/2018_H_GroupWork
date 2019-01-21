@@ -14,7 +14,7 @@
           <% @plan.each do |pa| %>
           <tr>
             <td>
-              <%= link_to plan_detail_path(plan_id: pa.plan_id) do %>
+              <%= link_to plan_detail_path(plan_id: pa.id) do %>
                 <%= pa.plan_name %>
               <% end %>
             </td>
@@ -22,7 +22,7 @@
               <%= pa.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
             </td>
             <td>
-              <%= link_to plan_detail_path(format: :pdf, plan_id: pa.plan_id) , class:"btn btn-link btn-lg" do %>
+              <%= link_to plan_detail_path(format: :pdf, plan_id: pa.id) , class:"btn btn-link btn-lg" do %>
                 <i class="glyphicon glyphicon-save"></i>
               <% end %>
               <%= link_to plan_destroy_path(id: pa.id), method: :delete , class:"btn btn-link btn-lg" do %>

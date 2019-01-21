@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20190116043324) do
 
   create_table "plans", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "plan_id"
     t.string "plan_name"
     t.text "plan_detail"
     t.datetime "created_at", null: false

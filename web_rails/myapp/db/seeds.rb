@@ -1,16 +1,9 @@
-User.create(
-    :user_name  => 'pact',
-    :email      => 'test@yahoo.co.jp',
-    :password   => 'testtest',
-    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
-)
-
 #GT
 User.create(
     :user_name  => 'pact',
     :email      => 'test@yahoo.co.jp',
     :password   => 'testtest',
-    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    :image_name => open("#{Rails.root}/app/assets/images/users/user1.png")
 )
 #KH
 User.create(
