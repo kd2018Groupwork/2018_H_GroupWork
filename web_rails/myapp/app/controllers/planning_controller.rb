@@ -8,7 +8,7 @@ class PlanningController < ApplicationController
     # plansテーブルへの保存
     @plan = Plan.new(plan_params)
     @plan.user_id = session[:user_id]
-    @plan.plan_id = Plan.count + 1
+    #@plan.plan_id = @plan.id#Plan.count + 1
     if @plan.save
       Favorite.where(user_id: session[:user_id]).delete_all
       flash[:success] = "聖地巡礼スケジュール表作成を作成しました!"
@@ -23,8 +23,10 @@ class PlanningController < ApplicationController
   end
 
   def plan_detail
-    @plan_name = (Plan.find(params[:plan_id])).plan_name
-    @plan_detail = (Plan.find(params[:plan_id])).plan_detail
+    @plan = Plan.find(params[:plan_id])
+    
+    @plan_name = @plan.plan_name
+    @plan_detail = @plan.plan_detail
     @detail = PlanDetail.where(plan_id: params[:plan_id])
     
     respond_to do |format|
