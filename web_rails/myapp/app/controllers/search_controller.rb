@@ -5,13 +5,16 @@ class SearchController < ApplicationController
   end
   
   def search_result
-    @result = search_spots(
+    spots = search_spots(
       params[:product],
       params[:genre],
       params[:pref],
       params[:city],
-      params[:page]
       )
+    @total_results = spots.length
+    @result = spots.joins(:product).select(
+      'spots.*','products.*'
+      ).page(params[:page]).per(PER)
   end
 
   def get_cities
@@ -38,13 +41,10 @@ class SearchController < ApplicationController
   private
 
     #　肥大化してきた...
-    def search_spots(product_name,genre_id,pref_code,city_name,page_num)
+    def search_spots(product_name,genre_id,pref_code,city_name)
       spot_product  = search_spot_from_product(product_name,genre_id)
       spot_location = search_spot_from_location(pref_code,city_name)
-      merged_spots = spot_product.merge(spot_location).where('review_flag = ?',true)
-      merged_spots.joins(:product).select(
-        'spots.*','products.*'
-        ).page(page_num).per(PER)
+      spot_product.merge(spot_location).where('review_flag = ?',true)
     end
 
     def search_spot_from_product(product_name,genre_id)

@@ -6,15 +6,13 @@
   <!-- 検索結果に作品名表示する -->
   <div class="col-md-6 col-md-offset-3">
     <br><br>
-    <% product_names = get_product_names(@result) %>
     <p class="center">
-      <% if product_names.blank? %>
+      <% if @total_results == 0 %>
         <%= '該当する聖地が見つかりませんでした:('%>
       <% else %>
         <!-- 作品名の数が多くなった場合の処理はまだ書いてない-->
-        <% format_product_names = '『'+product_names.join('、')+'』' %>
-        <% str_result_cnts = @result.length.to_s %>
-        <%= format_product_names+'の聖地を'+str_result_cnts+'件表示しています。' %>
+        <% str_result_cnts = @total_results.to_s %>
+        <%= '聖地が合計'+str_result_cnts+'件見つかりました！' %>
       <% end %>
     </p>
     <br>
