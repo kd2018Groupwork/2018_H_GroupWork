@@ -24,7 +24,7 @@ User.create(
     :user_name  => 'lastfinal',
     :email      => 'last@example.com',
     :password   => 'lastfinal',
-    :image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    :image_name => open("#{Rails.root}/app/assets/images/Pickle_rick_transparent.png")
 )
 #ND
 User.create(
