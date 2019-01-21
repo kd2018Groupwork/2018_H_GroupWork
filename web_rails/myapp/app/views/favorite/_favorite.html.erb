@@ -1,12 +1,12 @@
 <% if current_user %>
     <div class="fav-link" id="fav-link-<%= detail.id %>">
     <% if !Favorite.exists?(user_id:current_user.id,spot_id:detail.id) %>
-        <%= link_to fav_path(detail.id) , method: :post , class:"btn btn-warning" , remote: true do %>
+        <%= link_to fav_path(detail.id) , method: :post , class:"btn btn-tertiary addlist" , remote: true do %>
             <i class="glyphicon glyphicon-star-empty" title="リストに追加"></i>
              リストに追加
         <% end %>
     <% else %>
-        <%= link_to unfav_path(detail.id),method: :delete , class:"btn btn-warning" , remote: true do %>
+        <%= link_to unfav_path(detail.id),method: :delete , class:"btn btn-tertiary active addlist" , remote: true do %>
             <i class="glyphicon glyphicon-star" style="color: #FFFF00" title="リストから外す"></i>
              リストから外す
         <% end %>
