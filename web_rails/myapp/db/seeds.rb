@@ -31,7 +31,7 @@ User.create(
     :user_name  => 'pickle_rick',
     :email      => 'picrick@example.com',
     :password   => 'picklepower',
-    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    :image_name => open("#{Rails.root}/app/assets/images/Pickle_rick_transparent.png")
 )
 
 Product.create(
