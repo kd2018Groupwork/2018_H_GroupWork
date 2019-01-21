@@ -5,11 +5,11 @@
     float: left;
 }
 
-.btn-danger {
-    color: #fff;
-    background-color: hotpink;
-    border-color: whitesmoke;
-}
+//.btn-tertiary {
+//     background-color: hotpink;
+//     border-color: whitesmoke;
+//     color: black;
+//}
 .btn-danger:hover, .btn-danger:focus, 
 .btn-danger:active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger:active.focus,
 .btn-danger.active, .btn-danger.active:focus, .btn-danger.active:hover, .btn-danger.active.focus,
@@ -23,4 +23,17 @@
     color: white;
     background-color: orchid;
     border-color: whitesmoke;
+}
+
+.btn-tertiary {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: hotpink;
+    border: double 4px hotpink;
+    border-radius: 3px;
+    transition: .4s;
+}
+.btn-tertiary:hover {
+    background: rgb(255, 255, 255);
 }
