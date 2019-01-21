@@ -10,30 +10,38 @@
 //     border-color: whitesmoke;
 //     color: black;
 //}
-.btn-danger:hover, .btn-danger:focus, 
-.btn-danger:active, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger:active.focus,
-.btn-danger.active, .btn-danger.active:focus, .btn-danger.active:hover, .btn-danger.active.focus,
-.open > .dropdown-toggle.btn-danger, 
-.open > .dropdown-toggle.btn-danger:hover,
-.open > .dropdown-toggle.btn-danger:focus, 
-.open > .dropdown-toggle.btn-danger.focus,
-.btn-danger.disabled:hover, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger:hover,
-.btn-danger.disabled:focus, .btn-danger[disabled]:focus, fieldset[disabled] .btn-danger:focus,
-.btn-danger.disabled.focus, .btn-danger[disabled].focus, fieldset[disabled] .btn-danger.focus {
+
+.btn-tertiary:hover, .btn-tertiary:focus, 
+.btn-tertiary:active, .btn-tertiary:active:focus, .btn-tertiary:active:hover, .btn-tertiary:active.focus,
+.btn-tertiary.active, .btn-tertiary.active:focus, .btn-tertiary.active:hover, .btn-tertiary.active.focus,
+.open > .dropdown-toggle.btn-tertiary, 
+.open > .dropdown-toggle.btn-tertiary:hover,
+.open > .dropdown-toggle.btn-tertiary:focus, 
+.open > .dropdown-toggle.btn-tertiary.focus,
+.btn-tertiary.disabled:hover, .btn-tertiary[disabled]:hover, fieldset[disabled] .btn-tertiary:hover,
+.btn-tertiary.disabled:focus, .btn-tertiary[disabled]:focus, fieldset[disabled] .btn-tertiary:focus,
+.btn-tertiary.disabled.focus, .btn-tertiary[disabled].focus, fieldset[disabled] .btn-tertiary.focus {
     color: white;
-    background-color: orchid;
+    background-color: hotpink;
     border-color: whitesmoke;
 }
 
+
 .btn-tertiary {
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    color: hotpink;
-    border: double 4px hotpink;
-    border-radius: 3px;
+    background-color: slategray;
+    color: white;
     transition: .4s;
 }
-.btn-tertiary:hover {
-    background: rgb(255, 255, 255);
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    line-height: 1;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color:whitesmoke;
+    border-radius: 10px;
 }
