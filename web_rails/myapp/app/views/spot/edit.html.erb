@@ -4,21 +4,23 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <h4><%= @spot.spot_name %></h4><br>
+    <h4 style="background-color: white;border-radius: 3px;">
+      <%= @spot.spot_name %>
+    </h4><br>
     <%= form_for @spot, url: {:action => 'commit'} do |f| %>
       <%= f.trix_editor :review %>
       <%= f.hidden_field :id, :value => @spot.id %>
 
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default active">
+        <label class="btn btn-default" style="color: white;background-color: seagreen;">
           公開<%= f.radio_button :review_flag, true, checked: false %>
         </label>
-        <label class="btn btn-default">
+        <label class="btn btn-default" style="color: white;background-color: crimson;">
           下書き<%= f.radio_button :review_flag, false, checked: false %>
         </label>
       </div>
 
-      <br>
+      <br><br>
       <div class="btn-group">
         <%= f.submit "保存する", class: "btn btn-primary" %>
       </div>

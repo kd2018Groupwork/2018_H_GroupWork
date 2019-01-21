@@ -29,14 +29,21 @@
         <%= f.nested_fields_for :plan_details, wrapper_tag: :tbody do |q| %>
           <tr>
             <td>日付<span class="text-danger">（必須）</span></td>
-            <td id="date">
+            <td id="date" class="center">
               <%= q.datetime_select :date, {}, {class: 'form-control bootstrap-date'} %>
             </td>
           </tr>
           <tr>
-            <td>聖地名<span class="text-danger">（必須）</span></td>
+            <td>巡礼地<span class="text-danger">（必須）</span></td>
             <td style="text-align: center;">
-              <%= q.select :spot_name, hash.values, {}, {class:"form-control"} %>
+              <label id="spot" class="center">
+                聖地
+                <%= q.select :spot_name, hash.values, {}, {class:"form-control plan"} %>
+              </label>
+              <label id="other" class="center">
+                その他
+                <%= q.text_field :spot_name,class: 'form-control plan'%>
+              </label>
             </td>
           </tr>
           <tr>
