@@ -40,7 +40,6 @@ class SearchController < ApplicationController
 
   private
 
-    #　肥大化してきた...
     def search_spots(product_name,genre_id,pref_code,city_name)
       spot_product  = search_spot_from_product(product_name,genre_id)
       spot_location = search_spot_from_location(pref_code,city_name)

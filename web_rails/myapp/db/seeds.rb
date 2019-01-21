@@ -24,7 +24,7 @@ User.create(
     :user_name  => 'pickle_rick',
     :email      => 'picrick@example.com',
     :password   => 'picklepower',
-    :image_name => open("#{Rails.root}/app/assets/images/Pickle_rick_transparent.png")
+    :image_name => open("#{Rails.root}/app/assets/images/users/i_am_pickle_rick_tshirt_from_rick_and_morty_tv_show_in_India_by_silly_punter.jpg")
 )
 
 Product.create(
