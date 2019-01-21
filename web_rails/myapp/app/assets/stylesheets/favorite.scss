@@ -4,26 +4,25 @@
 .fav-link{
     float: left;
 }
-.btn {
-    border: 1px solid transparent; 
-}
 
-.btn-warning {
-    color: #fff;
-    background-color: dodgerblue;
-    border-color: whitesmoke;
-}
-.btn-warning:hover, .btn-warning:focus, 
-.btn-warning:active, .btn-warning:active:focus, .btn-warning:active:hover, .btn-warning:active.focus,
-.btn-warning.active, .btn-warning.active:focus, .btn-warning.active:hover, .btn-warning.active.focus,
-.open > .dropdown-toggle.btn-warning, 
-.open > .dropdown-toggle.btn-warning:hover,
-.open > .dropdown-toggle.btn-warning:focus, 
-.open > .dropdown-toggle.btn-warning.focus,
-.btn-warning.disabled:hover, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning:hover,
-.btn-warning.disabled:focus, .btn-warning[disabled]:focus, fieldset[disabled] .btn-warning:focus,
-.btn-warning.disabled.focus, .btn-warning[disabled].focus, fieldset[disabled] .btn-warning.focus {
+.btn-tertiary.addlist:hover, .btn-tertiary.addlist:focus, 
+.btn-tertiary.addlist:active, .btn-tertiary.addlist:active:focus, .btn-tertiary.addlist:active:hover, .btn-tertiary.addlist:active.focus,
+.btn-tertiary.addlist.active, .btn-tertiary.addlist.active:focus, .btn-tertiary.addlist.active:hover, .btn-tertiary.addlist.active.focus,
+.open > .dropdown-toggle.btn-tertiary.addlist, 
+.open > .dropdown-toggle.btn-tertiary.addlist:hover,
+.open > .dropdown-toggle.btn-tertiary.addlist:focus, 
+.open > .dropdown-toggle.btn-tertiary.addlist.focus,
+.btn-tertiary.addlist.disabled:hover, .btn-tertiary.addlist[disabled]:hover, fieldset[disabled] .btn-tertiary.addlist:hover,
+.btn-tertiary.addlist.disabled:focus, .btn-tertiary.addlist[disabled]:focus, fieldset[disabled] .btn-tertiary.addlist:focus,
+.btn-tertiary.addlist.disabled.focus, .btn-tertiary.addlist[disabled].focus, fieldset[disabled] .btn-tertiary.addlist.focus {
     color: white;
     background-color: cornflowerblue;
-    border-color: whitesmoke
+    border-color: whitesmoke;
+}
+
+
+.btn-tertiary.addlist.addlist {
+    background-color: dodgerblue;
+    color: white;
+    transition: .4s;
 }
