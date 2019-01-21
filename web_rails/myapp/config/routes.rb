@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get     'help'                    => 'static_pages#help'
   get     'about'                   => 'static_pages#about'
 
-  get     'search'                  =>  'search#search'
+  get     'search'                  =>  'search#search_result'
   get     'search_result'           =>  'search#search_result'
   get     'search_detail/:spot_id'  =>  'search#search_detail' , as:'search_detail'
   get     'search/get_cities'       =>  'search#get_cities'
