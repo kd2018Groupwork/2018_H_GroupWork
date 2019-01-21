@@ -75,12 +75,13 @@ class SpotController < ApplicationController
   def commit
     # 公開設定
     if params[:spot][:review_flag] # 公開保存
-      review_flag = false
+      review_flag = false 
     else # 下書き保存
       review_flag = true
     end
+    edited_text = params[:spot][:review]
     
-    if Spot.where(id: params[:spot][:id]).update_all(review_flag: review_flag)
+    if Spot.where(id: params[:spot][:id]).update(review_flag: review_flag,review: edited_text)
       flash[:success] = "観光地の詳細を編集しました!"
       redirect_to show_spot_path(id: session[:user_id])
     else
