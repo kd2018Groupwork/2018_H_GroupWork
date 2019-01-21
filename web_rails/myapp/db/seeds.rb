@@ -2,7 +2,7 @@ User.create(
     :user_name  => 'pact',
     :email      => 'test@yahoo.co.jp',
     :password   => 'testtest',
-    :image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
 )
 
 #GT
@@ -10,28 +10,28 @@ User.create(
     :user_name  => 'pact',
     :email      => 'test@yahoo.co.jp',
     :password   => 'testtest',
-    :image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
 )
 #KH
 User.create(
     :user_name  => 'kenko',
     :email      => 'ture@example.com',
     :password   => 'yoshida',
-    :image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
 )
 #ST
 User.create(
     :user_name  => 'lastfinal',
     :email      => 'last@example.com',
     :password   => 'lastfinal',
-    :image_name => open("#{Rails.root}/app/assets/images/Pickle_rick_transparent.png")
+    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
 )
 #ND
 User.create(
     :user_name  => 'pickle_rick',
     :email      => 'picrick@example.com',
     :password   => 'picklepower',
-    :image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    :image_name => open("#{Rails.root}/app/assets/images/Pickle_rick_transparent.png")
 )
 
 Product.create(
