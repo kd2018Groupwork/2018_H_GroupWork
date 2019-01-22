@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20190122014051) do
     t.text "address"
     t.string "shop_name"
     t.text "detail"
-    t.string "images"
+    t.json "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

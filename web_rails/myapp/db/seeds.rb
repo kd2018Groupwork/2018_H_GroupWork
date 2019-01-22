@@ -474,16 +474,6 @@ Shop.create(
         観ることが出来ます',
     :images => open("#{Rails.root}/app/assets/images/shops/1.jpg")
 )
-Shop.create(
-    :spot_id => 22,
-    :address => '〒424-0942 
-        静岡県静岡市清水区清水区入船町１３−１５ 
-        エスパルス ドリーム プラザ 1F',
-    :shop_name => '清水港まぐろ 魚屋のぶちゃん',
-    :detail => '清水港は、冷凍マグロの水揚げ日本一
-        マグロの希少部位、中とろ等が安い！？',
-    :images => open("#{Rails.root}/app/assets/images/shops/2.jpg")
-)
 Spot.create(
     :spot_name  =>  'まる子の通う小学校',
     :product_id  =>  '21',
@@ -499,7 +489,16 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '[AIR.PNG]'
 )
-
+Shop.create(
+    :spot_id => 22,
+    :address => '〒424-0942 
+        静岡県静岡市清水区清水区入船町１３−１５ 
+        エスパルス ドリーム プラザ 1F',
+    :shop_name => '清水港まぐろ 魚屋のぶちゃん',
+    :detail => '清水港は、冷凍マグロの水揚げ日本一
+        マグロの希少部位、中とろ等が安い！？',
+    :images => open("#{Rails.root}/app/assets/images/shops/2.jpg")
+)
 UserSpot.create(
     :user_id => 1,
     :spot_id => 1
