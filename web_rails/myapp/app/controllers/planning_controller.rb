@@ -69,9 +69,9 @@ class PlanningController < ApplicationController
 
   def add_text_form
     if params[:spot_value] == 'その他'
-      render partial: 'text_form'
+      render partial: 'text_form', locals: {hidden: ''}
     else
-      render ''
+      render partial: 'text_form', locals: {hidden: 'hidden'}
     end
   end
 
