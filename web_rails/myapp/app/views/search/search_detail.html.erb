@@ -47,7 +47,11 @@
         <% @shop.each do |data| %>
           <tr>
             <td>
-              <%= image_tag("shops/NoImage.png", size: 100) %>
+              <% if data.images? %>
+                <%= image_tag(data.images.url, size: 100) %>
+              <% else %>
+                <%= image_tag("icon/NoImage.png", size: 100) %>
+              <% end %>
             </td>
             <td><%= data.shop_name %></td>
             <td><%= data.address %></td>
