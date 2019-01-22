@@ -29,6 +29,8 @@ class SearchController < ApplicationController
     
     @user_id = UserSpot.find_by(spot_id: @detail[0].id).user_id
     @user_name = User.find(@user_id).user_name
+
+    @shop = Shop.where(spot_id: @detail[0].id)
   end
 
   def auto_complete_product

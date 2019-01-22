@@ -2,7 +2,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th colspan="2">
+        <th colspan="4">
           <% unless @detail[0].images.blank? %>
             <% @detail[0].images.each do |image| %>
                <%= image_tag( image.url , :size => "150x150") %>
@@ -15,31 +15,46 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row" width="20%">作品名：</th>
-        <td><%= @detail[0].product_name %></td>
+        <th scope="row" width="20%" colspan="2">作品名：</th>
+        <td colspan="2"><%= @detail[0].product_name %></td>
       </tr>
       <tr>
-        <th scope="row" width="20%">登録者：</th>
-        <td>
+        <th scope="row" width="20%" colspan="2">登録者：</th>
+        <td colspan="2">
           <%= link_to @user_name ,user_path(id: @user_id) %>
         </td>
       </tr>
       <tr>
-        <th scope="row">スポット名：</th>
-        <td><%= @detail[0].spot_name %></td>
+        <th scope="row" colspan="2">スポット名：</th>
+        <td colspan="2"><%= @detail[0].spot_name %></td>
       </tr>
       <tr>
-        <th scope="row">住所：</th>
-        <td><%= @detail[0].prefecture.name + " " + @detail[0].address_city + " " +  @detail[0].address_street + " " + @detail[0].address_building %></td>
+        <th scope="row" colspan="2">住所：</th>
+        <td colspan="2"><%= @detail[0].prefecture.name + " " + @detail[0].address_city + " " +  @detail[0].address_street + " " + @detail[0].address_building %></td>
       </tr>
       <tr>
-        <th scope="row">詳細：</th>
-        <td><%= @detail[0].details %></td>
+        <th scope="row" colspan="2">詳細：</th>
+        <td colspan="2"><%= @detail[0].details %></td>
       </tr>
       <tr>
-        <th scope="row">ジャンル：</th>
-        <td><%= @detail[0].genre_name %></td>
+        <th scope="row" colspan="2">ジャンル：</th>
+        <td colspan="2"><%= @detail[0].genre_name %></td>
       </tr>
+      <% unless @shop.empty? %>
+        <tr>
+          <th class="text-center" scope="row" colspan="4">近くでおすすめの場所</th>
+        </tr>
+        <% @shop.each do |data| %>
+          <tr>
+            <td>
+              <%= image_tag("shops/NoImage.png", size: 100) %>
+            </td>
+            <td><%= data.shop_name %></td>
+            <td><%= data.address %></td>
+            <td><%= data.detail %></td>
+          </tr>
+        <% end %>
+      <% end %>
     </tbody>
   </table>
   <div style="margin: 10px auto;">
