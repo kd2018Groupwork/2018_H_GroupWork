@@ -1,7 +1,7 @@
 <div class="row">
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr class="detail">
         <th colspan="4">
           <% unless @detail[0].images.blank? %>
             <% @detail[0].images.each do |image| %>
@@ -14,29 +14,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="detail">
         <th scope="row" width="20%" colspan="2">作品名：</th>
         <td colspan="2"><%= @detail[0].product_name %></td>
       </tr>
-      <tr>
+      <tr class="detail">
         <th scope="row" width="20%" colspan="2">登録者：</th>
         <td colspan="2">
           <%= link_to @user_name ,user_path(id: @user_id) %>
         </td>
-      </tr>
-      <tr>
+      </tr class="detail">
+      <tr class="detail">
         <th scope="row" colspan="2">スポット名：</th>
         <td colspan="2"><%= @detail[0].spot_name %></td>
-      </tr>
-      <tr>
+      </tr class="detail">
+      <tr class="detail">
         <th scope="row" colspan="2">住所：</th>
         <td colspan="2"><%= @detail[0].prefecture.name + " " + @detail[0].address_city + " " +  @detail[0].address_street + " " + @detail[0].address_building %></td>
       </tr>
-      <tr>
+      <tr class="detail">
         <th scope="row" colspan="2">詳細：</th>
         <td colspan="2"><%= @detail[0].details %></td>
       </tr>
-      <tr>
+      <tr class="detail">
         <th scope="row" colspan="2">ジャンル：</th>
         <td colspan="2"><%= @detail[0].genre_name %></td>
       </tr>
@@ -45,7 +45,7 @@
           <th class="text-center" id="shop_banner" scope="row" colspan="4">近くでおすすめの場所</th>
         </tr>
         <% @shop.each do |data| %>
-          <tr class="shop_ad">
+          <tr class="detail">
             <td>
               <%= image_tag("icon/NoImage.png", size: 100) %>
             </td>
