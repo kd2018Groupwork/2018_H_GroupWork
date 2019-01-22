@@ -39,6 +39,8 @@
                 <%= q.select :spot_name, favorite_spots.values, {}, {class:"form-control plan"} %>
               </label>
               <label id="other" class="center">
+                <% hidden = favorite_spots.values.length <= 1 ? '' : 'hidden'%>
+                <%= render partial: 'text_form', locals: {hidden: hidden} %>
               </label>
             </td>
           </tr>
