@@ -47,15 +47,11 @@
         <% @shop.each do |data| %>
           <tr class="detail">
             <td>
-<<<<<<< HEAD
-              <%= image_tag("icon/NoImage.png", size: 100) %>
-=======
               <% if data.images? %>
                 <%= image_tag(data.images.url, size: 100) %>
               <% else %>
                 <%= image_tag("icon/NoImage.png", size: 100) %>
               <% end %>
->>>>>>> 2b95baa10a7429e544bf9d97ccff7297b9f55e1f
             </td>
             <td><%= data.shop_name %></td>
             <td><%= data.address %></td>
