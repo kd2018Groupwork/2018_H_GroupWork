@@ -51,7 +51,7 @@
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>
             <p class="text-muted" style="font-size: 14px;"><%= data.details %></p>
-            <%= link_to unfav_path(data.id), class:"btn btn-link btn-sm" ,method: :delete do %>
+            <%= link_to unfav_path(data.id), class:"btn btn-link" ,method: :delete do %>
                 <i class="glyphicon glyphicon-new-window">削除</i>
             <% end %>
           </td>
