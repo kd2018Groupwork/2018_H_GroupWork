@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   post    'offer/complete'          =>  'offer#complete'
 
   get     'planning_index'          =>  'planning#index'
+  get     'planning/add_text_form'  =>  'planning#add_text_form'
   post    'planning_create'         =>  'planning#create', as:'plans'
   get     'planning_show'           =>  'planning#show'
   get     'plan_detail/:plan_id'    =>  'planning#plan_detail', as:'plan_detail'
