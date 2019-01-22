@@ -3,15 +3,13 @@
 <!-- 左寄せにする -->
 <div class="row">
   <div class="col-md-2" style="text-align: center;">
-    <% hash = {} %>
-    <% (Favorite.where(user_id: session[:user_id])).each do |data| %>
-      <% hash.merge!(data.spot_id => (Spot.find_by(id: data.spot_id)).spot_name) %>
-    <% end %>
     <table class="table">
       <tr style="bgcolor: #3C71C6">ピックアップ一覧</tr>
-      <% hash.keys.each do |spot_id| %>
+      <% hashed_spots = get_favorite_spots %>
+      <% hashed_spots = add_other_value_in_hash(hashed_spots) %>
+      <% hashed_spots.keys.each do |spot_id| %>
         <tr style="bgcolor: #fff"><td>
-          <% spot_name = hash[spot_id] %>
+          <% spot_name = hashed_spots[spot_id] %>
           <%=link_to spot_name,search_detail_path(spot_id: spot_id)%>
         </td></tr>
       <% end %>
@@ -34,13 +32,13 @@
             </td>
           </tr>
           <tr>
-            <td>巡礼地<span class="text-danger">（必須）</span></td>
+            <td>聖地<span class="text-danger">（必須）</span></td>
             <td style="text-align: center;">
               <label id="spot" class="center">
                 聖地
-                <%= q.select :spot_name, hash.values, {}, {class:"form-control plan"} %>
+                <%= q.select :spot_name, hashed_spots.values, {}, {class:"form-control plan"} %>
               </label>
-              <label id="other" class="center">
+              <label id="other" class="center hidden">
                 その他
                 <%= q.text_field :spot_name,class: 'form-control plan'%>
               </label>
