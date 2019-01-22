@@ -42,12 +42,12 @@
       </tr>
       <% unless @shop.empty? %>
         <tr>
-          <th class="text-center" scope="row" colspan="4">近くでおすすめの場所</th>
+          <th class="text-center" id="shop_banner" scope="row" colspan="4">近くでおすすめの場所</th>
         </tr>
         <% @shop.each do |data| %>
-          <tr>
+          <tr class="shop_ad">
             <td>
-              <%= image_tag("shops/NoImage.png", size: 100) %>
+              <%= image_tag("icon/NoImage.png", size: 100) %>
             </td>
             <td><%= data.shop_name %></td>
             <td><%= data.address %></td>
