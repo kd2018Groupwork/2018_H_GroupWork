@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spot_id: 1
+  shop_name: MyString
+  detail: MyText
+
+two:
+  spot_id: 1
+  shop_name: MyString
+  detail: MyText

@@ -461,6 +461,29 @@ Spot.create(
     :review_flag =>  true,
     #:images  =>  '[AIR.PNG]'
 )
+Shop.create(
+    :spot_id => 22,
+    :address => '〒424-0942 静岡県静岡市清水区入船町
+        １３−１５ エスパルス ドリーム プラザ ２Ｆ',
+    :shop_name => 'マクドナルド',
+    :detail => '他の店と違って小さめの店舗だけど、
+        てきぱきとしてて、笑顔がとってもあたたかい‼
+        他の店と違って、始まる時間が10時です‼
+        まわりにファーストフードが有ります!
+        席数が有り、映画の情報がテレビがあり、
+        観ることが出来ます',
+    :images => open("#{Rails.root}/app/assets/images/shops/1.jpg")
+)
+Shop.create(
+    :spot_id => 22,
+    :address => '〒424-0942 
+        静岡県静岡市清水区清水区入船町１３−１５ 
+        エスパルス ドリーム プラザ 1F',
+    :shop_name => '清水港まぐろ 魚屋のぶちゃん',
+    :detail => '清水港は、冷凍マグロの水揚げ日本一
+        マグロの希少部位、中とろ等が安い！？',
+    :images => open("#{Rails.root}/app/assets/images/shops/2.jpg")
+)
 Spot.create(
     :spot_name  =>  'まる子の通う小学校',
     :product_id  =>  '21',
@@ -604,4 +627,3 @@ Genre.create( :genre_name => '映画' )
 Genre.create( :genre_name => 'ドラマ' )
 Genre.create( :genre_name => 'ゲーム' )
 Genre.create( :genre_name => 'その他' )
-
