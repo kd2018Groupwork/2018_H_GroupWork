@@ -1,7 +1,7 @@
 module PlanningHelper
 
-  def get_favorite_spots()
-    hash =  {}
+  def fetch_favorite_spots_in_hash
+    hash = {}
     (Favorite.where(user_id: session[:user_id])).each do |data|
       hash.merge!(data.spot_id => (Spot.find_by(id: data.spot_id)).spot_name)
     end

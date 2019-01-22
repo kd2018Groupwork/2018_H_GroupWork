@@ -6,9 +6,13 @@ class PlanningController < ApplicationController
 
   def create
     # plansテーブルへの保存
-    @plan = Plan.new(plan_params)
+    @plan = Plan.new(plan_params) 
     @plan.user_id = session[:user_id]
     #@plan.plan_id = @plan.id#Plan.count + 1
+    if params[:other_spot][:text]
+      @plan.spot_name = params[:other_spot][:text]
+    end
+
     if @plan.save
       Favorite.where(user_id: session[:user_id]).delete_all
       flash[:success] = "聖地巡礼スケジュール表作成を作成しました!"
@@ -60,6 +64,14 @@ class PlanningController < ApplicationController
     else
       flash[:danger] = "削除に失敗しました"
       render :planning_show
+    end
+  end
+
+  def add_text_form
+    if params[:spot_value] == 'その他'
+      render partial: 'text_form'
+    else
+      render ''
     end
   end
 

@@ -5,14 +5,14 @@
   <div class="col-md-2" style="text-align: center;">
     <table class="table">
       <tr style="bgcolor: #3C71C6">ピックアップ一覧</tr>
-      <% hashed_spots = get_favorite_spots %>
-      <% hashed_spots = add_other_value_in_hash(hashed_spots) %>
-      <% hashed_spots.keys.each do |spot_id| %>
-        <tr style="bgcolor: #fff"><td>
-          <% spot_name = hashed_spots[spot_id] %>
-          <%=link_to spot_name,search_detail_path(spot_id: spot_id)%>
-        </td></tr>
-      <% end %>
+        <% favorite_spots = fetch_favorite_spots_in_hash %>
+        <% favorite_spots.keys.each do |spot_id| %>
+          <tr style="bgcolor: #fff"><td>
+            <% spot_name = favorite_spots[spot_id] %>
+            <%=link_to spot_name,search_detail_path(spot_id: spot_id)%>
+          </td></tr>
+        <% end %>
+        <% favorite_spots = add_other_value_in_hash(favorite_spots) %>
     </table>
   </div>
 
@@ -36,11 +36,9 @@
             <td style="text-align: center;">
               <label id="spot" class="center">
                 聖地
-                <%= q.select :spot_name, hashed_spots.values, {}, {class:"form-control plan"} %>
+                <%= q.select :spot_name, favorite_spots.values, {}, {class:"form-control plan"} %>
               </label>
-              <label id="other" class="center hidden">
-                その他
-                <%= q.text_field :spot_name,class: 'form-control plan'%>
+              <label id="other" class="center">
               </label>
             </td>
           </tr>
