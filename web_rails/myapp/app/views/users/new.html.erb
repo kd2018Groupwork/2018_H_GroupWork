@@ -8,25 +8,25 @@
       
       <table class="table">
         <tr>
-          <th>User Name<span class="text-danger">（必須）</span></th>
+          <th>ユーザー名<span class="text-danger">（必須）</span></th>
           <td><%= f.text_field :user_name, class: 'form-control' %></td>
         </tr>
         <tr>
-          <th>Mail Address<span class="text-danger">（必須）</span></th>
+          <th>メールアドレス<span class="text-danger">（必須）</span></th>
           <td><%= f.email_field :email, class: 'form-control' %></td>
         </tr>
         <tr>
-          <th>Password<span class="text-danger">（必須）</span></th>
+          <th>パスワード<span class="text-danger">（必須）</span></th>
           <td><%= f.password_field :password, class: 'form-control' %></td>
         </tr>
         <tr>
-          <th>Re-enter<span class="text-danger">（必須）</span></th>
+          <th>再入力<span class="text-danger">（必須）</span></th>
           <td><%= f.password_field :password_confirmation, class: 'form-control' %></td>
         </tr>
 
       </table>
 
-      <%= f.submit :"Make User", class: "btn btn-primary" %>
+      <%= f.submit :"ユーザーを作成する", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
