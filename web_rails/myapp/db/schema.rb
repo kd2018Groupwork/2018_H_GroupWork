@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20190122014051) do
 
   create_table "shops", force: :cascade do |t|
     t.integer "spot_id"
+    t.string "postcode1"
+    t.string "postcode2"
     t.text "address"
     t.string "shop_name"
     t.text "detail"
