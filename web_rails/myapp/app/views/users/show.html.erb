@@ -14,7 +14,7 @@
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                         <figure>
                           <% if @user.image_name? %>
-                            <tr><td><%= image_tag @user.image_name.thumb.url, class: "img-circle" %></td></tr>
+                            <tr><td><%= image_tag @user.image_name.url, class: "img-circle" %></td></tr>
                           <% else %>
                             <tr><td><%= image_tag("icon/NoImage.png", size: 100, class: "img-circle") %></td></tr>
                           <% end %>
