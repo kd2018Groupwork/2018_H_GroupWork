@@ -24,9 +24,11 @@
                             <%= @user.user_name %>
                           </strong>
                         </h5>
-                        <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="user-email">
-                          <%= @user.email %>
-                        </p>
+                        <% unless session[:user_id].nil? %>
+                          <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="user-email">
+                            <%= @user.email %>
+                          </p>
+                        <% end %>
                       </div>
                     </div>
                   </div>
