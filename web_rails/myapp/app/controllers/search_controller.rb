@@ -13,7 +13,7 @@ class SearchController < ApplicationController
       )
     @total_results = spots.length
     @result = spots.joins(:product).select(
-      'spots.*','products.*'
+      'spots.*','products.product_name'
       ).page(params[:page]).per(PER)
   end
 
@@ -30,7 +30,7 @@ class SearchController < ApplicationController
     @user_id = UserSpot.find_by(spot_id: @detail[0].id).user_id
     @user_name = User.find(@user_id).user_name
 
-    @shop = Shop.where(spot_id: @detail[0].id)
+    @shop = Shop.fetch_sponsor(@detail[0].id)
   end
 
   def auto_complete_product

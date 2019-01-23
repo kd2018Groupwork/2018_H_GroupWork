@@ -24,6 +24,7 @@
       </td>
       <td style="width: 3000px;margin-left: auto;">
         <d class="text-muted" style="font-size: 14px;">
+          <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
           <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
         </d>
         <d class="text-muted" style="font-size: 14px;">

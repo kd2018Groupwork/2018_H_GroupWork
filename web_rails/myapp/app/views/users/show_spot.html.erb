@@ -52,6 +52,7 @@
               <% else %>
                 <span class="label  label-danger">編集中</span>
               <% end %>
+              <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
               <%= data.spot_name %>
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>

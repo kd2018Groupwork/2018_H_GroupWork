@@ -49,6 +49,7 @@
                   <% end %>
                 </td>
                 <td style="width: 3000px;margin-left: auto;">
+                  <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
                   <%= link_to data.spot_name ,search_detail_path(spot_id: data.id) %>
                   <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
                   <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
