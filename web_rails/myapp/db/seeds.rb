@@ -10,7 +10,7 @@ User.create(
     :user_name  => 'kenko',
     :email      => 'ture@example.com',
     :password   => 'yoshida',
-    #:image_name => open("#{Rails.root}/public/uploads/users/customers-icon-3.png")
+    :image_name => open("#{Rails.root}/app/assets/images/spots/少年たち.png")
 )
 #ST
 User.create(
