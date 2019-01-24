@@ -23,8 +23,9 @@ class OfferController < ApplicationController
 
   def complete
     if logged_in?
-      @offer = Offer.new(offer_params)
-      OfferMailer.received_email(@inquiry).deliver
+      #@offer = Offer.new(offer_params)
+      #OfferMailer.received_email(@inquiry).deliver
+      flash.now[:success] = '問い合わせが完了しました'
       render 'complete'
     else
       redirect_to root_url
@@ -34,7 +35,9 @@ class OfferController < ApplicationController
   private
   def offer_params
     params.require(:offer).permit(
-
+      :name,
+      :email,
+      :message
     )
   end
 end
