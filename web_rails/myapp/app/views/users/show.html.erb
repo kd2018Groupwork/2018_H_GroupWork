@@ -40,7 +40,11 @@
         <div class="col-md-9">
           <table class="table">
             <% @user_spot = UserSpot.where('user_id = ?', @user.id) %>
-            <% @spot = Spot.where('review_flag = ? and id in (?)', true, @user_spot.select(:spot_id).map(&:spot_id)) %>
+            <% @spot = Spot.where(
+              'review_flag = ? and id in (?)',
+              true,
+              @user_spot.select(:spot_id).map(&:spot_id)
+              ).page(params[:page]).per(5) %>
             <% @spot.each do |data| %>
               <tr>
                 <td>
@@ -66,3 +70,4 @@
     </section>
   </aside>
 </div>
+<%= paginate @spot %>
