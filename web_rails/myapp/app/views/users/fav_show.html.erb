@@ -48,7 +48,7 @@
           <td style="width: 3000px;margin-left: auto;">
             <div class="form-inline">
               <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
-              <%= data.spot_name %>
+              <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>
             <p class="text-muted" style="font-size: 14px;"><%= data.details %></p>
