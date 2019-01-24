@@ -74,10 +74,26 @@ class SpotController < ApplicationController
 
   def commit 
     # 公開設定
+    spot_name = params[:spot][:spot_name]
+    details = params[:spot][:details]
+    postcode1 = params[:spot][:postcode1]
+    postcode2 = params[:spot][:postcode2]
+    prefecture_code = params[:spot][:prefecture_code]
+    address_city = params[:spot][:address_city]
+    address_street = params[:spot][:address_street]
+    address_building = params[:spot][:address_building]
     review_flag = params[:spot][:review_flag]
     html_text   = params[:spot][:review]
     
     if Spot.where(id: params[:spot][:id]).update(
+      spot_name: spot_name,
+      details: details,
+      postcode1: postcode1,
+      postcode2: postcode2,
+      prefecture_code: prefecture_code,
+      address_city: address_city,
+      address_street: address_street,
+      address_building: address_building,
       review_flag: review_flag,
       review: html_text
       )
