@@ -8,6 +8,47 @@
       <%= @spot.spot_name %>
     </h4><br>
     <%= form_for @spot, url: {:action => 'commit'} do |f| %>
+    <table class="table">
+      <tr>
+        <th>聖地の画像<span class="text-danger">（必須）</span></th>
+        <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
+      </tr>
+      <tr>
+        <th>聖地の名前<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :spot_name, class: 'form-control' %><td>
+      </tr>
+      <tr>
+        <th>聖地の詳細<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_area :details, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td>
+          <div class="input-group">
+            <%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'post1', placeholder: "000" %>
+             -
+            <%= f.text_field :postcode2, maxlength: 4, class: 'post2', placeholder: "0000" %></td>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>都道府県<span class="text-danger">（必須）</span></th>
+        <td><%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください"}, class: 'form-control') %></td>
+      </tr>
+      <tr>
+        <th>市<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :address_city, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th>区</th>
+        <td><%= f.text_field :address_street, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th>建物</th>
+        <td><%= f.text_field :address_building, class: 'form-control' %></td>
+      </tr>
+    </table>
+
       <%= f.trix_editor :review %>
       <%= f.hidden_field :id, :value => @spot.id %>
 
