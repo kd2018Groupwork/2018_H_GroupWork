@@ -221,3 +221,52 @@
 	width: 60%;
 	display: inline-block;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700');
+
+body{
+    background: #f2f2f2;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h3{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.box{
+	padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:10px;
+    padding:40px 10px;
+    margin:30px 0px;
+}
+
+.box-part:hover{
+    background: rgb(255, 200, 99);
+}
+
+.box-part:hover .fa , 
+.box-part:hover .title , 
+.box-part:hover .text ,
+.box-part:hover a{
+    color:#FFF;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+    color:rgba(17, 236, 225, 0.87);
+}
+
+#plan_div{
+	display: inline-block;
+}
