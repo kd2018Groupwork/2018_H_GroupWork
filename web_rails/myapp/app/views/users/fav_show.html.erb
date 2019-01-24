@@ -13,7 +13,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                   <figure>
                     <% if @user.image_name? %>
-                      <tr><td><%= image_tag @user.image_name.thumb.url, class: "img-circle" %></td></tr>
+                      <tr><td><%= image_tag @user.image_name.url, class: "img-circle" %></td></tr>
                     <% else %>
                       <tr><td><%= image_tag("icon/NoImage.png", size: 100, class: "img-circle") %></td></tr>
                     <% end %>
@@ -48,10 +48,10 @@
           <td style="width: 3000px;margin-left: auto;">
             <div class="form-inline">
               <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
-              <%= data.spot_name %>
+              <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>
-            <p class="text-muted" style="font-size: 14px;"><%= data.details %></p>
+            <p class="text-muted" style="font-size: 14px;"><%= limit_str_detail(data.details) %></p>
             <%= link_to unfav_path(data.id), class:"btn btn-link" ,method: :delete do %>
                 <i class="glyphicon glyphicon-new-window">削除</i>
             <% end %>
@@ -59,5 +59,6 @@
         </tr>
       </table>
     <% end %>
+    <%= paginate @fav_spot %>
   </div>
 </div>

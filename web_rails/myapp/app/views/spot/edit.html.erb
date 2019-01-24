@@ -4,18 +4,63 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <h4 style="background-color: white;border-radius: 3px;">
-      <%= @spot.spot_name %>
-    </h4><br>
     <%= form_for @spot, url: {:action => 'commit'} do |f| %>
+    <table class="table">
+      <tr>
+        <th>聖地の画像<span class="text-danger">（必須）</span></th>
+        <td>
+          <label style="text-align: unset !important;">
+            <span class="btn btn-primary" style="background-color: seagreen !important;">
+              画像を選択する
+              <%= f.file_field :images, class: "exampleInputFile", style: 'display: none', multiple: true %>
+            </span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <th>聖地の名前<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :spot_name, class: 'form-control' %><td>
+      </tr>
+      <tr>
+        <th>聖地の詳細<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_area :details, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td>
+          <div class="input-group">
+            <%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'form-control post1', placeholder: "000" %>
+            <strong>-</strong>
+            <%= f.text_field :postcode2, maxlength: 4, class: 'form-control post2', placeholder: "0000" %></td>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>都道府県<span class="text-danger">（必須）</span></th>
+        <td><%= f.collection_select(:prefecture_code, JpPrefecture::Prefecture.all, :code, :name, {prompt: "選択してください"}, class: 'form-control') %></td>
+      </tr>
+      <tr>
+        <th>市<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :address_city, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th>区</th>
+        <td><%= f.text_field :address_street, class: 'form-control' %></td>
+      <tr>
+      </tr>
+        <th>建物</th>
+        <td><%= f.text_field :address_building, class: 'form-control' %></td>
+      </tr>
+    </table>
+
       <%= f.trix_editor :review %>
       <%= f.hidden_field :id, :value => @spot.id %>
 
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default" style="color: white;background-color: seagreen;">
+        <label id="show" class="btn btn-default">
           公開<%= f.radio_button :review_flag, true, checked: false %>
         </label>
-        <label class="btn btn-default" style="color: white;background-color: crimson;">
+        <label id="hide" class="btn btn-default">
           下書き<%= f.radio_button :review_flag, false, checked: false %>
         </label>
       </div>

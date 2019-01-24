@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  PER = 5
+
+
   def show
     @user = User.find(params[:id])
   end
@@ -35,7 +38,11 @@ class UsersController < ApplicationController
     #params[]はString型
     if current_user.id === params[:user_id].to_i
       @user = User.find(session[:user_id])
-      @fav_spot = Spot.joins(:favorites).select("spots.*,favorites.created_at").where(favorites: {user_id: params[:user_id]})
+      @fav_spot = Spot.joins(:favorites).select(
+        "spots.*,favorites.created_at"
+        ).where(
+          favorites: {user_id: params[:user_id]}
+        ).page(params[:page]).per(PER)
     else
       redirect_to root_path
     end
@@ -44,7 +51,10 @@ class UsersController < ApplicationController
   def show_spot
     @user = User.find(session[:user_id])
     @user_spot = UserSpot.where('user_id = ?', session[:user_id])
-    @spot = Spot.where('id in (?)', @user_spot.select(:spot_id).map(&:spot_id)).order('updated_at DESC')  
+    @spot = Spot.where(
+      'id in (?)',
+      @user_spot.select(:spot_id).map(&:spot_id)
+      ).order('updated_at DESC').page(params[:page]).per(PER)
   end
   
   private                                                                       
