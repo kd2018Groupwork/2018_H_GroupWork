@@ -77,7 +77,11 @@ class SpotController < ApplicationController
     review_flag = params[:spot][:review_flag]
     html_text   = params[:spot][:review]
     
-    if Spot.where(id: params[:spot][:id]).update(review_flag: review_flag,review: html_text)
+    if Spot.where(id: params[:spot][:id]).update(
+      review_flag: review_flag,
+      review: html_text
+      )
+      
       flash[:success] = "観光地の詳細を編集しました!"
       redirect_to show_spot_path(id: session[:user_id])
     else
