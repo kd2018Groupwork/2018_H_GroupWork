@@ -30,7 +30,7 @@
             <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
             <% title = '【'+data.product_name+'】'+data.spot_name%>
             <%= link_to title ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
-            <p class="text-muted" style="font-size: 16px;"><%= data.details %></p><br>
+            <p class="text-muted" style="font-size: 16px;"><%= limit_str_detail(data.details) %></p><br>
             <%= render 'favorite/favorite' , detail: data%>
             <%= render 'rate/rate' , detail: data %>
           </td>

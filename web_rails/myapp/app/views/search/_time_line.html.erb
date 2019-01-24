@@ -10,13 +10,13 @@
         <% else %>
           <%= image_tag("icon/NoImage.png", size: 100) %>
         <% end %>
-      </td>
+      </td> 
 
       <td style="width: 3000px;margin-left: auto;">
         <%= render partial: '/search/sponsor_icon',locals: {spot_id: data.id} %>
         <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
         <d class="text-muted" style="font-size: 16px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
-        <p class="text-muted" style="font-size: 16px;"><%= data.details %></p><br>
+        <p class="text-muted" style="font-size: 16px;"><%= limit_str_detail(data.details) %></p><br>
         <%= render 'favorite/favorite' , detail: data%>
         <%= render 'rate/rate' , detail: data %>
       </td>

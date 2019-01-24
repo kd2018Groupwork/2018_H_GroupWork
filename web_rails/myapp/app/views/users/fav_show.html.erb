@@ -51,7 +51,7 @@
               <%= link_to data.spot_name ,search_detail_path(spot_id: data.id), style: "font-size: 18px" %>
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>
-            <p class="text-muted" style="font-size: 14px;"><%= data.details %></p>
+            <p class="text-muted" style="font-size: 14px;"><%= limit_str_detail(data.details) %></p>
             <%= link_to unfav_path(data.id), class:"btn btn-link" ,method: :delete do %>
                 <i class="glyphicon glyphicon-new-window">削除</i>
             <% end %>

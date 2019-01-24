@@ -56,7 +56,7 @@
               <%= data.spot_name %>
               <d class="text-muted" style="font-size: 14px;">- <%= time_ago_in_words(data.updated_at) %>前</d>
             </div>
-            <p class="text-muted" style="font-size: 14px;"><%= data.details %></p><br>
+            <p class="text-muted" style="font-size: 14px;"><%= limit_str_detail(data.details) %></p><br>
             <a class="btn-group">
               <%= button_to "編集", { controller: 'spot', action: 'edit' }, {method: :get, params: {spot_id: data.id}, class: "btn btn-primary"} %>
             </a>
