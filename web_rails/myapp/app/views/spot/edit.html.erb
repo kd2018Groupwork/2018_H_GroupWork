@@ -4,14 +4,18 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <h4 style="background-color: white;border-radius: 3px;">
-      <%= @spot.spot_name %>
-    </h4><br>
     <%= form_for @spot, url: {:action => 'commit'} do |f| %>
     <table class="table">
       <tr>
         <th>聖地の画像<span class="text-danger">（必須）</span></th>
-        <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
+        <td>
+          <label style="text-align: unset !important;">
+            <span class="btn btn-primary" style="background-color: seagreen !important;">
+              画像を選択する
+              <%= f.file_field :images, class: "exampleInputFile", style: 'display: none', multiple: true %>
+            </span>
+          </label>
+        </td>
       </tr>
       <tr>
         <th>聖地の名前<span class="text-danger">（必須）</span></th>
@@ -25,9 +29,9 @@
         <th>郵便番号</th>
         <td>
           <div class="input-group">
-            <%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'post1', placeholder: "000" %>
-             -
-            <%= f.text_field :postcode2, maxlength: 4, class: 'post2', placeholder: "0000" %></td>
+            <%= f.text_field :postcode1, maxlength: 3, size: 4, class: 'form-control post1', placeholder: "000" %>
+            <strong>-</strong>
+            <%= f.text_field :postcode2, maxlength: 4, class: 'form-control post2', placeholder: "0000" %></td>
           </div>
         </td>
       </tr>
