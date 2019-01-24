@@ -12,10 +12,10 @@
       <%= f.hidden_field :id, :value => @spot.id %>
 
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default" style="color: white;background-color: seagreen;">
+        <label id="show" class="btn btn-default">
           公開<%= f.radio_button :review_flag, true, checked: false %>
         </label>
-        <label class="btn btn-default" style="color: white;background-color: crimson;">
+        <label id="hide" class="btn btn-default">
           下書き<%= f.radio_button :review_flag, false, checked: false %>
         </label>
       </div>

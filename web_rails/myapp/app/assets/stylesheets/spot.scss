@@ -7,3 +7,51 @@
 .post2 {
   width: 65px;
 }
+
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+  display: contents;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+label#show.btn.btn-default {
+  color: white;
+  background-color: seagreen;
+}
+
+
+label#hide.btn.btn-default {
+  color: white;
+  background-color: brown;
+}
+
+label#show.btn.btn-default:hover, label#show.btn.btn-default:focus, 
+label#show.btn.btn-default:active, label#show.btn.btn-default:active:focus, label#show.btn.btn-default:active:hover, label#show.btn.btn-default:active.focus,
+label#show.btn.btn-default.active, label#show.btn.btn-default.active:focus, label#show.btn.btn-default.active:hover, label#show.btn.btn-default.active.focus,
+.open > .dropdown-togglelabel#show.btn.btn-default, 
+.open > .dropdown-togglelabel#show.btn.btn-default:hover,
+.open > .dropdown-togglelabel#show.btn.btn-default:focus, 
+.open > .dropdown-togglelabel#show.btn.btn-default.focus,
+label#show.btn.btn-default.disabled:hover, label#show.btn.btn-default[disabled]:hover, fieldset[disabled] label#show.btn.btn-default:hover,
+label#show.btn.btn-default.disabled:focus, label#show.btn.btn-default[disabled]:focus, fieldset[disabled] label#show.btn.btn-default:focus,
+label#show.btn.btn-default.disabled.focus, label#show.btn.btn-default[disabled].focus, fieldset[disabled] label#show.btn.btn-default.focus {
+  background-color: mediumseagreen;
+  border-color: whitesmoke;
+  color: white;
+}
+
+label#hide.btn.btn-default:hover, label#hide.btn.btn-default:focus, 
+label#hide.btn.btn-default:active, label#hide.btn.btn-default:active:focus, label#hide.btn.btn-default:active:hover, label#hide.btn.btn-default:active.focus,
+label#hide.btn.btn-default.active, label#hide.btn.btn-default.active:focus, label#hide.btn.btn-default.active:hover, label#hide.btn.btn-default.active.focus,
+.open > .dropdown-togglelabel#hide.btn.btn-default, 
+.open > .dropdown-togglelabel#hide.btn.btn-default:hover,
+.open > .dropdown-togglelabel#hide.btn.btn-default:focus, 
+.open > .dropdown-togglelabel#hide.btn.btn-default.focus,
+label#hide.btn.btn-default.disabled:hover, label#hide.btn.btn-default[disabled]:hover, fieldset[disabled] label#hide.btn.btn-default:hover,
+label#hide.btn.btn-default.disabled:focus, label#hide.btn.btn-default[disabled]:focus, fieldset[disabled] label#hide.btn.btn-default:focus,
+label#hide.btn.btn-default.disabled.focus, label#hide.btn.btn-default[disabled].focus, fieldset[disabled] label#hide.btn.btn-default.focus {
+  background-color: indianred;
+  border-color: whitesmoke;
+  color: white;
+}
