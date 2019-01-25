@@ -8,7 +8,14 @@
     <table class="table">
       <tr>
         <th>聖地の画像<span class="text-danger">（必須）</span></th>
-        <td><%= f.file_field :images, class: "exampleInputFile", multiple: true %></td>
+        <td>
+          <label style="text-align: unset !important;">
+            <span class="btn btn-primary" style="background-color: seagreen !important;">
+              画像を選択する
+              <%= f.file_field :images, class: "exampleInputFile", style: 'display: none', multiple: true %>
+            </span>
+          </label>
+        </td>
       </tr>
       <tr>
         <th>聖地の名前<span class="text-danger">（必須）</span></th>

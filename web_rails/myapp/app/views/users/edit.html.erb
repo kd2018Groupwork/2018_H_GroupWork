@@ -15,7 +15,14 @@
         </tr>
         <tr>
           <th>アイコンを変更する</th>
-          <td><%= f.file_field :image_name %></td>
+          <td>
+            <label style="text-align: unset !important;">
+              <span class="btn btn-primary" style="background-color: seagreen !important;">
+                画像を選択する
+                <%= f.file_field :image_name, style: 'display: none' %>
+              </span>
+            </label>
+          </td>
         </tr>
         <tr>
           <th>ユーザー名</th>
