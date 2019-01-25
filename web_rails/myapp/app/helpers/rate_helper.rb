@@ -7,6 +7,6 @@ module RateHelper
     rates = rate_all
     user_ids = rates.map(&:user_id)
     spot_ids = rates.map(&:spot_id)
-    ((user_ids & Array(user_id)) & (spot_ids & Array(spot_id))).any?
+    (user_ids & Array(user_id)).any? & (spot_ids & Array(spot_id)).any?
   end
 end
