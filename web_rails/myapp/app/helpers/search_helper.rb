@@ -1,10 +1,19 @@
 module SearchHelper
 #西田：　重複コードたくさんあるので後できれいにするかも
+  def fetch_all_genres
+    @genres ||= Genre.all
+  end
+
+  def fetch_all_public_spots
+    @public_spots ||= Spot.where(
+      'review_flag = ?',true
+      )
+  end
 
   def select_prefs
     result = []
-    checked_spot = Spot.where('review_flag = ?',true)
-    checked_spot.each do |spt|
+    public_spots_all = fetch_all_public_spots
+    public_spots_all.each do |spt|
       result.append(
         {
           value: spt.prefecture_code,
@@ -21,7 +30,8 @@ module SearchHelper
 
   def select_genres
     result = []
-    Genre.all.each do |gnr|
+    genre_all = fetch_all_genres
+    genre_all.each do |gnr|
       result.append(
         {
           value: gnr.id,
