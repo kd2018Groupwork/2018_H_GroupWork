@@ -5,6 +5,8 @@ module FavoriteHelper
 
   def is_favorite_exist?(user_id, spot_id)
     favorits = favotite_all
-    !favorits.exists?(user_id: user_id, spot_id: spot_id)
+    user_ids = favorits.map(&:user_id)
+    spot_ids = favorits.map(&:spot_id)
+    ((user_ids & Array(user_id)) & (spot_ids & Array(spot_id))).any?
   end
 end
