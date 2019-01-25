@@ -67,21 +67,21 @@ ul.ui-autocomplete {
 }
 
 select {
-  width: 60% !important;
+  width: 70% !important;
   display: inline-block !important;
 }
 
 
 label {
-  padding-right: 25%;
+  padding-left: 0 !important;
+  padding-right: 0;
   margin: auto;
-  text-align: right !important;
   display: block !important;
 }
 
 input#product {
   display: inline-block !important;
-  width: 60%;
+  width: 70%;
 }
 
 .btn-primary {
