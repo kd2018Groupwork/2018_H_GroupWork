@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root                                 'static_pages#home'
   get     'help'                    => 'static_pages#help'
   get     'about'                   => 'static_pages#about'
+  get     'riyoukiyaku'             => 'static_pages#riyoukiyaku'
 
   get     'search'                  =>  'search#search_result'
   get     'search_result'           =>  'search#search_result'
