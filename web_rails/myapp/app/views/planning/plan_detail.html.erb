@@ -18,9 +18,9 @@
         <h2 style="color: #fff">
           <%= d.spot_name %>
         </h2>
+        <%= @s.prefecture.name + " " + @s.address_city + " " + @s.address_street + " " + @s.address_building %><br>
         <% if !d.comment.empty? %>
           <p style="color: #fff">
-            <%= d.prefecture.name + " " + d.address_city + " " + d.address_street + " " + d.address_building %><br>
             <%= d.comment %>
           </p>
         <% end %>
