@@ -11,6 +11,7 @@
         <h2 style="text-align:center">
           <%= d.spot_name %>
         </h2>
+        <%= @s.prefecture.name + " " + @s.address_city + " " + @s.address_street + " " + @s.address_building %><br>
         <% if !d.comment.empty? %>
           <p>
             <%= d.comment %>
