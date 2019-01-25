@@ -1,4 +1,6 @@
 module SpotHelper
+  STR_LIMIT = 70
+
   def shop_spot_ids
     @shops ||= Shop.all.map(&:spot_id)
   end
@@ -8,7 +10,7 @@ module SpotHelper
   end
 
   def limit_str_detail(spot_detail)
-    limited_str = spot_detail[0,70]
-    limited_str += spot_detail.length >= 70 ? '...' : ''
+    limited_str = spot_detail[0,STR_LIMIT]
+    limited_str += spot_detail.length >= STR_LIMIT ? '...' : ''
   end
 end
