@@ -18,9 +18,6 @@ class PlanningController < ApplicationController
       flash[:danger] = "聖地巡礼スケジュール表作成に失敗しました"
       redirect_to planning_index_path
     end
-    #動くけどsave二回してるので誰か直せたら直して
-    @plan.plan_details.where('spot_name = ?', 'その他').update_all(spot_name: params[:other_spot][:text])
-    @plan.save
   end
   
   def show
