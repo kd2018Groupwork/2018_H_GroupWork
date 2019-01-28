@@ -49,7 +49,7 @@
               <tr>
                 <td>
                   <% if data.images? %>
-                    <%= image_tag(data.images[0].url, size: 100) %>
+                    <%= link_to image_tag(data.images[0].url, size:100), data.images[0].url, :'data-lightbox' => data.images[0].url %>
                   <% else %>
                     <%= image_tag("icon/NoImage.png", size: 100) %>
                   <% end %>
