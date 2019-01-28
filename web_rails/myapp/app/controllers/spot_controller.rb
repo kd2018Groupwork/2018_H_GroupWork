@@ -85,7 +85,7 @@ class SpotController < ApplicationController
     review_flag = params[:spot][:review_flag]
     html_text   = params[:spot][:review]
     
-    if Spot.where(id: params[:spot][:id]).update(
+    if Spot.where(id: params[:spot][:id]).update_all(
       spot_name: spot_name,
       details: details,
       postcode1: postcode1,
