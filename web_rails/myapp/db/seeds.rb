@@ -258,7 +258,7 @@ Spot.create(
     :address_street  =>  '比奈２０８５−４',
     :address_building  =>  '竹採公園',
     :review_flag =>  true,
-    #:images  =>  '[]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/DSC_1666222.jpg")]
 )
 Spot.create(
     :spot_name  =>  'なにがし寺のモデルとなったお寺',
@@ -272,7 +272,7 @@ Spot.create(
     :address_street  =>  '左京区鞍馬本町1074番地',
     :address_building  =>  '鞍馬寺',
     :review_flag =>  true,
-    #:images  =>  '[くらまでら.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/くらまでら.PNG")]
 )
 Spot.create(
     :spot_name  =>  '紀貫之の土佐日記にも記述された場所',
@@ -286,7 +286,7 @@ Spot.create(
     :address_street  =>  '馬場町１丁目１−１１',
     :address_building  =>  '高瀬神社',
     :review_flag =>  true,
-    #:images  =>  '[土佐日記.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/土佐日記.PNG")]
 )
 Spot.create(
     :spot_name  =>  'オープニングで使われた場所',
@@ -300,7 +300,7 @@ Spot.create(
     :address_street  =>  '戸隠',
     :address_building  =>  '鏡池',
     :review_flag =>  true,
-    #:images  =>  '[鏡池.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/鏡池.PNG")]
 )
 Spot.create(
     :spot_name  =>  '常子と母親の君子が二人三脚の練習をしたあの場所',
@@ -314,7 +314,7 @@ Spot.create(
     :address_street  =>  '南区中田島町1313',
     :address_building  =>  '中田島砂丘',
     :review_flag =>  true,
-    #:images  =>  '[]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/nakatajima011.jpg")]
 )
 Spot.create(
     :spot_name  =>  '印象深いオシャレな店',
@@ -332,7 +332,7 @@ Spot.create(
     :address_street  =>  '豊島区雑司が谷３丁目１９−３',
     :address_building  =>  '',
     :review_flag =>  true,
-    #:images  =>  '[]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/bfd7e8c8f98237aea4a0e6c8715d524f.jpg")]
 )
 Spot.create(
     :spot_name  =>  '雪に憧れる方はぜひ！',
@@ -346,7 +346,7 @@ Spot.create(
     :address_street  =>  '',
     :address_building  =>  '',
     :review_flag =>  true,
-    #:images  =>  '[]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/FA59A3700F98475CB1E5E7C53A59B549_LL.jpg")]
 )
 Spot.create(
     :spot_name  =>  '将也と硝子が初めてちゃんと言葉を交わす印象的な場所',
@@ -360,7 +360,7 @@ Spot.create(
     :address_street  =>  '西外側町２丁目４６',
     :address_building  =>  '美登鯉橋',
     :review_flag =>  true,
-    #:images  =>  '[]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/141562122466227963180.jpg")]
 )
 Spot.create(
     :spot_name  =>  'ロケ地が刑務所！？',
@@ -376,7 +376,7 @@ Spot.create(
     :address_street  =>  '般若寺町１８',
     :address_building  =>  '奈良少年刑務所',
     :review_flag =>  true,
-    #:images  =>  '[少年たち.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/少年たち.PNG")]
 )
 Spot.create(
     :spot_name  =>  '霧島医院のモデルとなった場所',
@@ -391,7 +391,7 @@ Spot.create(
     :address_street  =>  '東２丁目６−１',
     :address_building  =>  '糸井眼科',
     :review_flag =>  true,
-    #:images  =>  '[AIR.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/AIR.PNG")]
 )
 
 Product.create(
@@ -410,7 +410,7 @@ Spot.create(
     :address_street  =>  '右京区御室大内33',
     :address_building  =>  '',
     :review_flag =>  true,
-    #:images  =>  '["20181220041813.jpg"]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/pixta_27621412_M.jpg")]
 )
 Spot.create(
     :spot_name  =>  '仁和寺のお坊さんが訪れた場所',
@@ -424,7 +424,7 @@ Spot.create(
     :address_street  =>  '八幡高坊30',
     :address_building  =>  '',
     :review_flag =>  true,
-    #:images  =>  '["20181220041813.jpg"]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/ishimiya.jpg")]
 )
 Spot.create(
     :spot_name  =>  '競馬が行われていた場所',
@@ -438,7 +438,7 @@ Spot.create(
     :address_street  =>  '北区上賀茂本山339',
     :address_building  =>  '',
     :review_flag =>  true,
-    #:images  =>  '["20181220041813.jpg"]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/img_ts05_01.jpg")]
 )
 
 Product.create(
@@ -462,7 +462,7 @@ Spot.create(
     :address_street  =>  '清水区入船町１３−１５',
     :address_building  =>  'ちびまる子ちゃんランド',
     :review_flag =>  true,
-    #:images  =>  '[AIR.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/chibimaruko_10.jpg")]
 )
 Shop.create(
     :spot_id => 22,
@@ -492,7 +492,7 @@ Spot.create(
     :address_street  =>  '清水区追分２丁目３−１',
     :address_building  =>  '静岡市立清水入江小学校',
     :review_flag =>  true,
-    :images => [open("#{Rails.root}/app/assets/images/spots/42A21C7B070743B3ADA8E722D7960925_L.jpg")]
+    :images => [open("#{Rails.root}/app/assets/images/spots/lif1808280020-p2.jpg")]
 )
 Shop.create(
     :spot_id => 22,
