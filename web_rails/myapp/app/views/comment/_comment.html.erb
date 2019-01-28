@@ -5,7 +5,7 @@
           <% unless comment.images %>
           <% else %>
             <% comment.images.each do |image| %>
-              <%= image_tag( "/uploads/comment/#{image}" , :size => "80x80" , :class => "rounded-circle") %>
+              <%= link_to image_tag("/uploads/comment/#{image}", size:80), "/uploads/comment/#{image}", :'data-lightbox' => "/uploads/comment/#{image}" %>
             <% end %>
           <% end %>
         </td>

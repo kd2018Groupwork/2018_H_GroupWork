@@ -3,7 +3,7 @@ class SpotimagesUploader < CarrierWave::Uploader::Base
 
   storage :file
 
-  process :resize_to_limit => [100, 100]
+  process :resize_to_limit => [750, 960]
   process convert: 'jpg'
 
   # 保存するディレクトリ名
