@@ -14,7 +14,7 @@ class Spot < ApplicationRecord
   geocoded_by :spot_address
   after_validation :geocode
 
-include JpPrefecture
+  include JpPrefecture
   jp_prefecture :prefecture_code
   
   def prefecture_name

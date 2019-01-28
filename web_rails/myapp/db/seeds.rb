@@ -445,6 +445,9 @@ Product.create(
     :product_name   => 'ちびまる子ちゃん',
     :genre_id   => 7
 )
+
+#スポットにseedとして画像保存する場合
+#配列にして格納しないとエラー出るよ
 Spot.create(
     :spot_name  =>  'ちびまる子ちゃんランド',
     :product_id  =>  '21',
@@ -489,7 +492,7 @@ Spot.create(
     :address_street  =>  '清水区追分２丁目３−１',
     :address_building  =>  '静岡市立清水入江小学校',
     :review_flag =>  true,
-    #:images  =>  '[AIR.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/42A21C7B070743B3ADA8E722D7960925_L.jpg")]
 )
 Shop.create(
     :spot_id => 22,
