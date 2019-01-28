@@ -115,7 +115,7 @@ Spot.create(
     :address_street  =>  '道後湯之町',
     :address_building  =>  '道後温泉本館',
     :review_flag =>  true,
-    #:images  =>  '["20181220041222.jpg"]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/坊ちゃん.png")]
 )
 Spot.create(
     :spot_name  =>  '劇場版のあの舞台！',
@@ -129,7 +129,7 @@ Spot.create(
     :address_street  =>  '鴨子ケ原',
     :address_building  =>  '甲南病院',
     :review_flag =>  true,
-    #:images  =>  '["20181220041813.jpg"]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/kounan.jpg")]
 )
 Spot.create(
     :spot_name  =>  '時江と亜美の行きつけの店',
@@ -147,7 +147,7 @@ Spot.create(
     :address_street  =>  '逆瀬川',
     :address_building  =>  '逆瀬川の100円ショップ',
     :review_flag =>  true,
-    #:images  =>  File.open("./app/assets/images/kankore.png")
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/sakasegawa.jpg")]
 )
 
 Spot.create(
@@ -162,7 +162,7 @@ Spot.create(
     :address_street  =>  '稲岡町82-19',
     :address_building  =>  '記念艦三笠',
     :review_flag =>  true,
-    #:images  =>  '["kankore.PNG"]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/mikasa.jpg")]
 )    
 Spot.create(
     :spot_name  =>  'ストーリーのメイン聖地',
@@ -176,7 +176,7 @@ Spot.create(
     :address_street  =>  '五稜郭町',
     :address_building  =>  '五稜郭公園',
     :review_flag =>  true,
-    #:images  =>  '[""]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/goryoukaku.jpg")]
 )
 Spot.create(
     :spot_name  =>  '運命で繋がれたふたりがいた舞台',
@@ -191,7 +191,7 @@ Spot.create(
     :address_street  =>  '右京区',
     :address_building  =>  '嵐山',
     :review_flag =>  true,
-    #:images  =>  '[""]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/arasiyama.jpg")]
 )
 Spot.create(
     :spot_name  =>  '杏と大悟がデートで訪れていたスポット',
@@ -207,7 +207,7 @@ Spot.create(
     :address_street  =>  '佐草町227',
     :address_building  =>  '八重垣神社',
     :review_flag =>  true,
-    #:images  =>  '[""]'
+    :images  =>   [open("#{Rails.root}/app/assets/images/spots/yaegaki.jpg")]
 )
 Spot.create(
     :spot_name  =>  '1巻のカットに使われた場所',
@@ -227,7 +227,7 @@ Spot.create(
     :address_street  =>  '中央2丁目1-12',
     :address_building  =>  '中央西公園',
     :review_flag =>  true,
-    #:images  =>  '["花時計公園.PNG"]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/花時計公園.png")]
 )
 Spot.create(
     :spot_name  =>  '雨宿りをしていた場所',
@@ -243,7 +243,7 @@ Spot.create(
     :address_street  =>  '港北区日吉2丁目31番地',
     :address_building  =>  '日吉公園',
     :review_flag =>  true,
-    #:images  =>  '[恋雨.PNG]'
+    :images  =>  [open("#{Rails.root}/app/assets/images/spots/恋雨.png")]
 )
 Spot.create(
     :spot_name  =>  'かぐや姫が育った場所',
