@@ -5,7 +5,7 @@
         <th colspan="4">
           <% unless @detail[0].images.blank? %>
             <% @detail[0].images.each do |image| %>
-               <%= image_tag( image.url , :size => "150x150") %>
+              <%= link_to image_tag(image.url, size:150), image.url, :'data-lightbox' => image.url %>
             <% end %>
           <% else %>
             <%= image_tag("icon/NoImage.png", size: "150x150") %>

@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap
 //= require turbolinks
+//= require lightbox
 //= require_tree .
 //= require jquery.jpostal 
 //= require jquery_ujs
