@@ -489,7 +489,7 @@ Spot.create(
     :address_street  =>  '清水区追分２丁目３−１',
     :address_building  =>  '静岡市立清水入江小学校',
     :review_flag =>  true,
-    #:images  =>  '[AIR.PNG]'
+    :images => [open("#{Rails.root}/app/assets/images/spots/42A21C7B070743B3ADA8E722D7960925_L.jpg")]
 )
 Shop.create(
     :spot_id => 22,

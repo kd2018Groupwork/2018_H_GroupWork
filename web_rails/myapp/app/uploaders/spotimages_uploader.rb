@@ -1,37 +1,30 @@
 class SpotimagesUploader < CarrierWave::Uploader::Base
-  def default_url(*args)
-    "/images/" + [version_name, "noimage.png"].compact.join('_')
-  end
-  
-  storage :file
-
-  def store_dir
-    'uploads/spots'
-  end
-
   include CarrierWave::RMagick
 
-  process :resize_to_limit => [400, 400]
-  process :convert => 'jpg'
-  
-  version :thumb do
-    process :resize_to_limit => [100, 100]
+  storage :file
+
+  process :resize_to_limit => [100, 100]
+  process convert: 'jpg'
+
+  # 保存するディレクトリ名
+  def store_dir
+    "uploads/spots"
   end
-  
+
+  # 許可する画像の拡張子
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
-  
+
+  # 変換したファイルのファイル名の規則
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
-  
+
   def filename
     time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S')
+    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
     name.downcase
-    var = "#{SecureRandom.hex(10)}"
-    @name ||= "#{var}-" + "#{name}" + ".jpg" if original_filename.present?
   end
   
 end
