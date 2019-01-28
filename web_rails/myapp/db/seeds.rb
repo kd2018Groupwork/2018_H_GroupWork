@@ -445,6 +445,9 @@ Product.create(
     :product_name   => 'ちびまる子ちゃん',
     :genre_id   => 7
 )
+
+#スポットにseedとして画像保存する場合
+#配列にして格納しないとエラー出るよ
 Spot.create(
     :spot_name  =>  'ちびまる子ちゃんランド',
     :product_id  =>  '21',
