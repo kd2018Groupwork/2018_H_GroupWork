@@ -5,27 +5,22 @@ class SpotController < ApplicationController
     else
       redirect_to root_url
     end
-  end
+  end 
 
   def commit_product
     @product = Product.new(product_params)
     if @product.genre_id.nil?
-      flash.now[:danger] = '入力漏れの無いようにしてください'
+      flash[:danger] = '入力漏れの無いようにしてください'
       redirect_to :add_spot
-    else
-      if Product.find_by(product_name: @product.product_name)
-        session[:product_name] = @product[:product_name]
+    elsif Product.find_by(product_name: @product.product_name)
+      session[:product_name] = @product[:product_name]
+      redirect_to :reg_spot
+    elsif @product.save
+        session[:product_name] = @product[:product_name]          
         redirect_to :reg_spot
-      else
-        if @product.save
-          session[:product_name] = @product[:product_name]
-          
-          redirect_to :reg_spot
-        else
-          flash.now[:danger] = '入力漏れの無いようにしてください'
-          redirect_to :add_spot
-        end
-      end
+    else
+      flash[:danger] = '入力漏れの無いようにしてください'
+      redirect_to :add_spot
     end
   end
 
