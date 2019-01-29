@@ -24,6 +24,10 @@ class SpotController < ApplicationController
     end
   end
 
+  def create_s
+    render :reg_spot
+  end
+
   def create
     if logged_in?
       @p = Product.find_by(product_name: session[:product_name])
@@ -39,18 +43,15 @@ class SpotController < ApplicationController
           @user_spot = UserSpot.new()
           @user_spot.user_id = session[:user_id]
           @user_spot.spot_id = @spot.id
-
           @user_spot.save
 
           User.where('id = ?', @user_spot.user_id).update_all("rating = rating + 1")
-          
-          session.delete(:product_id)
-        
+          session.delete(:product_id)        
           flash[:success] = "聖地の登録が完了しました!"
           redirect_to show_spot_path(id: session[:user_id])
         else
           flash[:danger] = '入力漏れの無いようにしてください'
-          redirect_to :reg_spot
+          render :reg_spot
         end
       end
     else
