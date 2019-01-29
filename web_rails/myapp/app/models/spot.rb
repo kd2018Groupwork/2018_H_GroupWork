@@ -27,8 +27,10 @@ class Spot < ApplicationRecord
 
   def spot_address
       pref_name = JpPrefecture::Prefecture.find self.prefecture_code
-      address_city= "#{pref_name.name}#{self.address_city}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
-      "#{address_city}"
+      if pref_name
+        address_city= "#{pref_name.name}#{self.address_city}".tr('０-９ａ-ｚＡ-Ｚ','0-9a-zA-Z')
+        "#{address_city}"
+      end
   end
 
 #西田: -----検索用-----
