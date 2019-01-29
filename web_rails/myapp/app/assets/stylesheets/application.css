@@ -14,6 +14,7 @@
  *= require_tree .
  *= require trix
  *= require leaflet
+ *= require bootstrap-datetimepicker
 */
 
 @import 'lightbox';

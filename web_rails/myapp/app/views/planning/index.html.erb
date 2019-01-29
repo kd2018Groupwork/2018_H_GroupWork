@@ -26,8 +26,12 @@
         <%= f.nested_fields_for :plan_details, wrapper_tag: :tbody do |q| %>
           <tr>
             <td>日付<span class="text-danger">（必須）</span></td>
-            <td id="date" class="center">
-              <%= q.datetime_select :date, {}, {class: 'form-control bootstrap-date'} %>
+            <td id="datetimepicker" class="center input-group date">
+              <%= q.text_field :date, class: 'form-control' %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar">
+                </span>
+              </span>
             </td>
           </tr>
           <tr>
