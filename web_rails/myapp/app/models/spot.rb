@@ -33,8 +33,6 @@ class Spot < ApplicationRecord
       end
   end
 
-#西田: -----検索用-----
-
   def self.search_product(product_name)
     if product_name
       Product.where(['product_name LIKE ?', "%#{product_name}%"])
