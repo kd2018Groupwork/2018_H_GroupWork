@@ -4,7 +4,6 @@ class CommentController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      #redirect_to search_detail_path(params[:comment][:spot_id])
       @cmts.reload
       render :index
     else
@@ -19,7 +18,6 @@ class CommentController < ApplicationController
     @comment.delete
     @cmts.reload
     render :index
-    #redirect_to search_detail_path(spot_id: params[:spot_id])
   end
 
   private
