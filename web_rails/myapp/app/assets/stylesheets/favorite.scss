@@ -1,0 +1,28 @@
+// Place all the styles related to the favorite controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.fav-link{
+    float: left;
+}
+
+.btn-tertiary.addlist:hover, .btn-tertiary.addlist:focus, 
+.btn-tertiary.addlist:active, .btn-tertiary.addlist:active:focus, .btn-tertiary.addlist:active:hover, .btn-tertiary.addlist:active.focus,
+.btn-tertiary.addlist.active, .btn-tertiary.addlist.active:focus, .btn-tertiary.addlist.active:hover, .btn-tertiary.addlist.active.focus,
+.open > .dropdown-toggle.btn-tertiary.addlist, 
+.open > .dropdown-toggle.btn-tertiary.addlist:hover,
+.open > .dropdown-toggle.btn-tertiary.addlist:focus, 
+.open > .dropdown-toggle.btn-tertiary.addlist.focus,
+.btn-tertiary.addlist.disabled:hover, .btn-tertiary.addlist[disabled]:hover, fieldset[disabled] .btn-tertiary.addlist:hover,
+.btn-tertiary.addlist.disabled:focus, .btn-tertiary.addlist[disabled]:focus, fieldset[disabled] .btn-tertiary.addlist:focus,
+.btn-tertiary.addlist.disabled.focus, .btn-tertiary.addlist[disabled].focus, fieldset[disabled] .btn-tertiary.addlist.focus {
+    color: white;
+    background-color: cornflowerblue;
+    border-color: whitesmoke;
+}
+
+
+.btn-tertiary.addlist {
+    background-color: dodgerblue;
+    color: white;
+    transition: .4s;
+}
