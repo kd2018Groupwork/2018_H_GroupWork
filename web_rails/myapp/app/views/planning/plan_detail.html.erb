@@ -35,7 +35,7 @@
             <tr>
               <td>
                 <% if shop.images? %>
-                  <%= image_tag(shop.images.url, size: 100) %>
+                  <%= image_tag(shop.images.url, size: 100 , class:"img-circle") %>
                 <% else %>
                   <%= image_tag("icon/NoImage.png", size: 100) %>
                 <% end %>

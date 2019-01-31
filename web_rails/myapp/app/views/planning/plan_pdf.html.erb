@@ -8,21 +8,46 @@
         <span><%= d.date.strftime("%H:%M") %></span>
       </time>
       <div class="cbp_tmicon">
-        <% @s = Spot.find_by(spot_name: d.spot_name) %>
-        <% if @s %>
-          <%= image_tag(@s.images[0].url, class: "img-thumbnail", size: 100) if @s.images? %>
-        <% end %>
       </div>
       <div class="cbp_tmlabel">
-        <h2 style="text-align:center">
+        <h2 style="color: #fff">
           <%= d.spot_name %>
         </h2>
+        <% if @s = Spot.find_by(spot_name: d.spot_name) %>
+          <%= wicked_pdf_image_tag @s.images[0].url , size: 100 if @s.images? %>
+        <% end %>
         <%= @s.prefecture.name + " " + @s.address_city + " " + @s.address_street + " " + @s.address_building %><br>
         <% if !d.comment.empty? %>
-          <p>
+          <p style="color: #fff">
             <%= d.comment %>
           </p>
         <% end %>
+        <br>
+        <% if @shops = Shop.where(spot_id: @s.id) %>
+          <table class="table">
+          <% @shops.each do |shop| %>
+            <tr>
+              <th colspan="3" scope="row" class="text-center">
+                <%= shop.shop_name %>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <% if shop.images? %>
+                  <%= wicked_pdf_image_tag shop.images.url , size: 100 , class:"img-circle" %>
+                <% else %>
+                  <%= wicked_pdf_image_tag 'icon/NoImage.png' , size: 100 , class:"img-circle" %>
+                <% end %>
+              </td>
+              <td>
+                <%= shop.address %><br>
+                <p style="font-size: 12px"><%= shop.detail %></p>
+              </td>
+            </tr>
+          <% end %>
+          </table>
+        <% end %>
+      
       </div>
     <% end %>
   </li>
